@@ -1,0 +1,328 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing this theme as much as we did for
+  developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
+  hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
+  all events, dependencies...) in the "documentation.txt" file, located in the Assets folder.
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<!doctype html>
+
+<html lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
+  <head>
+    <meta name="google-site-verification" content="oGJxAsgBWVMfpfy_1aTW1KaOWIWQsyMZCOzDXcn2_rg" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="{{ settings.header_background }}">
+
+    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- endif -%}
+
+    {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+
+    {%- unless settings.heading_font.system? -%}
+      <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- unless settings.text_font.system? -%}
+      <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- render 'social-meta-tags' -%}
+    {%- render 'microdata-schema' -%}
+    {%- render 'css-variables' -%}
+    {%- render 'js-variables' -%}
+
+    <script type="importmap">
+      {%- comment -%}On Safari 16.3 and lower, a polyfill is used to load importmap{%- endcomment -%}
+      {
+        "imports": {
+          "vendor": "{{ 'vendor.min.js' | asset_url }}",
+          "theme": "{{ 'theme.js' | asset_url }}",
+          "photoswipe": "{{ 'photoswipe.min.js' | asset_url }}"
+        }
+      }
+    </script>
+
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+
+    {{ content_for_header }}
+
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/neue-haas-grotesk-display-pro">
+    {{- 'swiper-bundle.min.css' | asset_url | stylesheet_tag -}}
+    
+    {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+    {{- 'custom.css' | asset_url | stylesheet_tag: preload: true -}}
+
+    
+
+    <script>
+      const handleEvent = (e) => {
+        window.$selector.push(['do', 'markets-recommendations:show']);
+        return;
+      };
+
+      const attachEventListenerToSelectors = () => {
+        const selectors = document.querySelectorAll('#LJ153237');
+        if (!selectors.length) return;
+
+        selectors.forEach((selector) => {
+          if (selector.getAttribute('tabindex') !== '0') {
+            selector.setAttribute('tabindex', '0');
+          }
+
+          selector.addEventListener('click', handleEvent, true);
+
+          selector.addEventListener(
+            'keydown',
+            (e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleEvent(e);
+              }
+            },
+            true
+          );
+        });
+      };
+
+      window.$selector = window.$selector || [];
+      window.$selector.push([
+        'on',
+        'ready',
+        () => {
+          attachEventListenerToSelectors();
+        },
+      ]);
+      setTimeout(attachEventListenerToSelectors, 1500);
+    </script>
+
+  <script>
+  window.$selector = window.$selector || [];
+  window.$selector.push([
+    'intercept',
+    'geo-data-detection',
+    (setup) => {
+      if (setup?.detectedCountryCode === 'DK') {
+        return { mode: 'custom', languageCode: 'da' };
+      }
+    },
+  ]);
+</script>
+
+    <script>
+      (() => {
+        const EN_LOCALE = 'en';
+        const TARGET_COUNTRY_CODES = ['US', 'GB', 'CA', 'AU', 'NZ'];
+        const DEFAULT_FLAG_SRC = 'https://static.devit.software/languages/flags/rectangle/en-GB.svg';
+
+        const countryToFlagMap = {
+          US: 'https://static.devit.software/languages/flags/rectangle/en-US.svg',
+          GB: DEFAULT_FLAG_SRC,
+          CA: 'https://static.devit.software/languages/flags/rectangle/en-CA.svg',
+          AU: 'https://static.devit.software/languages/flags/rectangle/en-AU.svg',
+          NZ: 'https://static.devit.software/languages/flags/rectangle/en-NZ.svg',
+        };
+
+        let rootObserver = null;
+        let patchScheduled = false;
+
+        const getTargetFlagSrc = (root) => {
+          const langSelectBtn = root.querySelector('.adt-disclosure.adt-countries button[data-resource="countries"]');
+
+          const countryCode = langSelectBtn?.dataset.code;
+          return countryToFlagMap[countryCode] || DEFAULT_FLAG_SRC;
+        };
+        const patchEnglishFlags = () => {
+          const shadowRoot = document.querySelector('autodetect-root')?.shadowRoot;
+
+          if (!shadowRoot) {
+            return;
+          }
+
+          const flagSrc = getTargetFlagSrc(shadowRoot);
+          if (!flagSrc) {
+            return;
+          }
+
+          const langSelectBtn = shadowRoot.querySelector(
+            '.adt-disclosure.adt-languages button[data-resource="languages"]'
+          );
+
+          if (langSelectBtn?.dataset.code === EN_LOCALE) {
+            const img = langSelectBtn.querySelector('.adt-iconWrapper img');
+
+            if (img && img.src !== flagSrc) {
+              img.src = flagSrc;
+            }
+          }
+
+          const enLangListItem = shadowRoot.querySelector(
+            '.adt-disclosure.adt-languages ul.adt-itemsList li[data-code="en"]'
+          );
+
+          if (enLangListItem) {
+            const img = enLangListItem.querySelector('.adt-iconWrapper img');
+
+            if (img && img.src !== flagSrc) {
+              img.src = flagSrc;
+            }
+          }
+        };
+
+        const schedulePatch = () => {
+          if (patchScheduled) {
+            return;
+          }
+
+          patchScheduled = true;
+
+          requestAnimationFrame(() => {
+            patchScheduled = false;
+            patchEnglishFlags();
+          });
+        };
+        const init = () => {
+          const shadowRoot = document.querySelector('autodetect-root')?.shadowRoot;
+
+          if (!shadowRoot) {
+            requestAnimationFrame(init);
+            return;
+          }
+
+          if (rootObserver) {
+            return;
+          }
+
+          patchEnglishFlags();
+
+          rootObserver = new MutationObserver(() => {
+            schedulePatch();
+          });
+
+          rootObserver.observe(shadowRoot, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['src', 'data-code'],
+          });
+
+          schedulePatch();
+        };
+
+        window.$selector = window.$selector || [];
+        window.$selector.push(['on', 'ready', init]);
+
+        init();
+      })();
+    </script>
+
+  </head>
+
+  {% comment %} <script src="https://a.klaviyo.com/media/js/onsite/onsite.js"></script>
+<script>
+    var klaviyo = klaviyo || [];
+    klaviyo.init({
+        account: "XTqgrz",
+        platform: "shopify"
+    });
+    klaviyo.enable("backinstock", { 
+        trigger: {
+            product_page_text: "Notify me when the product is in stock",
+            product_page_class: "button",
+            product_page_text_align: "center",
+            product_page_margin: "0px",
+            replace_anchor: true, // This ensures the "shop now" button is replaced
+            anchor_selector: ".shop-now-button"
+        },
+        modal: {
+            headline: "{product_name}",
+            body_content: "Sign up to be notified when this item is back in stock.",
+            email_field_label: "Email",
+            button_label: "Notify me when the product is in stock",
+            subscription_success_label: "Thank you! You'll be notified when the product is back in stock.",
+            footer_content: '',
+            additional_styles: "@import url('https://fonts.googleapis.com/css?family=Helvetica+Neue'); .button { border-radius: 25px; } .button:active { background-color: #000; }",
+            drop_background_color: "#000",
+            background_color: "#fff",
+            text_color: "#222",
+            button_text_color: "#fff",
+            button_background_color: "#000000",
+            close_button_color: "#ccc",
+            error_background_color: "#fcd6d7",
+            error_text_color: "#C72E2F",
+            success_background_color: "#d3efcd",
+            success_text_color: "#1B9500"
+        }
+    });
+</script> {% endcomment %}
+
+  {%- liquid
+    assign apply_figma_typography = false
+    unless template.name == 'index' or template.name == 'product' or template.name == 'cart'
+      assign apply_figma_typography = true
+      if template.name == 'page'
+        if template.suffix == 'about-us' or page.handle == 'about-us'
+          assign apply_figma_typography = false
+        endif
+      endif
+    endunless
+  -%}
+  <body class="{% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}{% if apply_figma_typography %} figma-typography{% endif %} {{ page.handle }} {{ localization.country }}-{{ localization.language.iso_code }}-{{ localization.market.handle }}" >
+    {%- render 'shadow-dom-templates' -%}
+
+    <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+    {%- comment -%}
+    This placeholder will be filled to screen readers for any kind of announcements
+    {%- endcomment -%}
+    <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">
+      <span id="status-announcement"></span>
+    </div>
+
+    <div class="sr-only" role="alert" aria-live="assertive" aria-atomic="true">
+      <span id="error-announcement"></span>
+    </div>
+
+    {%- if request.page_type != 'password' -%}
+      {%- sections 'header-group' -%}
+      {%- sections 'overlay-group' -%}
+
+      {%- if settings.cart_type == 'popover' -%}
+        <cart-notification-drawer open-from="bottom" class="quick-buy-drawer drawer"></cart-notification-drawer>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if request.page_type == 'customers/account' or request.page_type == 'customers/order' or request.page_type == 'customers/addresses' -%}
+      {%- section 'account-banner' -%}
+    {%- endif -%}
+
+    <main role="main" id="main" class="anchor">
+      {{ content_for_layout }}
+
+      {%- comment -%}
+      IMPLEMENTATION NOTE: due to the very complex logic of margin/padding collapsing in Impact, the footer group is
+      added into the main element to ensure that dynamic sections added into the footer group are properly laid out.
+      {%- endcomment -%}
+      {%- if request.page_type != 'password' -%}
+        {%- sections 'footer-group' -%}
+      {%- endif -%}
+    </main>
+    <script src="https://partnertrackshopify.dk/js/register.js" async></script>
+  </body>
+</html>

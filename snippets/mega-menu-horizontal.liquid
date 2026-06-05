@@ -1,0 +1,135 @@
+<style>
+  @media screen and (min-width: 1150px) {
+    #mega-menu-{{ mega_menu_block.id }}.mega-menu--custom-4col {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--spacing-8);
+      align-items: start;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__nav {
+      display: contents;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__nav-col {
+      min-width: 0;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__title {
+      margin: 0 0 var(--spacing-3);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__links {
+      display: grid;
+      gap: var(--spacing-2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__promo-col {
+      min-width: 0;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__promo-image {
+      display: block;
+      border-radius: var(--rounded-sm);
+      overflow: hidden;
+      background: rgb(var(--text-color) / 0.06);
+      aspect-ratio: 1 / 0.66;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__promo-image img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    #mega-menu-{{ mega_menu_block.id }} .mega-menu__promo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: var(--spacing-3);
+      font-size: 14px;
+      line-height: 1.3;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+</style>
+
+<div id="mega-menu-{{ mega_menu_block.id }}" class="mega-menu mega-menu--custom-4col">
+  <ul class="mega-menu__nav" role="list">
+    {%- for i in (1..2) -%}
+      {%- assign menu_setting = 'links_column_' | append: i -%}
+      {%- assign heading_setting = 'links_column_' | append: i | append: '_heading' -%}
+      {%- assign custom_menu = mega_menu_block.settings[menu_setting] -%}
+      {%- assign custom_heading = mega_menu_block.settings[heading_setting] -%}
+     
+      {%- assign fallback_link = link.links[forloop.index0] -%}
+
+      <li class="mega-menu__nav-col">
+        {%- if custom_menu != blank and custom_menu.links.size > 0 -%}
+          {%- if custom_heading != blank -%}
+            <p class="mega-menu__title">{{ custom_heading }}</p>
+          {%- elsif custom_menu.title != blank -%}
+            <p class="mega-menu__title">{{ custom_menu.title }}</p>
+          {%- endif -%}
+
+          <ul class="mega-menu__links" role="list">
+            {%- for menu_link in custom_menu.links -%}
+              <li>
+                <a href="{{ menu_link.url }}" class="link-faded"{% if menu_link.current %} aria-current="page"{% endif %}>{{ menu_link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- elsif fallback_link != blank -%}
+          {% comment %} <p class="mega-menu__title">
+            <a {% if fallback_link.url != '#' %}href="{{ fallback_link.url }}"{% endif %} class="link-faded"{% if fallback_link.current %} aria-current="page"{% endif %}>{{ fallback_link.title }}</a>
+          </p>
+
+          {%- if fallback_link.links.size > 0 -%}
+            <ul class="mega-menu__links" role="list">
+              {%- for sub_sub_link in fallback_link.links -%}
+                <li>
+                  <a href="{{ sub_sub_link.url }}" class="link-faded">{{ sub_sub_link.title }}</a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%} {% endcomment %}
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- for i in (1..2) -%}
+    {%- assign image_setting = 'image_' | append: i -%}
+    {%- assign image_heading_setting = 'image_heading_' | append: i -%}
+    {%- assign image_link_setting = 'image_link_' | append: i -%}
+    {%- assign promo_image = mega_menu_block.settings[image_setting] -%}
+    {%- assign promo_title = mega_menu_block.settings[image_heading_setting] -%}
+    {%- assign promo_link = mega_menu_block.settings[image_link_setting] -%}
+
+    <div class="mega-menu__promo-col">
+      {%- if promo_image != blank -%}
+        <a {% if promo_link != blank %}href="{{ promo_link }}"{% endif %} class="mega-menu__promo-image">
+          {{ promo_image | image_url: width: promo_image.width | image_tag: loading: 'lazy', widths: '320,420,560,700,840', sizes: '(max-width: 1599px) 22vw, 340px' }}
+        </a>
+      {%- endif -%}
+
+      {%- if promo_title != blank -%}
+        <a {% if promo_link != blank %}href="{{ promo_link }}"{% endif %} class="mega-menu__promo-link link-faded">
+          <span>{{ promo_title }}</span>
+          <span aria-hidden="true">›</span>
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>

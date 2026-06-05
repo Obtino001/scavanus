@@ -1,0 +1,453 @@
+{%- if section.blocks.size > 0 -%}
+  {%- unless request.page_type != 'index' and section.settings.show_on_homepage_only -%}
+    {%- comment -%}
+    ------------------------------------------------------------------------------------------------------------------------
+    CSS
+    ------------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+    <style>
+      :root {
+        --sticky-announcement-bar-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar--features {
+        background: rgba(247, 245, 242, 1);
+        color: #3f3f46;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__layout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__benefits {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 24px;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__benefit {
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1.3;
+        color: inherit;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__benefit a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__benefit-icon {
+        display: inline-flex;
+        opacity: 0.85;
+        {% comment %} height: 14px; {% endcomment %}
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__benefit-icon .icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__benefit-icon img {
+        width: auto;
+        height: 14px;
+        object-fit: contain;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__country {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        line-height: 1.3;
+        white-space: nowrap;
+        color: inherit;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__flag {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        display: inline-block;
+        background: radial-gradient(circle at 50% 50%, #c71f25 0 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__flag::before,
+      #shopify-section-{{ section.id }} .announcement-bar__flag::after {
+        content: "";
+        position: absolute;
+        background: #ffffff;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__flag::before {
+        width: 24%;
+        height: 100%;
+        left: 28%;
+        top: 0;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__flag::after {
+        width: 100%;
+        height: 24%;
+        left: 0;
+        top: 38%;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar__flag-image {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+      }
+
+      #shopify-section-{{ section.id }} .announcement-bar .container {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline: 80px;
+      }
+
+      @media screen and (max-width: 999px) {
+        #shopify-section-{{ section.id }} .announcement-bar .container {
+          padding-inline-start: 10px;
+          padding-inline-end: 16px;
+        }
+
+        #shopify-section-{{ section.id }} .announcement-bar__layout {
+          justify-content: center;
+          gap: 0;          
+          flex-direction: row;
+        }
+
+        #shopify-section-{{ section.id }} .announcement-bar__benefits {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 20px;
+          align-items: stretch;
+        }
+
+        #shopify-section-{{ section.id }} .announcement-bar__benefit {                    
+          padding: 0 0px;
+          min-height: 34px;
+          white-space: normal;
+          line-height: 1.2;
+          position: relative;
+          gap: 6px;
+          font-size: 10px;
+        }
+
+        #shopify-section-{{ section.id }} .announcement-bar__benefit:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: -9px;
+          width: 1px;
+          height: 90%;
+          background: rgb(0 0 0 / 0.12);
+          transform: translateY(-50%);
+        }        
+
+        #shopify-section-{{ section.id }} .announcement-bar__benefit-icon .icon,
+        #shopify-section-{{ section.id }} .announcement-bar__benefit-icon img {
+          width: auto;
+          height: 22px;
+        }
+        #shopify-section-{{ section.id }} .announcement-bar__benefit:nth-child(2) img {
+          width: 24px;
+        }
+        #shopify-section-{{ section.id }} .announcement-bar__benefit:first-child img {
+          height: 20px;
+        }
+        #shopify-section-{{ section.id }} .announcement-bar__benefit:last-child img {
+          height: 18px;
+        }
+        #shopify-section-{{ section.id }} .announcement-bar__country {
+          display: none;
+        }
+      }
+
+      {%- if section.settings.enable_sticky -%}
+        #shopify-section-{{ section.id }} {
+          position: sticky;
+          top: 0;
+          z-index: 20;
+        }
+
+        .shopify-section--header ~ #shopify-section-{{ section.id }} {
+          top: calc(var(--sticky-header-enabled, 0) * var(--header-height, 0px));
+        }
+      {%- endif -%}
+    </style>
+
+    {%- comment -%}
+    ------------------------------------------------------------------------------------------------------------------------
+    LIQUID
+    ------------------------------------------------------------------------------------------------------------------------
+    {%- endcomment -%}
+
+    <height-observer variable="announcement-bar">
+      <div {% render 'surface', class: 'announcement-bar announcement-bar--features', background_gradient: section.settings.background_gradient, background: section.settings.background, text_color: section.settings.text_color %}>
+        {%- if section.settings.navigation_mode == 'scrolling' -%}
+          <marquee-text scrolling-speed="{{ section.settings.scrolling_speed }}" class="announcement-bar__scrolling-list">
+            {%- capture content -%}
+              {%- for block in section.blocks -%}
+                <p class="bold {{ section.settings.text_size }}" {{ block.shopify_attributes }}>
+                  {%- if block.settings.url != blank -%}
+                    <a href="{{ block.settings.url }}">{{ block.settings.text | escape }}</a>
+                  {%- else -%}
+                    {{ block.settings.text | escape }}
+                  {%- endif -%}
+                </p>
+
+                <span class="shape-circle shape--sm"></span>
+              {%- endfor -%}
+            {%- endcapture -%}
+
+            {%- for i in (1..10) -%}
+              <span class="announcement-bar__item" {% unless forloop.first %}aria-hidden="true"{% endunless %}>
+                {{- content -}}
+              </span>
+            {%- endfor -%}
+          </marquee-text>
+        {%- else -%}
+          <div class="container">
+            <div class="announcement-bar__layout">
+              <div class="announcement-bar__benefits">
+                {%- for block in section.blocks limit: 3 -%}
+                  <p class="announcement-bar__benefit" {{ block.shopify_attributes }}>
+                    <span class="announcement-bar__benefit-icon">
+                      {%- if block.settings.custom_icon != blank -%}
+                        {{ block.settings.custom_icon | image_url: width: 28 | image_tag: widths: '14', width: 14, height: 14, loading: 'lazy', alt: block.settings.text | escape }}
+                      {%- else -%}
+                        {%- case block.settings.icon -%}
+                          {%- when 'shield' -%}
+                            {%- render 'icon' with 'picto-shield', width: 14, height: 14 -%}
+                          {%- when 'return' -%}
+                            {%- render 'icon' with 'picto-return', width: 14, height: 14 -%}
+                          {%- when 'check' -%}
+                            {%- render 'icon' with 'picto-validation', width: 14, height: 14 -%}
+                          {%- else -%}
+                            {%- render 'icon' with 'picto-truck', width: 14, height: 14 -%}
+                        {%- endcase -%}
+                      {%- endif -%}
+                    </span>
+
+                    {%- if block.settings.url != blank -%}
+                      <a href="{{ block.settings.url }}">{{ block.settings.text | escape }}</a>
+                    {%- else -%}
+                      {{ block.settings.text | escape }}
+                    {%- endif -%}
+                  </p>
+                {%- endfor -%}
+              </div>
+
+              {%- if section.settings.show_country_badge -%}
+                <div class="announcement-bar__country">
+                  {%- if section.settings.flag_image != blank -%}
+                    {{ section.settings.flag_image | image_url: width: 28 | image_tag: widths: '14', width: 14, height: 14, loading: 'lazy', alt: section.settings.country_label, class: 'announcement-bar__flag-image' }}
+                  {%- else -%}
+                    <span class="announcement-bar__flag" aria-hidden="true"></span>
+                  {%- endif -%}
+                  <span>{{ section.settings.country_label | escape }}</span>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </height-observer>
+
+    <script>
+      document.documentElement.style.setProperty('--announcement-bar-height', Math.round(document.getElementById('shopify-section-{{ section.id }}').clientHeight) + 'px');
+    </script>
+  {%- endunless -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "shopify-section--announcement-bar",
+  "tag": "aside",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "message",
+      "name": "Message",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Announce something here"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "truck",
+          "options": [
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "return",
+              "label": "Return"
+            },
+            {
+              "value": "check",
+              "label": "Check"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon image"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_sticky",
+      "label": "Enable sticky bar",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_on_homepage_only",
+      "label": "Show on homepage only",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "navigation_mode",
+      "label": "Multiple message navigation",
+      "options": [
+        {
+          "value": "arrows",
+          "label": "Arrows"
+        },
+        {
+          "value": "scrolling",
+          "label": "Auto-scrolling"
+        }
+      ],
+      "default": "arrows"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between messages",
+      "default": false,
+      "visible_if": "{{ section.settings.navigation_mode == 'arrows' }}"
+    },
+    {
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change messages every",
+      "default": 6,
+      "visible_if": "{{ section.settings.navigation_mode == 'arrows' and section.settings.autoplay }}"
+    },
+    {
+      "type": "range",
+      "id": "scrolling_speed",
+      "label": "Scrolling speed",
+      "min": 10,
+      "max": 30,
+      "unit": "s",
+      "default": 20,
+      "visible_if": "{{ section.settings.navigation_mode == 'scrolling' }}"
+    },
+    {
+      "type": "select",
+      "id": "text_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "text-xxs",
+          "label": "X-Small"
+        },
+        {
+          "value": "text-xs",
+          "label": "Small"
+        },
+        {
+          "value": "text-base",
+          "label": "Medium"
+        },
+        {
+          "value": "text-lg",
+          "label": "Large"
+        }
+      ],
+      "default": "text-xs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_country_badge",
+      "label": "Show country badge",
+      "default": true,
+      "visible_if": "{{ section.settings.navigation_mode == 'arrows' }}"
+    },
+    {
+      "type": "text",
+      "id": "country_label",
+      "label": "Country label",
+      "default": "Danish Webshop",
+      "visible_if": "{{ section.settings.navigation_mode == 'arrows' and section.settings.show_country_badge }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "flag_image",
+      "label": "Flag image",
+      "visible_if": "{{ section.settings.navigation_mode == 'arrows' and section.settings.show_country_badge }}"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    }
+  ]
+}
+{% endschema %}

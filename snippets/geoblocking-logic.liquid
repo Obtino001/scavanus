@@ -1,0 +1,14 @@
+{%- comment -%}
+This snippet provides variables for geoblocking/market-aware content.
+Usage: {% render 'geoblocking-logic' %}
+Provides:
+- is_usa_canada (boolean)
+- visitor_country (string ISO code)
+{%- endcomment -%}
+
+{%- assign visitor_country = localization.country.iso_code -%}
+{%- assign is_usa_canada = false -%}
+
+{%- if visitor_country == 'US' or visitor_country == 'CA' -%}
+  {%- assign is_usa_canada = true -%}
+{%- endif -%}

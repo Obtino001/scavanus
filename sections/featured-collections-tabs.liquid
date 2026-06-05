@@ -1,0 +1,604 @@
+{%- if section.blocks.size > 0 -%}
+  {%- render 'section-spacing-collapsing' -%}
+
+  <style>
+    {%- assign section_background = section.settings.background | default: settings.background -%}
+    {%- assign card_background = section.settings.product_card_background | default: settings.product_card_background -%}
+    {%- assign card_blends = false -%}
+
+    {%- unless section_background != 'rgba(0,0,0,0)' and card_background != 'rgba(0,0,0,0)' and section_background != card_background -%}
+      {%- assign card_blends = true -%}
+    {%- endunless -%}
+
+    #shopify-section-{{ section.id }} .product-list {
+      --product-list-gap: {% if section.settings.stack_products and section.settings.products_per_row_mobile == '2' %}{% if card_blends %}var(--product-list-row-gap){% endif %} var(--spacing-2){% else %}var(--product-list-row-gap) var(--product-list-column-gap){% endif %};
+      --product-list-items-per-row: {{ section.settings.products_per_row_mobile | times: 1 }};
+      --product-list-carousel-item-width: 74vw;
+      --product-list-grid: {% if section.settings.stack_products %}auto / repeat(var(--product-list-items-per-row), minmax(0, 1fr)){% else %}auto / auto-flow var(--product-list-carousel-item-width){% endif %};
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} .product-list {
+        --product-list-gap: var(--product-list-row-gap) var(--product-list-column-gap);
+        --product-list-items-per-row: 2;
+        --product-list-carousel-item-width: 36vw;
+      }
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} .product-list {
+        --product-list-items-per-row: {{ section.settings.products_per_row_desktop }};
+        --product-list-carousel-item-width: calc(var(--container-inner-width) / {{ section.settings.products_per_row_desktop }} - (var(--product-list-column-gap) / {{ section.settings.products_per_row_desktop }} * {{ section.settings.products_per_row_desktop | minus: 1 }}));
+      }
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__image {
+      aspect-ratio: {{ section.settings.image_aspect_ratio | replace: ':', '/' }};
+      object-fit: {{ section.settings.image_fit }};
+      border-radius: 12px;
+      height: 100%;
+    }
+    #shopify-section-{{ section.id }} .product-card__figure {
+      position: relative !important;
+    }
+    #shopify-section-{{ section.id }} .featured-collections-tabs product-card {
+      background: rgba(247, 245, 242, 1);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 20px;
+      height: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__quick-buy {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      position: static;
+      grid-row: 2;
+      justify-self: end;
+      align-self: start;      
+    }
+  
+    #shopify-section-{{ section.id }} .product-card__info {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+   
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__quick-buy .pointer-coarse\:hidden {
+      display: none !important;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__quick-buy .pointer-fine\:hidden {
+      display: block !important;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__mobile-quick-buy-button {
+      width: 39px;
+      height: 39px;
+      border-radius: 100%;      
+      background: #ffffff;
+      color: transparent;
+      place-content: center;
+      display: grid;
+      border: none;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__mobile-quick-buy-button .icon {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__mobile-quick-buy-button::before {
+      content: "+";
+      color: rgba(51, 51, 51, 1);
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs {
+      max-width: none;
+      margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-inner {
+      gap: 26px;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-inner::part(tab-list) {
+      box-shadow: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 34px;
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-inner::part(tab-list):after {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-nav__button {
+      padding: 0;
+      font-size: 44px;
+      line-height: 1.08;
+      font-weight: 500;
+      color: rgba(210, 210, 210, 1);
+      text-align: left;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    #shopify-section-{{ section.id }} .product-card__title {      
+      font-weight: 400 !important;      
+      font-size: 14px;      
+      line-height: 1.3;
+      letter-spacing: 0%;
+      color: rgba(72, 72, 72, 1);
+    }
+    #shopify-section-{{ section.id }} .product-card__title a {
+      font-weight: 400 !important;        
+    }
+    #shopify-section-{{ section.id }} .featured-collections-tabs .price,
+    #shopify-section-{{ section.id }} .featured-collections-tabs .price *,
+    #shopify-section-{{ section.id }} .featured-collections-tabs .sale-price,
+    #shopify-section-{{ section.id }} .featured-collections-tabs .sale-price *,
+    #shopify-section-{{ section.id }} .featured-collections-tabs .price-list,
+    #shopify-section-{{ section.id }} .featured-collections-tabs .price-list * {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+    }
+    #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-nav__button[aria-selected="true"] {
+      color: rgba(39, 39, 39, 1);
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .circle-button {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      min-height: 38px;
+      color: rgba(39, 39, 39, 1);
+      background: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs .circle-button:hover,
+    #shopify-section-{{ section.id }} .featured-collections-tabs .circle-button:focus-visible {
+      color: rgba(39, 39, 39, 1);
+      background: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .featured-collections-tabs__explore-wrap {
+      display: none;
+    }
+
+    @media screen and (min-width: 1000px) {
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .floating-controls-container,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .scrollable-with-controls {
+        position: relative;
+      }
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .scrollable-with-controls {
+        gap: 0px;        
+      }
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .scrollable-with-controls .scroll-area {
+        padding-bottom: 32px;
+      }
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .floating-controls-container .circle-button {
+        top: -58px;
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .floating-controls-container .circle-button:first-of-type:not(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+        left: auto;
+        right: 52px;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .floating-controls-container .circle-button:last-of-type:not(:lang(ae), :lang(ar), :lang(arc), :lang(bcc), :lang(bqi), :lang(ckb), :lang(dv), :lang(fa), :lang(glk), :lang(he), :lang(ku), :lang(mzn), :lang(nqo), :lang(pnb), :lang(ps), :lang(sd), :lang(ug), :lang(ur), :lang(yi)) {
+        right: 0;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .scrollable-with-controls .scrollbar .scrollbar__progress {
+        position: absolute;
+        bottom: 2px;
+        left: 0px;
+        width: 100%;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .scrollable-with-controls .scrollbar__buttons {
+        position: absolute;
+        top: -58px;
+        right: 0;
+      }
+    }
+
+    @media screen and (max-width: 999px) {
+      #shopify-section-{{ section.id }} [data-swiper="featured-collections-tabs"] {
+        overflow: visible;
+      }
+
+      #shopify-section-{{ section.id }} [data-swiper="featured-collections-tabs"] .swiper-wrapper.product-list {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--product-list-row-gap) var(--product-list-column-gap);
+        transform: none !important;
+      }
+
+      #shopify-section-{{ section.id }} [data-swiper="featured-collections-tabs"] .swiper-slide {
+        width: auto !important;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tab-content .product-list > *:nth-child(n + 5) {
+        display: none !important;
+      }
+      #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__mobile-quick-buy-button {
+        width: 32px;
+        height: 32px;
+        position: relative;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .product-card__mobile-quick-buy-button::before {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      #shopify-section-{{ section.id }} .product-list {
+        --product-list-gap: 9px 9px;
+        --product-list-row-gap: 37px;
+        --product-list-column-gap: 9px;
+        --product-list-items-per-row: 2;
+        --product-list-carousel-item-width: auto;
+        --product-list-grid: auto / repeat(2, minmax(0, 1fr));
+        row-gap: 37px;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-inner {
+        display: grid;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-inner::part(tab-list) {
+        justify-content: center;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .tabs-nav__button {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      #shopify-section-{{ section.id }} .product-card__title,
+      #shopify-section-{{ section.id }} .sale-price,
+      #shopify-section-{{ section.id }} .price {
+        font-size: 12px !important;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .price,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .price *,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .sale-price,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .sale-price *,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .price-list,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .price-list * {
+        font-size: 12px !important;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs .floating-controls-container .circle-button,
+      #shopify-section-{{ section.id }} .featured-collections-tabs .scrollable-with-controls .scrollbar {
+        display: none !important;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs product-card {
+        padding: 8px 8px 15px 8px;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs__explore-wrap {
+        display: block;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      #shopify-section-{{ section.id }} .featured-collections-tabs__explore-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 31px;
+        border-radius: 100px;
+        border: 1px solid #000;
+        font-size: 14px;
+        line-height: 1;
+        color: #000;
+        text-decoration: none;
+        background: transparent;
+      }
+      
+    }
+  </style>
+
+  <div {% render 'section-properties' %}>
+    <div class="section-stack">
+      {%- if section.settings.show_header -%}
+        {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, heading_color: section.settings.heading_color, heading_gradient: section.settings.heading_gradient, content: section.settings.content -%}
+      {%- endif -%}
+
+      <div class="tabs featured-collections-tabs">
+        <div class="tabs-container">
+          <x-tabs class="tabs-inner">
+            <template shadowrootmode="open">
+              <slot role="tablist" part="tab-list" name="title"></slot>
+              <slot part="tab-panels" name="content"></slot>
+            </template>
+
+            {%- for block in section.blocks -%}
+              {%- assign tab_title = block.settings.title | default: block.settings.collection.title -%}
+              {%- if tab_title != blank -%}
+                <button type="button" slot="title" class="h2 tabs-nav__button bold text-subdued text-center" {{ block.shopify_attributes }}>
+                  {{ tab_title | escape }}
+                </button>
+
+                <div role="tabpanel" class="tab-content" slot="content" {% unless forloop.first %}hidden{% endunless %}>
+                  {%- assign products = block.settings.collection.products -%}
+                  {%- assign scroll_area_id = 'scroll-area-' | append: section.id | append: '-' | append: block.id -%}
+                  {%- assign displayed_products_count = section.settings.products_count -%}
+                  {%- if block.settings.collection != blank -%}
+                    {%- assign displayed_products_count = block.settings.collection.products_count | at_most: section.settings.products_count -%}
+                  {%- endif -%}
+
+                  <div class="{% if section.settings.show_progress_bar %}scrollable-with-controls{% else %}floating-controls-container{% endif %}">
+                    {%- if section.settings.stack_products -%}
+                      <reveal-items selector=".product-list > *">
+                        <product-list class="product-list">
+                          {%- for product in products limit: section.settings.products_count -%}
+                            {%- render 'product-card', product: product, stacked: section.settings.stack_products, position: forloop.index, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true, show_quick_buy: true, quick_buy_id_suffix: block.id -%}
+                          {%- else -%}
+                            {%- for i in (1..section.settings.products_count) -%}
+                              {%- capture placeholder_image -%}product-{% cycle '1', '2', '3', '4', '5', '6' %}{%- endcapture -%}
+                              {%- render 'product-card-placeholder', stacked: section.settings.stack_products, placeholder_image: placeholder_image, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, text_alignment: settings.product_info_alignment -%}
+                            {%- endfor -%}
+                          {%- endfor -%}
+                        </product-list>
+                      </reveal-items>
+                    {%- else -%}
+                      <div id="{{ scroll_area_id }}" class="swiper scroll-area bleed {% if displayed_products_count > section.settings.products_per_row_desktop %}is-scrollable{% endif %}" data-swiper="featured-collections-tabs">
+                        <div class="swiper-wrapper product-list">
+                          {%- for product in products limit: section.settings.products_count -%}
+                            <div class="swiper-slide">
+                              {%- render 'product-card', product: product, stacked: section.settings.stack_products, position: forloop.index, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, show_badges: true, show_quick_buy: true, quick_buy_id_suffix: block.id -%}
+                            </div>
+                          {%- else -%}
+                            {%- for i in (1..section.settings.products_count) -%}
+                              {%- capture placeholder_image -%}product-{% cycle '1', '2', '3', '4', '5', '6' %}{%- endcapture -%}
+                              <div class="swiper-slide">
+                                {%- render 'product-card-placeholder', stacked: section.settings.stack_products, placeholder_image: placeholder_image, background: section.settings.product_card_background, text_color: section.settings.product_card_text_color, text_alignment: settings.product_info_alignment -%}
+                              </div>
+                            {%- endfor -%}
+                          {%- endfor -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if section.settings.stack_products == false and displayed_products_count > section.settings.products_per_row_desktop -%}
+                      {%- if section.settings.show_progress_bar -%}
+                        <div class="scrollbar peer-not-scrollable:hidden">
+                          <div class="swiper-scrollbar" data-swiper-scrollbar></div>
+                          <div aria-controls="{{ scroll_area_id }}" class="scrollbar__buttons">
+                            <button type="button" class="circle-button ring group" aria-controls="{{ scroll_area_id }}" data-swiper-prev disabled>
+                              <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+                              <span class="animated-arrow animated-arrow--reverse"></span>
+                            </button>
+
+                            <button type="button" class="circle-button ring group" aria-controls="{{ scroll_area_id }}" data-swiper-next>
+                              <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+                              <span class="animated-arrow"></span>
+                            </button>
+                          </div>
+                        </div>
+                      {%- else -%}
+                        <button type="button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="{{ scroll_area_id }}" data-swiper-prev disabled>
+                          <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+                          <span class="animated-arrow animated-arrow--reverse"></span>
+                        </button>
+
+                        <button type="button" class="circle-button circle-button--lg circle-button--fill border group" aria-controls="{{ scroll_area_id }}" data-swiper-next>
+                          <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+                          <span class="animated-arrow"></span>
+                        </button>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </div>
+
+                  {%- if block.settings.collection != blank -%}
+                    <div class="featured-collections-tabs__explore-wrap">
+                      <a href="{{ block.settings.collection.url }}" class="featured-collections-tabs__explore-link">
+                        {{block.settings.button_text}}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </x-tabs>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Featured collections tabs",
+  "class": "shopify-section--featured-collections-tabs",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show section heading",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "stack_products",
+      "label": "Stack products",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress_bar",
+      "label": "Show carousel progress bar",
+      "default": false,
+      "visible_if": "{{ section.settings.stack_products == false }}"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "min": 2,
+      "max": 50,
+      "label": "Products to show",
+      "default": 6
+    },
+    {
+      "type": "select",
+      "id": "products_per_row_mobile",
+      "label": "Products per row (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "min": 2,
+      "max": 5,
+      "label": "Products per row (desktop)",
+      "default": 3
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "auto", "label": "Natural" },
+        { "value": "1:1", "label": "Square (1:1)" },
+        { "value": "4:5", "label": "Portrait (4:5)" },
+        { "value": "0.85", "label": "Custom (0.85)" }
+      ],
+      "default": "0.85"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Fill (Cover)" },
+        { "value": "contain", "label": "Fit (Contain)" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Featured collections"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "product_card_background",
+      "label": "Product card background"
+    },
+    {
+      "type": "color",
+      "id": "product_card_text_color",
+      "label": "Product card text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_tab",
+      "name": "Collection tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tab title",
+          "info": "Defaults to collection title when empty."
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Explore all products"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collections tabs",
+      "category": "Collections",
+      "blocks": [
+        { "type": "collection_tab" },
+        { "type": "collection_tab" }
+      ]
+    }
+  ]
+}
+{% endschema %}

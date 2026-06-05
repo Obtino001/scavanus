@@ -1,0 +1,203 @@
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .origin-faq-image {
+    display: grid;
+    gap: 24px;
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image__heading {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 500;
+    color: rgba(39, 39, 39, 1);
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron {
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    color: rgba(39, 39, 39, 1);
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron svg {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron::before {
+    content: "+";
+    display: block;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 400;
+    color: rgba(39, 39, 39, 1) !important;
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron::before {
+    content: "−";
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron::before {
+    color: rgba(39, 39, 39, 1);
+  }
+  #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron,
+  #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:focus-visible .circle-chevron,
+  #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron {
+    background: transparent;
+    color: rgba(39, 39, 39, 1);
+    border-color: transparent;
+  }
+
+  #shopify-section-{{ section.id }} .origin-faq-image__media {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgb(var(--text-color) / 0.06);
+    min-height: 320px;
+  }
+
+  #shopify-section-{{ section.id }} .origin-faq-image__media img,
+  #shopify-section-{{ section.id }} .origin-faq-image__media .placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .origin-faq-image .accordion__toggle {
+    padding: 24px 0px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.85);
+  }
+  .origin-faq-image  .accordion:first-child {
+    border-block-start-width: 0px;
+  }
+  .origin-faq-image  .accordion:last-child {
+    border-block-end-width: 0px;
+  }
+
+  @media screen and (max-width: 699px) {
+    #shopify-section-{{ section.id }} .origin-faq-image__heading {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle {
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-faq-image .accordion__content,
+    #shopify-section-{{ section.id }} .origin-faq-image .accordion__content .prose {
+      font-size: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-faq-image__media {
+      display: none;
+    }
+    #shopify-section-{{ section.id }} .origin-faq-image__content {
+      padding: 46px 16px 16px 16px;
+      background: rgba(247, 245, 242, 1);
+      border-radius: 12px;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .origin-faq-image {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    #shopify-section-{{ section.id }} .origin-faq-image__media {
+      min-height: 100%;
+    }
+  }
+</style>
+
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    <div class="origin-faq-image">
+      <div class="origin-faq-image__content">
+        {%- if section.settings.title != blank -%}
+          <h2 class="h2 origin-faq-image__heading">{{ section.settings.title | escape }}</h2>
+        {%- endif -%}
+
+        <div {% render 'surface', class: 'origin-faq-image__list rounded', background_fallback: '' %}>
+          {%- for block in section.blocks -%}
+            {%- if block.settings.title != blank and block.settings.content != blank -%}
+              {%- capture accordion_content -%}
+                <div class="prose">{{ block.settings.content }}</div>
+              {%- endcapture -%}
+              {%- render 'accordion', title: block.settings.title, content: accordion_content, block: block -%}
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="origin-faq-image__media">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: section.settings.image.width | image_tag: loading: 'lazy', widths: '700,900,1100,1400', sizes: '(max-width: 999px) 100vw, 50vw', alt: section.settings.title | escape }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder' }}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Origin FAQ with image",
+  "class": "shopify-section--origin-faq-with-image",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently asked questions"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Item",
+      "type": "item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Question",
+          "default": "How does the Scanovus Automatic Ironing Machine work?"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Answer",
+          "default": "<p>It gently dries and irons garments using controlled warm airflow.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Origin FAQ with image",
+      "category": "Trust & social proof",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ]
+}
+{% endschema %}

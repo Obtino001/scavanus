@@ -1,0 +1,545 @@
+{%- render 'section-spacing-collapsing' -%}
+
+{%- assign has_popup_video = false -%}
+{%- for block in section.blocks -%}
+  {%- if block.settings.video != blank or block.settings.external_video_url != blank -%}
+    {%- assign has_popup_video = true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<style>
+  .shopify-section--origin-video-grid-popup .section-stack {
+    gap: 20px;    
+  }
+  .shopify-section--origin-video-grid-popup .section {
+    padding-top: 48px;
+  }
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__header {    
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__heading {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.08;
+    font-weight: 500;
+    color: #171717;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__subheading {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.35;
+    color: rgba(72, 72, 72, 1);
+    font-weight: 400;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__grid {    
+    gap: 24px;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__item {
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 0;
+    cursor: pointer;
+    background: #000;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(0 0 0 / 0.22) 0%, rgb(0 0 0 / 0.18) 42%, rgb(0 0 0 / 0.4) 100%);
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__thumb {
+    width: 100%;
+    aspect-ratio: {{ section.settings.image_aspect_ratio | replace: ':', '/' }};
+    object-fit: {{ section.settings.image_fit }};
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__eyebrow {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 0 1px 6px rgb(0 0 0 / 0.28);
+    font-family: var(--heading-font-family);
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__title {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.06;
+    font-weight: 500;    
+    color: #fff;    
+    font-family: var(--heading-font-family);
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__play {
+    margin-top: 0;
+    width: 84px;
+    height: 84px;
+    border-radius: 999px;
+    background: transparent;
+    display: grid;
+    place-items: center;
+    box-shadow: none;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__play svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal[hidden] {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: #fff;
+    background: rgb(0 0 0 / 0.48);
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal-media {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal-media video,
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal-media iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+  }
+
+  #shopify-section-{{ section.id }} .origin-video-grid-popup__modal-media video {
+    object-fit: contain;
+  }
+
+  @supports (height: 100dvh) {
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__modal {
+      height: 100dvh;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__item {
+      width: calc(50% - 12px);
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__heading {
+      font-size: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__subheading {
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__eyebrow {
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__title {
+      font-size: 40px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-video-grid-popup__play {
+      width: 70px;
+      height: 70px;
+    }
+  }
+</style>
+
+{%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
+{%- if is_section_visible contains 'true' -%}
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+      <div class="origin-video-grid-popup__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="origin-video-grid-popup__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <div class="origin-video-grid-popup__subheading">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="origin-video-grid-popup__grid">
+      {%- for block in section.blocks -%}
+        {%- capture is_block_visible -%}{%- render 'block-market-check', block: block -%}{%- endcapture -%}
+        {%- if is_block_visible contains 'false' -%}{%- continue -%}{%- endif -%}
+        {%- liquid
+          assign block_video = block.settings.video
+          assign block_thumbnail = block.settings.thumbnail
+
+          assign block_has_video = false
+          if block_video != blank or block.settings.external_video_url != blank
+            assign block_has_video = true
+          endif
+        -%}
+
+        <button
+          type="button"
+          class="origin-video-grid-popup__item"
+          data-video-open
+          data-video-template="origin-video-grid-popup-template-{{ block.id }}"
+          aria-label="{{ block.settings.popup_title | default: block.settings.title | default: 'Play video' | escape }}"
+          {% unless block_has_video %}disabled{% endunless %}
+          {{ block.shopify_attributes }}
+        >
+          {%- if block_thumbnail != blank -%}
+            {{ block_thumbnail | image_url: width: block_thumbnail.width | image_tag: class: 'origin-video-grid-popup__thumb', loading: 'lazy', widths: '400,600,800,1000,1200,1400,1600', sizes: '(max-width: 999px) 100vw, 50vw', alt: block_thumbnail.alt | escape }}
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'origin-video-grid-popup__thumb placeholder' }}
+          {%- endif -%}
+
+          <div class="origin-video-grid-popup__content">
+            {%- assign block_eyebrow = block.settings.eyebrow -%}
+            {%- assign block_title = block.settings.title  -%}
+            <p class="origin-video-grid-popup__eyebrow">{{ block_eyebrow | escape }}</p>
+            <p class="origin-video-grid-popup__title">{{ block_title | escape }}</p>
+            <span class="origin-video-grid-popup__play" aria-hidden="true">
+              <svg width="68" height="69" viewBox="0 0 68 69" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <ellipse cx="33.7159" cy="34.5" rx="33.7159" ry="34.5" fill="white" fill-opacity="0.36"></ellipse>
+                <path d="M50.1816 32.9318L25.4828 46.5127L25.4828 19.351L50.1816 32.9318Z" fill="#F8F8F8"></path>
+              </svg>
+            </span>
+          </div>
+        </button>
+      {%- endfor -%}
+    </div>
+
+    {%- if has_popup_video -%}
+      <div class="origin-video-grid-popup__modal" data-video-modal hidden>
+        <button type="button" class="origin-video-grid-popup__modal-close" data-video-close aria-label="{{ 'general.accessibility.close' | t | escape }}">
+          {%- render 'icon' with 'close', width: 16, height: 16 -%}
+        </button>
+        <div class="origin-video-grid-popup__modal-media" data-video-modal-media></div>
+      </div>
+
+      {%- for block in section.blocks -%}
+        {%- capture is_block_visible -%}{%- render 'block-market-check', block: block -%}{%- endcapture -%}
+        {%- if is_block_visible contains 'false' -%}{%- continue -%}{%- endif -%}
+        <template id="origin-video-grid-popup-template-{{ block.id }}">
+          {%- liquid
+            assign block_video = block.settings.video
+          -%}
+          {%- if block_video != blank -%}
+            {{ block_video | video_tag: controls: true, autoplay: false, loop: false, muted: false, playsinline: true, preload: 'metadata', image_size: '1600x' }}
+          {%- elsif block.settings.external_video_url != blank -%}
+            {%- if block.settings.external_video_url.type == 'youtube' -%}
+              <iframe
+                data-external-video
+                data-src="https://www.youtube.com/embed/{{ block.settings.external_video_url.id }}?playsinline=1&autoplay=1&rel=0&modestbranding=1"
+                title="{{ block.settings.popup_title | default: block.settings.title | default: 'Video popup' | escape }}"
+                allow="autoplay; encrypted-media"
+                allowfullscreen="allowfullscreen"
+              ></iframe>
+            {%- elsif block.settings.external_video_url.type == 'vimeo' -%}
+              <iframe
+                data-external-video
+                data-src="https://player.vimeo.com/video/{{ block.settings.external_video_url.id }}?autoplay=1&title=0&byline=0&portrait=0"
+                title="{{ block.settings.popup_title | default: block.settings.title | default: 'Video popup' | escape }}"
+                allow="autoplay; encrypted-media"
+                allowfullscreen="allowfullscreen"
+              ></iframe>
+            {%- endif -%}
+          {%- endif -%}
+        </template>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if has_popup_video -%}
+  <script>
+    (() => {
+      const sectionRoot = document.getElementById('shopify-section-{{ section.id }}');
+
+      if (!sectionRoot || sectionRoot.dataset.videoGridPopupReady === 'true') {
+        return;
+      }
+
+      sectionRoot.dataset.videoGridPopupReady = 'true';
+
+      const modal = sectionRoot.querySelector('[data-video-modal]');
+      const openButtons = sectionRoot.querySelectorAll('[data-video-open]');
+      const closeButtons = sectionRoot.querySelectorAll('[data-video-close]');
+      const modalMedia = sectionRoot.querySelector('[data-video-modal-media]');
+
+      if (!modal || !modalMedia || openButtons.length === 0) {
+        return;
+      }
+
+      const openModal = (button) => {
+        const templateId = button.getAttribute('data-video-template');
+        const template = templateId ? sectionRoot.querySelector(`#${templateId}`) : null;
+
+        if (!template) {
+          return;
+        }
+
+        modalMedia.innerHTML = '';
+        modalMedia.appendChild(template.content.cloneNode(true));
+        modal.hidden = false;
+        document.documentElement.classList.add('overflow-hidden');
+
+        const externalVideo = modalMedia.querySelector('[data-external-video]');
+        if (externalVideo && externalVideo.dataset.src) {
+          externalVideo.setAttribute('src', externalVideo.dataset.src);
+        }
+
+        const localVideo = modalMedia.querySelector('video');
+        if (localVideo) {
+          localVideo.currentTime = 0;
+          localVideo.play().catch(() => {});
+        }
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.documentElement.classList.remove('overflow-hidden');
+        modalMedia.innerHTML = '';
+      };
+
+      openButtons.forEach((button) => {
+        if (button.hasAttribute('disabled')) {
+          return;
+        }
+
+        button.addEventListener('click', () => openModal(button));
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener('click', closeModal);
+      });
+
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+{%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Origin video grid popup",
+  "class": "shopify-section--origin-video-grid-popup",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Video guides"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Tap a video to watch it in full-screen.</p>"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "auto", "label": "Natural" },
+        { "value": "1:1", "label": "Square (1:1)" },
+        { "value": "16:9", "label": "Wide (16:9)" }
+      ],
+      "default": "1:1"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Fill (Cover)" },
+        { "value": "contain", "label": "Fit (Contain)" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "market_visibility",
+      "label": "Market visibility",
+      "options": [
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+      ],
+      "default": "all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_item",
+      "name": "Video item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "thumbnail",
+          "label": "Thumbnail image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Small title",
+          "default": "Automatisk strygejern version 3.0"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Main title",
+          "default": "Tips & Tricks"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Shopify-hosted video"
+        },
+        {
+          "type": "video_url",
+          "id": "external_video_url",
+          "accept": ["youtube", "vimeo"],
+          "label": "External video URL"
+        },
+        {
+          "type": "text",
+          "id": "popup_title",
+          "label": "Popup video title",
+          "default": "Video popup"
+        },
+        {
+          "type": "select",
+          "id": "market_visibility",
+          "label": "Market visibility",
+          "options": [
+            { "value": "all", "label": "Global (All Markets)" },
+            { "value": "denmark", "label": "Denmark Only" },
+            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+          ],
+          "default": "all"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Origin video grid popup",
+      "category": "Video",
+      "blocks": [
+        { "type": "video_item" },
+        { "type": "video_item" },
+        { "type": "video_item" },
+        { "type": "video_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

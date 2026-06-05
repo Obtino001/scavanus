@@ -1,0 +1,36 @@
+{%- liquid
+  assign country_code = localization.country.iso_code
+  assign current_market = 'rest_of_world'
+
+  case country_code
+    when 'US', 'CA', 'MX'
+      assign current_market = 'us_ca_mx'
+    when 'DK'
+      assign current_market = 'denmark'
+    else
+      assign current_market = 'rest_of_world'
+  endcase
+
+  if return_market
+    echo current_market
+  else
+    assign is_visible = false
+    
+    if block.settings.market_visibility == 'all' or block.settings.market_visibility == blank
+      assign is_visible = true
+      
+    elsif block.settings.market_visibility == 'global_excluding_us_ca_mx' and current_market != 'us_ca_mx'
+      assign is_visible = true
+      
+    elsif block.settings.market_visibility == current_market
+      assign is_visible = true
+      
+    endif
+
+    if is_visible
+      echo 'true'
+    else
+      echo 'false'
+    endif
+  endif
+-%}

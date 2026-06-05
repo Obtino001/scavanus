@@ -1,0 +1,308 @@
+{%- if section.blocks.size > 0 -%}
+  {%- render 'section-spacing-collapsing' -%}
+
+  <style>
+    #shopify-section-{{ section.id }} {
+      --origin-logos-marquee-gap: {{ section.settings.logo_gap }}px;
+      --origin-logos-marquee-height: {{ section.settings.logo_height }}px;
+    }
+    #shopify-section-{{ section.id }} .scrolling-text__wrapper {
+      gap: {{ section.settings.logo_gap }}px;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      width: max-content;
+    }
+    #shopify-section-{{ section.id }} .origin-logos-marquee {
+      display: grid;
+      gap: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-logos-marquee__heading {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.4;
+      font-weight: 500;
+      text-align: center;
+      font-family: var(--heading-font-family);
+      margin-bottom: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-logos-marquee .scrolling-text {
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .origin-logos-marquee .scrolling-text__text {
+      padding-inline: 0;
+      line-height: 1;
+      display: inline-flex;
+      animation: originLogosMarqueeMove {{ section.settings.scrolling_speed }}s linear infinite;
+    }
+
+    #shopify-section-{{ section.id }} .origin-logos-marquee__track {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--origin-logos-marquee-gap);
+      white-space: nowrap;
+    }
+
+    #shopify-section-{{ section.id }} .origin-logos-marquee__item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: var(--origin-logos-marquee-height);
+      opacity: {{ section.settings.logo_opacity | divided_by: 100.0 }};
+    }
+
+    #shopify-section-{{ section.id }} .origin-logos-marquee__item img,
+    #shopify-section-{{ section.id }} .origin-logos-marquee__item svg {
+      width: 100%;
+      height: 100%;
+      max-width: min(36vw, 220px);
+      object-fit: cover;
+      display: block;
+    }
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} .origin-logos-marquee__heading {
+        font-size: 24px;
+      }
+    }
+
+    @media screen and (max-width: 699px) {
+      #shopify-section-{{ section.id }} {
+        --origin-logos-marquee-gap: 22px;
+      }
+
+      #shopify-section-{{ section.id }} .origin-logos-marquee {
+        gap: 0;
+      }
+
+      #shopify-section-{{ section.id }} .origin-logos-marquee__heading {
+        font-size: 20px;
+        margin-bottom: 0;
+      }
+
+      #shopify-section-{{ section.id }} .scrolling-text__wrapper {
+        gap: 22px;
+      }
+
+      #shopify-section-{{ section.id }} .origin-logos-marquee .scrolling-text__text {
+        animation-duration: calc({{ section.settings.scrolling_speed }}s * 2);
+      }
+
+      #shopify-section-{{ section.id }} .origin-logos-marquee__item {
+        width: calc((100vw - 44px) / 3) !important;
+      }
+
+      #shopify-section-{{ section.id }} .origin-logos-marquee__item img,
+      #shopify-section-{{ section.id }} .origin-logos-marquee__item svg {
+        max-width: 100%;
+      }
+      #shopify-section-{{ section.id }} .origin-logos-marquee__item img {
+        object-fit: contain;
+      }
+    }
+
+    @keyframes originLogosMarqueeMove {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(calc(-100% - var(--origin-logos-marquee-gap)));
+      }
+    }
+  </style>
+
+{%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
+{%- if is_section_visible contains 'true' -%}
+  <div {% render 'section-properties' %}>
+    <div class="section-stack">
+      <div class="origin-logos-marquee">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="origin-logos-marquee__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- capture marquee_content -%}
+          <span class="scrolling-text__text">
+            <span class="origin-logos-marquee__track">
+              {%- for block in section.blocks -%}
+                {%- liquid
+                  assign loading_strategy = nil
+                  if section.index > 3 or forloop.index > 6
+                    assign loading_strategy = 'lazy'
+                  endif
+
+                  assign block_logo = block.settings.logo
+                  if current_market contains 'us_ca_mx'
+                    assign block_logo = block.settings.logo_us_ca_mx | default: block_logo
+                  elsif current_market contains 'denmark'
+                    assign block_logo = block.settings.logo_denmark | default: block_logo
+                  endif
+                -%}
+
+                {%- if block_logo != blank -%}
+                  {%- capture item_content -%}
+                    {%- capture sizes -%}{{ block.settings.logo_width }}px{%- endcapture -%}
+                    {%- capture widths -%}{{ block.settings.logo_width }}, {{ block.settings.logo_width | times: 2 | at_most: block_logo.width }}{%- endcapture -%}
+                    {{- block_logo | image_url: width: block_logo.width | image_tag: loading: loading_strategy, widths: widths, sizes: sizes, alt: block_logo.alt | escape -}}
+                  {%- endcapture -%}
+
+                  {%- if block.settings.link != blank -%}
+                    <a href="{{ block.settings.link }}" class="origin-logos-marquee__item" style="width: {{ block.settings.logo_width }}px;" {{ block.shopify_attributes }}>
+                      {{- item_content -}}
+                    </a>
+                  {%- else -%}
+                    <span class="origin-logos-marquee__item" style="width: {{ block.settings.logo_width }}px;" {{ block.shopify_attributes }}>
+                      {{- item_content -}}
+                    </span>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </span>
+          </span>
+        {%- endcapture -%}
+
+        <div class="scrolling-text scrolling-text--auto">
+          <div class="scrolling-text__wrapper">
+            {%- for i in (1..4) -%}
+              {{- marquee_content -}}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Origin logos marquee",
+  "class": "shopify-section--origin-logos-marquee",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "market_visibility",
+      "label": "Market visibility",
+      "options": [
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+      ],
+      "default": "all"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    { "type": "header", "content": "Default Content (Fallback)" },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by leading partners"
+    },
+
+    { "type": "header", "content": "Marquee Settings" },
+    {
+      "type": "range",
+      "id": "scrolling_speed",
+      "min": 3,
+      "max": 20,
+      "step": 1,
+      "unit": "s",
+      "label": "Scrolling speed",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo height",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "logo_gap",
+      "min": 12,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Logo spacing",
+      "default": 34
+    },
+    {
+      "type": "range",
+      "id": "logo_opacity",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Logo opacity",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo (Default/Denmark)",
+          "info": "300 x 90px .png recommended"
+        },
+        { "type": "image_picker", "id": "logo_denmark", "label": "Logo (Denmark)" },
+        
+        
+        { "type": "image_picker", "id": "logo_us_ca_mx", "label": "Logo (US, CA & MX)" },
+        {
+          "type": "range",
+          "id": "logo_width",
+          "min": 50,
+          "max": 300,
+          "step": 10,
+          "unit": "px",
+          "label": "Logo width",
+          "default": 120
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Origin logos marquee",
+      "category": "Media",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

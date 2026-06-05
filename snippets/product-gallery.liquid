@@ -1,0 +1,162 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+PRODUCT GALLERY COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+{%- assign default_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+{%- if default_media == blank -%}
+  {%- assign default_media = product.media | first -%}
+{%- endif -%}
+{%- capture product_gallery_id -%}product-gallery-{{ product.id }}-{{ section.id }}{%- endcapture -%}
+
+{%- liquid
+  assign image_media_count = product.media | where: 'media_type', 'image' | size
+  assign filtered_indexes = null | sort
+
+  if product.variants.size > 1 and image_media_count > 1
+    for media in product.media
+      if media.alt contains '#' and media.alt != product.title
+        assign alt_parts = media.alt | split: '#'
+        assign media_group_parts = alt_parts.last | split: '_'
+        assign option = product.options_by_name[media_group_parts.first]
+        assign option_value = option.selected_value | downcase
+        assign downcase_group_value = media_group_parts.last | strip | downcase
+
+        if option_value != downcase_group_value and media != default_media
+          assign media_position = media.position | sort
+          assign filtered_indexes = filtered_indexes | concat: media_position
+        endif
+      endif
+    endfor
+  endif
+
+  assign is_international = false
+  if localization.country.iso_code != 'DK'
+    assign is_international = true
+  endif
+
+  assign path_start = request.path | slice: 0, 4
+  if localization.language.iso_code == 'en' or path_start == '/en-' or path_start == '/en/'
+    assign is_international = true
+  endif
+
+  for media in product.media
+    assign media_alt = media.alt | downcase
+    assign should_hide = false
+
+    if is_international
+      if media_alt contains '#da' or media_alt contains '#dk'
+        assign should_hide = true
+      endif
+    else
+      if media_alt contains '#en'
+        assign should_hide = true
+      endif
+    endif
+
+    if should_hide
+      assign media_position = media.position | sort
+      assign filtered_indexes = filtered_indexes | concat: media_position | uniq
+    endif
+  endfor
+
+  # NEW LOGIC: Calculate the first visible index so the carousel doesn't start on a hidden image
+  assign first_visible_index = 0
+  for media in product.media
+    unless filtered_indexes contains media.position
+      assign first_visible_index = forloop.index0
+      break
+    endunless
+  endfor
+
+  # Determine if the default media is hidden; if so, override with the first visible index
+  assign default_media_position = default_media.position | default: 1
+  assign default_media_initial_index = default_media_position | minus: 1
+  
+  if filtered_indexes contains default_media.position
+    assign default_media_initial_index = first_visible_index
+  endif
+-%}
+
+<product-gallery form="{{ product_form_id }}" filtered-indexes="{{ filtered_indexes | json }}" {%- if section.settings.enable_image_zoom -%}allow-zoom="{{ section.settings.max_image_zoom_level }}"{% endif %} class="product-gallery {% if section.settings.mobile_carousel_control contains 'dots' %}product-gallery--mobile-dots{% endif %} {% if section.settings.desktop_media_layout contains 'grid' %}product-gallery--desktop-grid{% else %}product-gallery--desktop-carousel{% endif %} {% if section.settings.desktop_media_layout == 'carousel_thumbnails_left' %}product-gallery--desktop-thumbnails-left{% endif %} {% if section.settings.mobile_media_size == 'expanded' %}product-gallery--mobile-expanded{% endif %}">
+  {%- capture page_dots -%}
+    <page-dots class="page-dots {% if section.settings.mobile_carousel_control == 'floating_dots' %}page-dots--blurred{% endif %} md:hidden" aria-controls="{{ product_gallery_id }}">
+      {%- for media in product.media -%}
+        <button type="button" class="tap-area" {% if image_media_count > 1 and filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}">
+          <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: media.position }}</span>
+        </button>
+      {%- endfor -%}
+    </page-dots>
+  {%- endcapture -%}
+
+  <div class="product-gallery__ar-wrapper">
+    <div class="product-gallery__media-list-wrapper">
+      {%- if section.settings.desktop_media_layout contains 'carousel' and product.media.size > 1 -%}
+        <custom-cursor class="product-gallery__cursor" {% if default_media.media_type != 'image' %}hidden{% endif %}>
+          <div class="circle-button circle-button--fill circle-button--lg">
+            {%- render 'icon' with 'chevron-right' -%}
+          </div>
+        </custom-cursor>
+      {%- endif -%}
+
+      <media-carousel desktop-mode="{{ section.settings.desktop_media_layout }}" initial-index="{{ default_media_initial_index }}" {% if section.settings.enable_video_autoplay %}autoplay{% endif %} id="{{ product_gallery_id }}" class="product-gallery__media-list {% if section.settings.mobile_media_size == 'expanded' %}full-bleed{% else %}bleed{% endif %} scroll-area md:unbleed">
+        {%- assign media_attached_to_variant = product.images | where: 'attached_to_variant?', true | map: 'src' -%}
+
+        {%- for media in product.media -%}
+          {%- case section.settings.desktop_media_layout -%}
+            {%- when 'carousel_thumbnails_bottom' -%}
+              {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), min(760px, 42vw){%- endcapture -%}
+            {%- when 'carousel_thumbnails_left' -%}
+              {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), min(730px, 40vw){%- endcapture -%}
+            {%- when 'grid_one' -%}
+              {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), min(1200px, 60vw){%- endcapture -%}
+            {%- when 'grid' -%}
+              {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), min(580px, 30vw){%- endcapture -%}
+            {% when 'grid_highlight' %}
+              {%- capture sizes -%}(max-width: 740px) calc(100vw - 40px), (max-width: 999px) calc(100vw - 64px), {% if forloop.first or media_attached_to_variant contains media.src %}min(1200px, 60vw){% else %}min(580px, 30vw){% endif %}{%- endcapture -%}
+          {%- endcase -%}
+
+          <div class="product-gallery__media {% if media.alt contains '@expand' %}product-gallery__media--expand{% endif %} {% if section.settings.mobile_carousel_control != 'free_scroll' %}snap-center{% endif %}" data-media-type="{{ media.media_type }}" data-media-id="{{ media.id }}" {% if filtered_indexes contains media.position %}hidden{% endif %}>
+            {%- render 'media', media: media, sizes: sizes, preload: preload, autoplay: section.settings.enable_video_autoplay, loop: section.settings.enable_video_looping, group: 'product' -%}
+          </div>
+        {%- endfor -%}
+      </media-carousel>
+
+      {%- if section.settings.desktop_media_layout contains 'carousel' and product.media.size > 1 -%}
+        <div class="product-gallery__main-controls hidden">
+          <button is="prev-button" class="circle-button circle-button--fill ring group" aria-controls="{{ product_gallery_id }}">
+            <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+            <span class="animated-arrow animated-arrow--reverse"></span>
+          </button>
+          <button is="next-button" class="circle-button circle-button--fill ring group" aria-controls="{{ product_gallery_id }}">
+            <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+            <span class="animated-arrow"></span>
+          </button>
+        </div>
+
+        <page-dots class="product-gallery__desktop-dots" aria-controls="{{ product_gallery_id }}">
+          {%- for media in product.media -%}
+            <button type="button" class="tap-area" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}">
+              <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: media.position }}</span>
+            </button>
+          {%- endfor -%}
+        </page-dots>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if product.media.size > 0 -%}
+    {%- if section.settings.mobile_carousel_control == 'thumbnails' or section.settings.desktop_media_layout contains 'thumbnails' -%}
+      <scroll-shadow class="product-gallery__thumbnail-list-wrapper">
+        <page-dots align-selected class="product-gallery__thumbnail-list scroll-area bleed md:unbleed" aria-controls="{{ product_gallery_id }}">
+          {%- for media in product.media -%}
+            <button type="button" class="product-gallery__thumbnail" {% if filtered_indexes contains media.position %}hidden{% endif %} aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
+              {{- media | image_url: width: 400 | image_tag: loading: 'lazy', sizes: '(max-width: 699px) 56px, 88px', widths: '56,88,112,176,400', class: 'object-cover rounded-sm' -}}
+            </button>
+          {%- endfor -%}
+        </page-dots>
+      </scroll-shadow>
+    {%- endif -%}
+  {%- endif -%}
+</product-gallery>

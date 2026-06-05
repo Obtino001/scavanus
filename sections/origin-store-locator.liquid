@@ -1,0 +1,131 @@
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .store__locator--container {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .store__locator--container iframe {
+    border: none;
+    width: 100%;
+    height: {{ section.settings.iframe_height }}px;
+    display: block;
+  }
+
+  {%- if section.settings.show_bottom_overlay -%}
+    #shopify-section-{{ section.id }} .store__locator--container::after {
+      content: "";
+      position: absolute;
+      height: {{ section.settings.bottom_overlay_height }}px;
+      width: 100%;
+      background: {{ section.settings.bottom_overlay_color }};
+      bottom: 0;
+      left: 0;
+      border-top: 1px solid {{ section.settings.bottom_overlay_border_color }};
+      pointer-events: none;
+    }
+  {%- endif -%}
+</style>
+
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    <div class="container store__locator--container">
+      {%- if section.settings.iframe_src != blank -%}
+        <iframe
+          src="{{ section.settings.iframe_src | escape }}"
+          style="border:none;width:100%;height:{{ section.settings.iframe_height }}px"
+          {% if section.settings.allow_geolocation %}allow="geolocation"{% endif %}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="{{ section.settings.iframe_title | default: 'Store locator' | escape }}"
+        ></iframe>
+      {%- else -%}
+        Store locator iframe URL is not set.
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Origin store locator",
+  "class": "shopify-section--origin-store-locator",
+  "tag": "section",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "iframe_src",
+      "label": "Store locator iframe URL",
+      "default": "https://locatestore.com/DO01Je"
+    },
+    {
+      "type": "text",
+      "id": "iframe_title",
+      "label": "Iframe title (accessibility)",
+      "default": "Store locator"
+    },
+    {
+      "type": "range",
+      "id": "iframe_height",
+      "label": "Iframe height (px)",
+      "min": 300,
+      "max": 1200,
+      "step": 50,
+      "default": 600
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_geolocation",
+      "label": "Allow geolocation",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Bottom overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom_overlay",
+      "label": "Show bottom white overlay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "bottom_overlay_height",
+      "label": "Overlay height (px)",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "bottom_overlay_color",
+      "label": "Overlay background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "bottom_overlay_border_color",
+      "label": "Overlay top border color",
+      "default": "#f1f1f1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Origin store locator",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,420 @@
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .origin-image-text-highlights {
+    display: grid;
+    gap: 28px;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__media {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__image {
+    width: 100%;
+    aspect-ratio: 714 / 578;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__heading {
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__description {
+    margin-top: 10px;    
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__description p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.3;    
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stats {
+    margin-top: 33px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stat {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;        
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-icon-wrap {
+    width: 60x;
+    min-width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: rgba(247, 245, 242, 1);
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-icon-wrap .icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-icon-image {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-text {
+    margin: 4px 0 0;
+    font-size: 10px;
+    line-height: 1.3;
+    max-width: 160px;    
+  }
+
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__button {
+    margin-top: 47px;
+  }  
+  #shopify-section-{{ section.id }} .origin-image-text-highlights__button .button {
+    padding: 16px 32px;
+    border: 1px solid #000;
+    font-size: 14px;
+    font-weight: 400;
+    box-shadow: unset;
+  }
+
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .origin-image-text-highlights {
+      gap: 15px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__heading {
+      font-size: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__description {
+      margin-top: 9px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-icon-wrap {
+      width: 87px;
+      min-width: 87px;
+      height: 74px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__stat {
+      gap: 17px;
+      align-items: center;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__stat-text {
+      max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__button {
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .origin-image-text-highlights {
+      grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr);
+      gap: 70px;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights--media-end {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.22fr);
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights--media-end .origin-image-text-highlights__media {
+      order: 2;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights--media-end .origin-image-text-highlights__content {
+      order: 1;
+    }
+
+    #shopify-section-{{ section.id }} .origin-image-text-highlights__stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 540px;
+    }
+  }
+</style>
+
+{%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
+{%- if is_section_visible contains 'true' -%}
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    <div class="origin-image-text-highlights {% if section.settings.media_position == 'end' %}origin-image-text-highlights--media-end{% endif %}">
+      <div class="origin-image-text-highlights__media">
+        {%- liquid
+          capture current_market
+            render 'block-market-check', block: section, return_market: true
+          endcapture
+
+          assign section_image = section.settings.image
+
+          if current_market contains 'us_ca_mx' and section.settings.image_us_ca_mx != blank
+            assign section_image = section.settings.image_us_ca_mx
+          endif
+        -%}
+
+        {%- if section_image != blank -%}
+          {%- capture sizes -%}(max-width: 999px) calc(100vw - 40px), min(55vw, 840px){%- endcapture -%}
+          {{ section_image | image_url: width: section_image.width | image_tag: class: 'origin-image-text-highlights__image', sizes: sizes, widths: '400,600,800,1000,1200,1400,1600', loading: 'lazy' }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'origin-image-text-highlights__image placeholder' }}
+        {%- endif -%}
+      </div>
+
+      <div class="origin-image-text-highlights__content">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="h2 origin-image-text-highlights__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="origin-image-text-highlights__description">{{ section.settings.description }}</div>
+        {%- endif -%}
+
+        <div class="origin-image-text-highlights__stats">
+          <div class="origin-image-text-highlights__stat">
+            <div class="origin-image-text-highlights__stat-icon-wrap">
+              {%- if section.settings.stat_1_custom_icon != blank -%}
+                {{ section.settings.stat_1_custom_icon | image_url: width: 80 | image_tag: class: 'origin-image-text-highlights__stat-icon-image', widths: '24,48,80', loading: 'lazy' }}
+              {%- else -%}
+                {%- render 'icon' with section.settings.stat_1_icon -%}
+              {%- endif -%}
+            </div>
+            <div>
+              <p class="origin-image-text-highlights__stat-title">{{ section.settings.stat_1_title | escape }}</p>
+              <p class="origin-image-text-highlights__stat-text">{{ section.settings.stat_1_text | escape }}</p>
+            </div>
+          </div>
+
+          <div class="origin-image-text-highlights__stat">
+            <div class="origin-image-text-highlights__stat-icon-wrap">
+              {%- if section.settings.stat_2_custom_icon != blank -%}
+                {{ section.settings.stat_2_custom_icon | image_url: width: 80 | image_tag: class: 'origin-image-text-highlights__stat-icon-image', widths: '24,48,80', loading: 'lazy' }}
+              {%- else -%}
+                {%- render 'icon' with section.settings.stat_2_icon -%}
+              {%- endif -%}
+            </div>
+            <div>
+              <p class="origin-image-text-highlights__stat-title">{{ section.settings.stat_2_title | escape }}</p>
+              <p class="origin-image-text-highlights__stat-text">{{ section.settings.stat_2_text | escape }}</p>
+            </div>
+          </div>
+        </div>
+
+        {%- if section.settings.button_text != blank -%}
+          <div class="origin-image-text-highlights__button">
+            {%- render 'button', content: section.settings.button_text, href: section.settings.button_url, style: 'outline', size: 'xl' -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Image text highlights",
+  "class": "shopify-section--origin-image-text-highlights",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (Default/Denmark)"
+    },
+    
+    
+    {
+      "type": "image_picker",
+      "id": "image_us_ca_mx",
+      "label": "Image (US, CA & MX)"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "landscape", "label": "Landscape (4:3)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" }
+      ],
+      "default": "landscape"
+    },
+    {
+      "type": "select",
+      "id": "media_position",
+      "label": "Image position (desktop)",
+      "options": [
+        { "value": "start", "label": "Left" },
+        { "value": "end", "label": "Right" }
+      ],
+      "default": "start"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Make Everyday Life Easier."
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>At Scanovus, we rethink traditional household routines with smarter alternatives that save time and effort - without compromising on quality or design.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Stat 1"
+    },
+    {
+      "type": "select",
+      "id": "stat_1_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "picto-happy", "label": "Happy" },
+        { "value": "picto-validation", "label": "Validation" },
+        { "value": "picto-star", "label": "Star" },
+        { "value": "picto-like", "label": "Like" }
+      ],
+      "default": "picto-happy"
+    },
+    {
+      "type": "image_picker",
+      "id": "stat_1_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_title",
+      "label": "Title",
+      "default": "25,000+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_text",
+      "label": "Text",
+      "default": "happy customers worldwide"
+    },
+    {
+      "type": "header",
+      "content": "Stat 2"
+    },
+    {
+      "type": "select",
+      "id": "stat_2_icon",
+      "label": "Icon",
+      "options": [
+        { "value": "picto-star", "label": "Star" },
+        { "value": "picto-validation", "label": "Validation" },
+        { "value": "picto-like", "label": "Like" },
+        { "value": "picto-happy", "label": "Happy" }
+      ],
+      "default": "picto-star"
+    },
+    {
+      "type": "image_picker",
+      "id": "stat_2_custom_icon",
+      "label": "Custom icon"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_title",
+      "label": "Title",
+      "default": "4.7 out of 5"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_text",
+      "label": "Text",
+      "default": "verified rating on Trustpilot"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore all products"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "stat_card_background",
+      "label": "Stat card background",
+      "default": "#f6f4f1"
+    },
+    {
+      "type": "select",
+      "id": "market_visibility",
+      "label": "Market visibility",
+      "options": [
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+      ],
+      "default": "all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Origin image text highlights",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

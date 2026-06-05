@@ -1,0 +1,589 @@
+{%- render 'section-spacing-collapsing' -%}
+
+
+
+<style>
+  #shopify-section-{{ section.id }} .product-video-stories {
+    display: grid;
+    gap: 28px;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__intro {
+    text-align: center;
+    display: grid;
+    gap: 6px;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__heading {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 500;
+    color: rgba(7, 7, 7, 1);
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__subheading {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.3;
+    color: rgba(72, 72, 72, 1);
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__card {
+    position: relative;
+    aspect-ratio: 278 / 319;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgb(var(--text-color) / 0.08);
+    border: 0;
+    padding: 0;
+    width: 100%;
+    cursor: default;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__card--button {
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__card img,
+  #shopify-section-{{ section.id }} .product-video-stories__placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__play-icon {
+    width: 43px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__play-icon svg {
+    width: 43px;
+    height: 44px;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    overflow-y: auto;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal[hidden] {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.65);
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal-dialog {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    max-width: min(420px, calc(100vw - 48px));
+    max-height: calc(100vh - 48px);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 20px 60px rgb(0 0 0 / 0.4);
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    border: 0;
+    display: grid;
+    place-items: center;
+    background: rgb(0 0 0 / 0.6);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal-media {
+    width: fit-content;
+    height: fit-content;
+    max-width: min(420px, calc(100vw - 48px));
+    max-height: calc(100vh - 80px);
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal-media video {
+    width: auto;
+    height: auto;
+    max-width: min(420px, calc(100vw - 48px));
+    max-height: calc(100vh - 80px);
+    display: block;
+    border: 0;
+    object-fit: contain;
+    vertical-align: top;
+  }
+
+  #shopify-section-{{ section.id }} .product-video-stories__modal-media iframe {
+    width: min(420px, calc(100vw - 48px));
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: calc(100vh - 80px);
+    display: block;
+    border: 0;
+    vertical-align: top;
+  }
+
+  @supports (height: 100dvh) {
+    #shopify-section-{{ section.id }} .product-video-stories__modal-dialog {
+      max-height: calc(100dvh - 48px);
+    }
+    #shopify-section-{{ section.id }} .product-video-stories__modal-media,
+    #shopify-section-{{ section.id }} .product-video-stories__modal-media video {
+      max-height: calc(100dvh - 80px);
+    }
+    #shopify-section-{{ section.id }} .product-video-stories__modal-media iframe {
+      max-height: calc(100dvh - 80px);
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .product-video-stories__heading {
+      font-size: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .product-video-stories__subheading {
+      font-size: 14px;
+      {% comment %} background: rgba(251, 251, 251, 1); {% endcomment %}
+      border-radius: 12px;
+      padding: 9px 40px;
+    }
+
+    #shopify-section-{{ section.id }} .product-video-stories__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px;
+    }
+
+    #shopify-section-{{ section.id }} .product-video-stories__card {
+      border-radius: 6px;
+    }
+  }
+
+  @media screen and (min-width: 700px) {
+    #shopify-section-{{ section.id }} .product-video-stories__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .product-video-stories__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+</style>
+{%- liquid
+  capture market_code
+    render 'block-market-check', block: section, return_market: true
+  endcapture
+  assign market_code = market_code | strip
+
+  assign path_start = request.path | slice: 0, 4
+  assign is_english = false
+  if localization.language.iso_code == 'en' or path_start == '/en-' or path_start == '/en/'
+    assign is_english = true
+  endif
+
+  if market_code == 'us_ca_mx' and product.metafields.custom.videos_us_ca_mx.value != blank
+    assign videos_meta = product.metafields.custom.videos_us_ca_mx.value
+  elsif is_english and product.metafields.custom.videos_en_global.value != blank
+    assign videos_meta = product.metafields.custom.videos_en_global.value
+  else
+    # Default / Denmark market
+    assign videos_meta = product.metafields.custom.videos.value
+  endif
+
+  if videos_meta != blank
+    assign vs = videos_meta.videos.value
+    assign is_meta = true
+    assign heading = videos_meta.heading | default: section.settings.heading
+    assign subheading = videos_meta.subheading | default: section.settings.subheading
+  else
+    assign vs = section.blocks
+    assign is_meta = false
+    assign heading = section.settings.heading
+    assign subheading = section.settings.subheading
+  endif
+-%}
+
+{%- assign has_popup_video = false -%}
+{%- for item in vs -%}
+  {%- liquid
+    if is_meta
+      if item.media_type == 'video'
+        assign item_video = item
+        assign item_external = nil
+      else
+        assign item_video = item.video.value
+        assign item_external = item.external_video_url.value
+      endif
+    else
+      assign item_video = item.settings.video
+      assign item_external = item.settings.external_video_url
+    endif
+  -%}
+  {%- if item_video != blank or item_external != blank -%}
+    {%- assign has_popup_video = true -%}
+    {%- break -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{% if vs.size > 0 %}
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    <div class="product-video-stories">      
+      {%- if heading != blank or subheading != blank -%}
+        <div class="product-video-stories__intro">          
+          {%- if heading != blank -%}
+            <h2 class="h2 product-video-stories__heading">{{ heading | escape }}</h2>
+          {%- endif -%}
+
+          {%- if subheading != blank -%}
+            <p class="product-video-stories__subheading hidden md:block">{{ subheading | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="product-video-stories__grid">
+        {%- for item in vs -%}          
+          {%- liquid
+            if is_meta
+              if item.media_type == 'video'
+                assign card_video = item
+                assign card_image = item.preview_image
+                assign card_alt = item.alt
+                assign card_external = nil
+              else
+                assign card_video = item.video.value
+                assign card_image = item.image.value | default: item.video.value.preview_image
+                assign card_alt = item.alt.value
+                assign card_external = item.external_video_url.value
+              endif
+              assign item_id = forloop.index
+              assign item_attributes = ''
+            else
+              assign card_video = item.settings.video
+              assign card_image = item.settings.image | default: item.settings.video.preview_image
+              assign card_alt = item.settings.alt
+              assign card_external = item.settings.external_video_url
+              assign item_id = item.id
+              assign item_attributes = item.shopify_attributes
+            endif
+
+            assign block_has_video = false
+            if card_video != blank or card_external != blank
+              assign block_has_video = true
+            endif
+
+            # Detect external video type and ID
+            assign external_id = card_external.id | default: ''
+            assign external_type = card_external.type | default: ''
+
+            if external_id == blank and card_external != blank
+              if card_external contains 'youtube.com' or card_external contains 'youtu.be'
+                assign external_type = 'youtube'
+                assign external_id = card_external | split: 'v=' | last | split: '&' | first | split: '/' | last
+              elsif card_external contains 'vimeo.com'
+                assign external_type = 'vimeo'
+                assign external_id = card_external | split: '/' | last
+              endif
+            endif
+          -%}
+
+          {%- if block_has_video -%}
+            <button type="button" class="product-video-stories__card product-video-stories__card--button" data-video-open data-video-template="product-video-stories-template-{{ item_id }}" aria-label="{{ card_alt | default: 'Play video' | escape }}" {{ item_attributes }}>
+              {%- if card_image != blank -%}
+                {{ card_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '320,480,640,900', sizes: '(max-width: 699px) 100vw, (max-width: 999px) 50vw, 25vw', alt: card_alt | escape }}
+              {%- elsif external_type == 'youtube' -%}
+                <img
+                  src="https://img.youtube.com/vi/{{ external_id }}/hqdefault.jpg"
+                  alt="{{ card_alt | escape }}"
+                  loading="lazy"
+                  width="900"
+                  height="1032"
+                >
+              {%- elsif external_type == 'vimeo' -%}
+                <img
+                  src="https://vumbnail.com/{{ external_id }}.jpg"
+                  alt="{{ card_alt | escape }}"
+                  loading="lazy"
+                  width="900"
+                  height="1032"
+                >
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'product-video-stories__placeholder placeholder' }}
+              {%- endif -%}
+              <span class="product-video-stories__play">
+                <span class="product-video-stories__play-icon">
+                  <svg width="43" height="44" viewBox="0 0 43 44" fill="none" aria-hidden="true" focusable="false">
+                    <ellipse cx="21.5" cy="22" rx="21.5" ry="22" fill="white"></ellipse>
+                    <path d="M32 21L16.25 29.6603L16.25 12.3397L32 21Z" fill="#0C0C0C"></path>
+                  </svg>
+                </span>
+              </span>
+            </button>
+          {%- else -%}
+            <div class="product-video-stories__card" {{ item_attributes }}>
+              {%- if card_image != blank -%}
+                {{ card_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '320,480,640,900', sizes: '(max-width: 699px) 100vw, (max-width: 999px) 50vw, 25vw', alt: card_alt | escape }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'product-video-stories__placeholder placeholder' }}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- if subheading != blank -%}
+        <p class="product-video-stories__subheading md:hidden">{{ subheading | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if has_popup_video -%}
+      <div class="product-video-stories__modal" data-video-modal hidden>
+        <button type="button" class="product-video-stories__modal-backdrop" data-video-close aria-label="{{ 'general.accessibility.close' | t | escape }}"></button>
+
+        <div class="product-video-stories__modal-dialog" role="dialog" aria-modal="true" aria-label="Video popup">
+          <button type="button" class="product-video-stories__modal-close" data-video-close aria-label="{{ 'general.accessibility.close' | t | escape }}">
+            {%- render 'icon' with 'close', width: 16, height: 16 -%}
+          </button>
+
+          <div class="product-video-stories__modal-media" data-video-modal-media></div>
+        </div>
+      </div>
+
+      {%- for item in vs -%}
+        {%- liquid
+          if is_meta
+            if item.media_type == 'video'
+              assign card_video = item
+              assign card_external = nil
+              assign card_alt = item.alt
+            else
+              assign card_video = item.video.value
+              assign card_external = item.external_video_url.value
+              assign card_alt = item.alt.value
+            endif
+            assign item_id = forloop.index
+          else
+            assign card_video = item.settings.video
+            assign card_external = item.settings.external_video_url
+            assign card_alt = item.settings.alt
+            assign item_id = item.id
+          endif
+
+          # Detect external video type and ID
+          assign external_id = card_external.id | default: ''
+          assign external_type = card_external.type | default: ''
+
+          if external_id == blank and card_external != blank
+            if card_external contains 'youtube.com' or card_external contains 'youtu.be'
+              assign external_type = 'youtube'
+              assign external_id = card_external | split: 'v=' | last | split: '&' | first | split: '/' | last
+            elsif card_external contains 'vimeo.com'
+              assign external_type = 'vimeo'
+              assign external_id = card_external | split: '/' | last
+            endif
+          endif
+        -%}
+
+        {%- if card_video != blank or external_id != blank -%}
+          <template id="product-video-stories-template-{{ item_id }}">
+            {%- if card_video != blank -%}
+              {{ card_video | video_tag: controls: true, autoplay: false, loop: false, muted: false, playsinline: true, preload: 'metadata', image_size: '1200x' }}            
+            {%- elsif external_id != blank -%}
+              {%- if external_type == 'youtube' -%}
+                <iframe data-external-video data-src="https://www.youtube.com/embed/{{ external_id }}?playsinline=1&autoplay=1&rel=0&modestbranding=1" title="{{ card_alt | escape }}" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+              {%- elsif external_type == 'vimeo' -%}
+                <iframe data-external-video data-src="https://player.vimeo.com/video/{{ external_id }}?autoplay=1&title=0&byline=0&portrait=0" title="{{ card_alt | escape }}" allow="autoplay; encrypted-media" allowfullscreen="allowfullscreen"></iframe>
+              {%- endif -%}
+            {%- endif -%}
+          </template>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{%- if has_popup_video -%}
+  <script>
+    (() => {
+      const sectionRoot = document.getElementById('shopify-section-{{ section.id }}');
+
+      if (!sectionRoot || sectionRoot.dataset.videoStoriesReady === 'true') {
+        return;
+      }
+
+      sectionRoot.dataset.videoStoriesReady = 'true';
+
+      const modal = sectionRoot.querySelector('[data-video-modal]');
+      const openButtons = sectionRoot.querySelectorAll('[data-video-open]');
+      const closeButtons = sectionRoot.querySelectorAll('[data-video-close]');
+      const modalMedia = sectionRoot.querySelector('[data-video-modal-media]');
+
+      if (!modal || !modalMedia || openButtons.length === 0) {
+        return;
+      }
+
+      const openModal = (button) => {
+        const templateId = button.getAttribute('data-video-template');
+        const template = templateId ? sectionRoot.querySelector(`#${templateId}`) : null;
+
+        if (!template) {
+          return;
+        }
+
+        modalMedia.innerHTML = '';
+        modalMedia.appendChild(template.content.cloneNode(true));
+
+        modal.hidden = false;
+        document.documentElement.classList.add('overflow-hidden');
+
+        const externalVideo = modalMedia.querySelector('[data-external-video]');
+        if (externalVideo && externalVideo.dataset.src) {
+          externalVideo.setAttribute('src', externalVideo.dataset.src);
+        }
+
+        const localVideo = modalMedia.querySelector('video');
+        if (localVideo) {
+          localVideo.currentTime = 0;
+          localVideo.play().catch(() => {});
+        }
+      };
+
+      const closeModal = () => {
+        modal.hidden = true;
+        document.documentElement.classList.remove('overflow-hidden');
+        modalMedia.innerHTML = '';
+      };
+
+      openButtons.forEach((button) => {
+        button.addEventListener('click', () => openModal(button));
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener('click', closeModal);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !modal.hidden) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
+{%- endif -%}
+{% endif %}
+{% schema %}
+{
+  "name": "Product video stories",
+  "class": "shopify-section--product-video-stories",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Designed to make your everyday life easier"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "97.1% recommend scanovus iron machine after 30 days"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video_card",
+      "name": "Video card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text",
+          "default": "Video thumbnail"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Shopify-hosted video"
+        },
+        {
+          "type": "video_url",
+          "id": "external_video_url",
+          "accept": ["youtube", "vimeo"],
+          "label": "External video URL"
+        },
+        {
+          "type": "text",
+          "id": "video_popup_title",
+          "label": "Popup video title",
+          "default": "Story video"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product video stories",
+      "category": "Image",
+      "blocks": [
+        { "type": "video_card" },
+        { "type": "video_card" },
+        { "type": "video_card" },
+        { "type": "video_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

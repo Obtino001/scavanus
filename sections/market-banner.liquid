@@ -1,0 +1,127 @@
+{%- liquid
+  assign current_country = localization.country.iso_code | downcase
+  assign active_block = blank
+  assign default_block = blank
+
+  for block in section.blocks
+    assign block_countries = block.settings.country_code | downcase
+    if block_countries contains current_country
+      assign active_block = block
+      break
+    endif
+    
+    if block.settings.is_default
+      assign default_block = block
+    endif
+  endfor
+
+  if active_block == blank
+    assign active_block = default_block | default: section.blocks.first
+  endif
+-%}
+
+<div class="country-banner-wrapper">
+  {% if active_block != blank %}
+    <div class="country-banner-content" {{ active_block.shopify_attributes }}>
+      
+      {% if active_block.settings.image != blank %}
+        {{ active_block.settings.image | image_url: width: 2000 | image_tag: class: 'country-banner-img', loading: 'lazy' }}
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+
+      {% if active_block.settings.heading != blank %}
+        <div class="country-banner-text">
+          <h2>{{ active_block.settings.heading }}</h2>
+        </div>
+      {% endif %}
+      
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  .country-banner-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    background-color: #f4f4f4;
+  }
+  
+  .country-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .country-banner-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .country-banner-text {
+    position: absolute;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Country Specific Banner",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "country_banner",
+      "name": "Country Banner",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "is_default",
+          "label": "Set as Default Banner",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "country_code",
+          "label": "Country ISO Code",
+          "info": "Enter the 2-letter country code (e.g., US, GB, DK)."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Welcome"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Country Specific Banner",
+      "blocks": [
+        {
+          "type": "country_banner",
+          "settings": {
+            "is_default": true,
+            "heading": "Global Store"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

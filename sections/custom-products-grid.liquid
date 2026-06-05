@@ -1,0 +1,376 @@
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .section {
+    padding-top: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid {
+    display: flex;
+    gap: 24px;
+    {% comment %} grid-template-columns: repeat(2, minmax(0, 1fr)); {% endcomment %}
+    flex-wrap: wrap;    
+    justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .custom-products-grid > div {
+    width: calc(50% - 12px);
+    max-width: calc(50% - 12px);
+  }
+  #shopify-section-{{ section.id }} .custom-products-grid product-card {
+    background: rgba(247, 245, 242, 1);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 8px 8px 15px 8px;
+    height: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__figure {
+    position: relative !important;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__image {
+    object-fit: {{ section.settings.image_fit }};
+    border-radius: 12px;
+    height: 100%;
+    aspect-ratio: {{ section.settings.image_aspect_ratio | replace: ':', '/' }};
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__quick-buy {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    position: static;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__quick-buy .pointer-coarse\:hidden {
+    display: none !important;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__quick-buy .pointer-fine\:hidden {
+    display: block !important;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__mobile-quick-buy-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    background: #ffffff;
+    color: transparent;
+    place-content: center;
+    display: grid;
+    border: none;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__mobile-quick-buy-button .icon {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__mobile-quick-buy-button::before {
+    content: "+";
+    color: rgba(51, 51, 51, 1);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 300;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__info {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__title,
+  #shopify-section-{{ section.id }} .custom-products-grid .product-card__title a {
+    font-weight: 400 !important;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgba(72, 72, 72, 1);
+  }
+
+  #shopify-section-{{ section.id }} .custom-products-grid .price,
+  #shopify-section-{{ section.id }} .custom-products-grid .price *,
+  #shopify-section-{{ section.id }} .custom-products-grid .sale-price,
+  #shopify-section-{{ section.id }} .custom-products-grid .sale-price *,
+  #shopify-section-{{ section.id }} .custom-products-grid .price-list,
+  #shopify-section-{{ section.id }} .custom-products-grid .price-list * {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .custom-products-grid {
+      {% comment %} grid-template-columns: repeat(4, minmax(0, 1fr)); {% endcomment %}
+      gap: 20px;
+    }
+    #shopify-section-{{ section.id }} .custom-products-grid > div {
+      width: calc(25% - 20px * 3 / 4);
+      max-width: calc(25% - 20px * 3 / 4);
+    }
+    #shopify-section-{{ section.id }} .custom-products-grid product-card {
+      padding: 20px;      
+    }
+
+    #shopify-section-{{ section.id }} .custom-products-grid .product-card__mobile-quick-buy-button {
+      width: 39px;
+      height: 39px;
+    }
+
+    #shopify-section-{{ section.id }} .custom-products-grid .product-card__mobile-quick-buy-button::before {
+      font-size: 28px;
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .section {
+      padding-top: 48px;
+    }
+  }
+</style>
+
+{%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
+{%- if is_section_visible contains 'true' -%}
+<div {% render 'section-properties' %}>
+  <div class="section-stack">
+    {%- if section.settings.show_header -%}
+      {%- render 'section-header',
+        subheading: section.settings.subheading,
+        heading: section.settings.title,
+        heading_color: section.settings.heading_color,
+        heading_gradient: section.settings.heading_gradient,
+        content: section.settings.content
+      -%}
+    {%- endif -%}
+
+    <div id="custom-products-grid-{{ section.id }}" class="custom-products-grid">
+      {%- for block in section.blocks -%}
+        {%- capture is_block_visible -%}{%- render 'block-market-check', block: block -%}{%- endcapture -%}
+        {%- if is_block_visible contains 'false' -%}{%- continue -%}{%- endif -%}
+        {%- if block.settings.product == blank -%}{%- continue -%}{%- endif -%}
+
+        <div data-custom-url="{{ block.settings.custom_link | default: '' }}" {{ block.shopify_attributes }}>
+          {%- render 'product-card',
+            product: block.settings.product,
+            stacked: true,
+            position: forloop.index,
+            background: section.settings.product_card_background,
+            text_color: section.settings.product_card_text_color,
+            show_badges: true,
+            show_quick_buy: false,
+            quick_buy_id_suffix: block.id
+          -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+<script>
+  (() => {
+    const root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root || root.dataset.customProductsGridReady === 'true') return;
+    root.dataset.customProductsGridReady = 'true';
+
+    const containers = root.querySelectorAll('[data-custom-url]');
+    containers.forEach((container) => {
+      const customUrl = container.getAttribute('data-custom-url');
+      if (!customUrl) return;
+
+      container.querySelectorAll('.product-card__figure a, .product-card__title a').forEach((link) => {
+        link.setAttribute('href', customUrl);
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Custom products grid",
+  "class": "shopify-section--custom-products-grid",
+  "tag": "section",
+  "disabled_on": {
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
+  },
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show section heading",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Products"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "select",
+      "id": "products_per_row_mobile",
+      "label": "Products per row (mobile)",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row_desktop",
+      "min": 2,
+      "max": 5,
+      "label": "Products per row (desktop)",
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "options": [
+        { "value": "auto", "label": "Natural" },
+        { "value": "1:1", "label": "Square (1:1)" },
+        { "value": "4:5", "label": "Portrait (4:5)" },
+        { "value": "0.85", "label": "Custom (0.85)" }
+      ],
+      "default": "0.85"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        { "value": "cover", "label": "Fill (Cover)" },
+        { "value": "contain", "label": "Fit (Contain)" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "product_card_background",
+      "label": "Product card background"
+    },
+    {
+      "type": "color",
+      "id": "product_card_text_color",
+      "label": "Product card text"
+    },
+    {
+      "type": "header",
+      "content": "Market Visibility"
+    },
+    {
+      "type": "select",
+      "id": "market_visibility",
+      "label": "Market visibility",
+      "options": [
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+      ],
+      "default": "all"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_item",
+      "name": "Product item",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom link override"
+        },
+        {
+          "type": "header",
+          "content": "Market Visibility"
+        },
+        {
+          "type": "select",
+          "id": "market_visibility",
+          "label": "Market visibility",
+          "options": [
+            { "value": "all", "label": "Global (All Markets)" },
+            { "value": "denmark", "label": "Denmark Only" },
+            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+          ],
+          "default": "all"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom products grid",
+      "category": "Collection",
+      "blocks": [
+        { "type": "product_item" },
+        { "type": "product_item" },
+        { "type": "product_item" },
+        { "type": "product_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

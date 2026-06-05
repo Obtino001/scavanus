@@ -1,0 +1,563 @@
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .product-centered-features__heading {
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 500;
+    max-width: 760px;
+    margin-inline: auto;
+    color: rgba(39, 39, 39, 1);
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__shell {
+    margin-top: 0px;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__panel {        
+    border-radius: 12px;
+    padding: 24px 22px;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: minmax(0, 1fr);    
+    position: relative;
+    isolation: isolate;
+    align-items: flex-end;
+    margin-top: -22px;    
+  }
+  #shopify-section-{{ section.id }} .product-centered-features__panel::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;    
+    height: var(--product-centered-features-panel-height);    
+    background: rgba(247, 245, 242, 1);
+    border-radius: 12px;
+    z-index: 0;
+    pointer-events: none;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__list {
+    display: grid;
+    gap: 12px;
+    {% comment %} align-content: stretch; {% endcomment %}
+    grid-auto-rows: 1fr;    
+    height: fit-content;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__item {
+    display: block;    
+    max-width: 218px;
+    margin: auto;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.75);
+    display: grid;
+    place-items: center;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__icon img,
+  #shopify-section-{{ section.id }} .product-centered-features__icon svg {   
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__text {
+    margin: 6px 0 0;
+    font-size: 12px;
+    line-height: 1.35;
+    color: #000;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__media {
+    order: -1;
+    display: grid;
+    place-items: end center;
+    align-self: start;
+    justify-self: center;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__media-inner {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__rings {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 125%;
+    aspect-ratio: 1;
+    pointer-events: none;
+    z-index: 0;
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid rgba(186, 208, 228, 0.55);
+    background: transparent;
+    animation-name: product-centered-features-ring-flash;
+    animation-duration: 2.8s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__ring:nth-child(1) {
+    width: 32%;
+    animation-delay: 0s;
+  }
+  #shopify-section-{{ section.id }} .product-centered-features__ring:nth-child(2) {
+    width: 52%;
+    animation-delay: 0.35s;
+  }
+  #shopify-section-{{ section.id }} .product-centered-features__ring:nth-child(3) {
+    width: 72%;
+    animation-delay: 0.7s;
+  }
+  #shopify-section-{{ section.id }} .product-centered-features__ring:nth-child(4) {
+    width: 92%;
+    animation-delay: 1.05s;
+  }
+
+  @keyframes product-centered-features-ring-flash {
+    0%,
+    100% {
+      opacity: 0.12;
+    }
+    50% {
+      opacity: 0.95;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .product-centered-features__ring {
+      {% comment %} animation: none !important; {% endcomment %}
+      opacity: 0.45;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__media-inner > img,
+  #shopify-section-{{ section.id }} .product-centered-features__media-inner > .placeholder {
+    position: relative;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .product-centered-features__media img,
+  #shopify-section-{{ section.id }} .product-centered-features__media .placeholder {
+    width: min(320px, 72vw);
+    display: block;
+  }
+  @media (min-width: 700px) {
+    img.product-centered-features__icon-mobile {
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    #shopify-section-{{ section.id }} .product-centered-features__icon-mobile {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__icon--has-mobile img.product-centered-features__icon-mobile {
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__icon--has-mobile .product-centered-features__icon-default {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__heading {
+      max-width: 300px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__panel::after {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__panel {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__media {
+      order: 0;
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__list--left {
+      grid-column: 1;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__list--right {
+      grid-column: 2;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .product-centered-features__heading {
+      font-size: 32px;
+      margin-bottom: 24px;
+      max-width: 540px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__shell {
+      margin-top: 0px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__panel {      
+      grid-template-columns: 1fr 1.4fr 1fr;      
+      gap: 22px;      
+      padding: 48px;
+      margin-top: -48px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__list {
+      gap: 45px;
+      grid-auto-rows: minmax(0, 1fr);      
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__item {
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__icon {
+      width: 46px;
+      height: 46px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__title {
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__text {
+      font-size: 12px;
+      line-height: 1.2;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__media {
+      order: 0;
+      grid-column: 2;
+      grid-row: 1;
+      align-self: end;      
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__media img,
+    #shopify-section-{{ section.id }} .product-centered-features__media .placeholder {
+      {% comment %} width: min(650px, 100%); {% endcomment %}
+       width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__list--left {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    #shopify-section-{{ section.id }} .product-centered-features__list--right {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+</style>
+{%- liquid
+  capture market_code
+    render 'block-market-check', block: section, return_market: true
+  endcapture
+  assign market_code = market_code | strip
+
+  assign data_meta = nil
+  if market_code == 'us_ca_mx' and product.metafields.custom.product_features_us_ca_mx.value != blank
+    assign data_meta = product.metafields.custom.product_features_us_ca_mx.value
+  elsif market_code == 'eu_non_european' and product.metafields.custom.product_features_eu_non.value != blank
+    assign data_meta = product.metafields.custom.product_features_eu_non.value
+  elsif market_code == 'eu' and product.metafields.custom.product_features_eu.value != blank
+    assign data_meta = product.metafields.custom.product_features_eu.value
+  else
+    assign data_meta = product.metafields.custom.product_features.value
+  endif
+
+  if data_meta != blank
+    assign fs = data_meta.features.value
+    assign is_meta = true
+    assign heading = data_meta.heading | default: section.settings.heading
+    assign center_image = data_meta.image.value | default: data_meta.image
+  else
+    assign fs = section.blocks
+    assign is_meta = false
+    assign heading = section.settings.heading
+    assign center_image = section.settings.image
+  endif
+-%}
+
+{% if data_meta != blank %}
+<div {% render 'section-properties' %}>
+  <div class="section-stack" style="gap: 0px;">
+    {%- if heading != blank -%}
+      <h2 class="h2 product-centered-features__heading">{{ heading | escape }}</h2>
+    {%- endif -%}
+
+    {%- assign total_feature_blocks = fs.size -%}    
+    {%- assign left_feature_count = total_feature_blocks | plus: 1 | divided_by: 2 -%}
+
+    <div class="product-centered-features__shell">
+      <div class="product-centered-features__panel">
+      <div class="product-centered-features__list product-centered-features__list--left">
+        {%- for block in fs -%}
+          {%- liquid
+            if is_meta
+              assign item_title = block.title.value | default: block.title
+              assign item_desc = block.description.value | default: block.description
+              assign item_mobile_icon = block.mobile_custom_icon.value | default: block.mobile_custom_icon
+              assign item_custom_icon = block.custom_icon.value | default: block.custom_icon
+              assign item_icon = block.icon.value | default: block.icon
+              assign item_attributes = ''
+            else
+              assign item_title = block.settings.title
+              assign item_desc = block.settings.text
+              assign item_mobile_icon = block.settings.mobile_custom_icon
+              assign item_custom_icon = block.settings.custom_icon
+              assign item_icon = block.settings.icon
+              assign item_attributes = block.shopify_attributes
+            endif
+          -%}
+          {%- if forloop.index <= left_feature_count -%}
+            <div class="product-centered-features__item" {{ item_attributes }}>
+              <span class="product-centered-features__icon{% if item_mobile_icon != blank %} product-centered-features__icon--has-mobile{% endif %}">
+                {%- if item_mobile_icon != blank -%}
+                  {{ item_mobile_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-mobile', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
+                {%- endif -%}
+                {%- if item_custom_icon != blank -%}
+                  {{ item_custom_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-default', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
+                {%- elsif item_icon != 'none' -%}
+                  <span class="product-centered-features__icon-default">
+                    {%- render 'icon' with item_icon, width: 20, height: 20 -%}
+                  </span>
+                {%- endif -%}
+              </span>
+              <span>
+                <p class="product-centered-features__title">{{ item_title | escape }}</p>
+                <p class="product-centered-features__text">{{ item_desc | escape }}</p>
+              </span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      <div class="product-centered-features__media">
+        <div class="product-centered-features__media-inner">
+          <div class="product-centered-features__rings" aria-hidden="true">
+            <span class="product-centered-features__ring"></span>
+            <span class="product-centered-features__ring"></span>
+            <span class="product-centered-features__ring"></span>
+            <span class="product-centered-features__ring"></span>
+          </div>
+   {%- if center_image != blank -%}
+            {{ center_image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '400,560,700,900,1200', sizes: '(max-width: 999px) 100vw, 36vw', alt: heading | escape }}
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="product-centered-features__list product-centered-features__list--right">
+        {%- for block in fs -%}
+          {%- liquid
+            if is_meta
+              assign item_title = block.title.value | default: block.title
+              assign item_desc = block.description.value | default: block.description
+              assign item_mobile_icon = block.mobile_custom_icon.value | default: block.mobile_custom_icon
+              assign item_custom_icon = block.custom_icon.value | default: block.custom_icon
+              assign item_icon = block.icon.value | default: block.icon
+              assign item_attributes = ''
+            else
+              assign item_title = block.settings.title
+              assign item_desc = block.settings.text
+              assign item_mobile_icon = block.settings.mobile_custom_icon
+              assign item_custom_icon = block.settings.custom_icon
+              assign item_icon = block.settings.icon
+              assign item_attributes = block.shopify_attributes
+            endif
+          -%}
+          {%- if forloop.index > left_feature_count -%}
+            <div class="product-centered-features__item" {{ item_attributes }}>
+              <span class="product-centered-features__icon{% if item_mobile_icon != blank %} product-centered-features__icon--has-mobile{% endif %}">
+                {%- if item_mobile_icon != blank -%}
+                  {{ item_mobile_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-mobile', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
+                {%- endif -%}
+                {%- if item_custom_icon != blank -%}
+                  {{ item_custom_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-default', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
+                {%- elsif item_icon != 'none' -%}
+                  <span class="product-centered-features__icon-default">
+                    {%- render 'icon' with item_icon, width: 20, height: 20 -%}
+                  </span>
+                {%- endif -%}
+              </span>
+              <span>
+                <p class="product-centered-features__title">{{ item_title | escape }}</p>
+                <p class="product-centered-features__text">{{ item_desc | escape }}</p>
+              </span>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const sectionRoot = document.getElementById('shopify-section-{{ section.id }}');
+    if (!sectionRoot || sectionRoot.dataset.centeredFeaturesReady === 'true') {
+      return;
+    }
+
+    sectionRoot.dataset.centeredFeaturesReady = 'true';
+
+    const panel = sectionRoot.querySelector('.product-centered-features__panel');
+    const leftList = sectionRoot.querySelector('.product-centered-features__list--left');
+    const rightList = sectionRoot.querySelector('.product-centered-features__list--right');
+    const items = sectionRoot.querySelectorAll('.product-centered-features__item');
+
+    if (!panel || !leftList || !rightList) {
+      return;
+    }
+
+    const syncPanelHeight = () => {
+      const leftHeight = leftList.offsetHeight;
+      const rightHeight = rightList.offsetHeight;
+      const maxListHeight = Math.max(leftHeight, rightHeight);
+      const panelStyles = window.getComputedStyle(panel);
+      const panelPadding =
+        parseFloat(panelStyles.paddingTop || '0') + parseFloat(panelStyles.paddingBottom || '0');
+      panel.style.setProperty('--product-centered-features-panel-height', `${maxListHeight + panelPadding}px`);
+    };
+
+    const syncItemHeights = () => {
+      items.forEach((item) => {
+        item.style.minHeight = '';
+      });
+
+      if (!window.matchMedia('(max-width: 699px)').matches || items.length === 0) {
+        return;
+      }
+
+      let maxItemHeight = 0;
+
+      items.forEach((item) => {
+        maxItemHeight = Math.max(maxItemHeight, item.offsetHeight);
+      });
+
+      items.forEach((item) => {
+        item.style.minHeight = `${maxItemHeight}px`;
+      });
+    };
+
+    const onResize = () => {
+      window.requestAnimationFrame(() => {
+        syncItemHeights();
+        syncPanelHeight();
+      });
+    };
+
+    syncItemHeights();
+    syncPanelHeight();
+    window.addEventListener('load', () => {
+      syncItemHeights();
+      syncPanelHeight();
+    });
+    window.addEventListener('resize', onResize);
+  })();
+</script>
+
+{% endif %}
+{% schema %}
+{
+  "name": "Product centered features",
+  "class": "shopify-section--product-centered-features",
+  "tag": "section",
+  "settings": [
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Everything you need to know about Automatic Ironing Machine 3.0" },
+    { "type": "image_picker", "id": "image", "label": "Center product image" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "side",
+          "label": "Side",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        { "type": "image_picker", "id": "custom_icon", "label": "Custom icon" },
+        { "type": "image_picker", "id": "mobile_custom_icon", "label": "Mobile custom icon" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Fallback icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "picto-star", "label": "Star" },
+            { "value": "picto-timer", "label": "Timer" },
+            { "value": "picto-validation", "label": "Validation" },
+            { "value": "picto-operator", "label": "Controls" }
+          ],
+          "default": "picto-star"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Dry & Iron in One Step" },
+        { "type": "text", "id": "text", "label": "Description", "default": "Tackles both tasks in one go so clothes are ready to wear." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product centered features",
+      "category": "Product",
+      "blocks": [{ "type": "feature" }, { "type": "feature" }, { "type": "feature" }, { "type": "feature" }]
+    }
+  ]
+}
+{% endschema %}
