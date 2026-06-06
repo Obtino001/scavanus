@@ -182,8 +182,13 @@
   "class": "shopify-section--origin-logos-marquee",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -191,10 +196,22 @@
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        { "value": "all", "label": "Global (All Markets)" },
-        { "value": "denmark", "label": "Denmark Only" },
-        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+        {
+          "value": "all",
+          "label": "Global (All Markets)"
+        },
+        {
+          "value": "denmark",
+          "label": "Denmark Only"
+        },
+        {
+          "value": "us_ca_mx",
+          "label": "US, CA & MX Only"
+        },
+        {
+          "value": "global_excluding_us_ca_mx",
+          "label": "Global (Exclude US, CA & MX)"
+        }
       ],
       "default": "all"
     },
@@ -204,15 +221,20 @@
       "label": "Full width",
       "default": true
     },
-    { "type": "header", "content": "Default Content (Fallback)" },
+    {
+      "type": "header",
+      "content": "Default Content (Fallback)"
+    },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "Trusted by leading partners"
     },
-
-    { "type": "header", "content": "Marquee Settings" },
+    {
+      "type": "header",
+      "content": "Marquee Settings"
+    },
     {
       "type": "range",
       "id": "scrolling_speed",
@@ -256,6 +278,12 @@
     {
       "type": "header",
       "content": "Colors"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     }
   ],
   "blocks": [
@@ -269,10 +297,16 @@
           "label": "Logo (Default/Denmark)",
           "info": "300 x 90px .png recommended"
         },
-        { "type": "image_picker", "id": "logo_denmark", "label": "Logo (Denmark)" },
-        
-        
-        { "type": "image_picker", "id": "logo_us_ca_mx", "label": "Logo (US, CA & MX)" },
+        {
+          "type": "image_picker",
+          "id": "logo_denmark",
+          "label": "Logo (Denmark)"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo_us_ca_mx",
+          "label": "Logo (US, CA & MX)"
+        },
         {
           "type": "range",
           "id": "logo_width",
@@ -296,11 +330,21 @@
       "name": "Origin logos marquee",
       "category": "Media",
       "blocks": [
-        { "type": "logo" },
-        { "type": "logo" },
-        { "type": "logo" },
-        { "type": "logo" },
-        { "type": "logo" }
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
       ]
     }
   ]

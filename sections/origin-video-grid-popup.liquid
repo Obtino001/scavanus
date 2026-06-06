@@ -400,8 +400,13 @@
   "class": "shopify-section--origin-video-grid-popup",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -427,9 +432,18 @@
       "id": "image_aspect_ratio",
       "label": "Image aspect ratio",
       "options": [
-        { "value": "auto", "label": "Natural" },
-        { "value": "1:1", "label": "Square (1:1)" },
-        { "value": "16:9", "label": "Wide (16:9)" }
+        {
+          "value": "auto",
+          "label": "Natural"
+        },
+        {
+          "value": "1:1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "16:9",
+          "label": "Wide (16:9)"
+        }
       ],
       "default": "1:1"
     },
@@ -438,8 +452,14 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        { "value": "cover", "label": "Fill (Cover)" },
-        { "value": "contain", "label": "Fit (Contain)" }
+        {
+          "value": "cover",
+          "label": "Fill (Cover)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit (Contain)"
+        }
       ],
       "default": "cover"
     },
@@ -448,29 +468,32 @@
       "content": "Colors"
     },
     {
-      "type": "color",
-      "id": "background",
-      "label": "Background"
-    },
-    {
-      "type": "color_background",
-      "id": "background_gradient",
-      "label": "Background gradient"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text"
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
     },
     {
       "type": "select",
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        { "value": "all", "label": "Global (All Markets)" },
-        { "value": "denmark", "label": "Denmark Only" },
-        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+        {
+          "value": "all",
+          "label": "Global (All Markets)"
+        },
+        {
+          "value": "denmark",
+          "label": "Denmark Only"
+        },
+        {
+          "value": "us_ca_mx",
+          "label": "US, CA & MX Only"
+        },
+        {
+          "value": "global_excluding_us_ca_mx",
+          "label": "Global (Exclude US, CA & MX)"
+        }
       ],
       "default": "all"
     }
@@ -505,7 +528,10 @@
         {
           "type": "video_url",
           "id": "external_video_url",
-          "accept": ["youtube", "vimeo"],
+          "accept": [
+            "youtube",
+            "vimeo"
+          ],
           "label": "External video URL"
         },
         {
@@ -519,10 +545,22 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            { "value": "all", "label": "Global (All Markets)" },
-            { "value": "denmark", "label": "Denmark Only" },
-            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+            {
+              "value": "all",
+              "label": "Global (All Markets)"
+            },
+            {
+              "value": "denmark",
+              "label": "Denmark Only"
+            },
+            {
+              "value": "us_ca_mx",
+              "label": "US, CA & MX Only"
+            },
+            {
+              "value": "global_excluding_us_ca_mx",
+              "label": "Global (Exclude US, CA & MX)"
+            }
           ],
           "default": "all"
         }
@@ -534,10 +572,18 @@
       "name": "Origin video grid popup",
       "category": "Video",
       "blocks": [
-        { "type": "video_item" },
-        { "type": "video_item" },
-        { "type": "video_item" },
-        { "type": "video_item" }
+        {
+          "type": "video_item"
+        },
+        {
+          "type": "video_item"
+        },
+        {
+          "type": "video_item"
+        },
+        {
+          "type": "video_item"
+        }
       ]
     }
   ]

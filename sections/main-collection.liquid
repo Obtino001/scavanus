@@ -576,7 +576,10 @@
         {
           "type": "video_url",
           "id": "external_video_url",
-          "accept": ["vimeo", "youtube"],
+          "accept": [
+            "vimeo",
+            "youtube"
+          ],
           "label": "External video URL",
           "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
         },
@@ -803,10 +806,22 @@
       "id": "image_aspect_ratio",
       "label": "Image aspect ratio",
       "options": [
-        { "value": "auto", "label": "Natural" },
-        { "value": "1:1", "label": "Square (1:1)" },
-        { "value": "4:5", "label": "Portrait (4:5)" },
-        { "value": "0.85", "label": "Custom (0.85)" }
+        {
+          "value": "auto",
+          "label": "Natural"
+        },
+        {
+          "value": "1:1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "4:5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "0.85",
+          "label": "Custom (0.85)"
+        }
       ],
       "default": "0.85"
     },
@@ -815,8 +830,14 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        { "value": "cover", "label": "Fill (Cover)" },
-        { "value": "contain", "label": "Fit (Contain)" }
+        {
+          "value": "cover",
+          "label": "Fill (Cover)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit (Contain)"
+        }
       ],
       "default": "cover"
     }

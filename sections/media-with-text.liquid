@@ -158,8 +158,13 @@ LIQUID
   "class": "shopify-section--media-with-text",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -173,7 +178,7 @@ LIQUID
       "type": "checkbox",
       "id": "alternate_media_position",
       "label": "Alternate media position",
-      "info": "When enabled, block-level media positioning is ignored, and media alternate positions automatically.",
+      "info": "When enabled, block-level media positioning is ignored, and media alternate positions automatically."
     },
     {
       "type": "select",
@@ -643,7 +648,10 @@ LIQUID
         {
           "type": "video_url",
           "id": "external_video_url",
-          "accept": ["vimeo", "youtube"],
+          "accept": [
+            "vimeo",
+            "youtube"
+          ],
           "label": "Video URL",
           "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
         },

@@ -23,11 +23,21 @@ but you can override them by manually passing a different value (although this s
 {%- endcomment -%}
 
 {%- assign full_width = full_width | default: section.settings.full_width, allow_false: true -%}
-{%- assign background_gradient = background_gradient | default: section.settings.background_gradient -%}
-{%- assign background = background | default: section.settings.background -%}
-{%- assign text_color = text_color | default: section.settings.text_color -%}
+{%- if section.settings.color_scheme != blank -%}
+  {%- assign background_gradient = section.settings.color_scheme.settings.background_gradient -%}
+  {%- assign background = section.settings.color_scheme.settings.background -%}
+  {%- assign text_color = section.settings.color_scheme.settings.text_color -%}
+{%- else -%}
+  {%- assign background_gradient = background_gradient | default: section.settings.background_gradient -%}
+  {%- assign background = background | default: section.settings.background -%}
+  {%- assign text_color = text_color | default: section.settings.text_color -%}
+{%- endif -%}
 {%- assign input_background = input_background | default: section.settings.input_background -%}
 {%- assign input_text_color = input_text_color | default: section.settings.input_text_color -%}
+
+{%- if section.settings.color_scheme != blank -%}
+  {%- capture class -%}{{ class }} color-{{ section.settings.color_scheme.id }}{%- endcapture -%}
+{%- endif -%}
 
 {%- if background_gradient == blank and background == blank or background == 'rgba(0,0,0,0)' or background == settings.background -%}
   {%- comment -%}The section blends, so we have to use vertical margin, and set a container{%- endcomment -%}
