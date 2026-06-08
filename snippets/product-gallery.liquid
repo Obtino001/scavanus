@@ -31,26 +31,40 @@ PRODUCT GALLERY COMPONENT
     endfor
   endif
 
+  assign is_sweden = false
+  if localization.country.iso_code == 'SE'
+    assign is_sweden = true
+  endif
+  
+  assign path_start = request.path | slice: 0, 4
+  if localization.language.iso_code == 'sv' or path_start == '/sv-' or path_start == '/sv/'
+    assign is_sweden = true
+  endif
+
   assign is_international = false
-  if localization.country.iso_code != 'DK'
+  if localization.country.iso_code != 'DK' and is_sweden == false
     assign is_international = true
   endif
 
-  assign path_start = request.path | slice: 0, 4
   if localization.language.iso_code == 'en' or path_start == '/en-' or path_start == '/en/'
     assign is_international = true
+    assign is_sweden = false
   endif
 
   for media in product.media
     assign media_alt = media.alt | downcase
     assign should_hide = false
 
-    if is_international
-      if media_alt contains '#da' or media_alt contains '#dk'
+    if is_sweden
+      if media_alt contains '#da' or media_alt contains '#dk' or media_alt contains '#en'
+        assign should_hide = true
+      endif
+    elsif is_international
+      if media_alt contains '#da' or media_alt contains '#dk' or media_alt contains '#se'
         assign should_hide = true
       endif
     else
-      if media_alt contains '#en'
+      if media_alt contains '#en' or media_alt contains '#se'
         assign should_hide = true
       endif
     endif

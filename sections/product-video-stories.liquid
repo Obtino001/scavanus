@@ -218,8 +218,18 @@
     assign is_english = true
   endif
 
+  assign is_sweden = false
+  if localization.country.iso_code == 'SE'
+    assign is_sweden = true
+  endif
+  if localization.language.iso_code == 'sv' or path_start == '/sv-' or path_start == '/sv/'
+    assign is_sweden = true
+  endif
+
   if market_code == 'us_ca_mx' and product.metafields.custom.videos_us_ca_mx.value != blank
     assign videos_meta = product.metafields.custom.videos_us_ca_mx.value
+  elsif is_sweden and product.metafields.custom.videos_se.value != blank
+    assign videos_meta = product.metafields.custom.videos_se.value
   elsif is_english and product.metafields.custom.videos_en_global.value != blank
     assign videos_meta = product.metafields.custom.videos_en_global.value
   else
