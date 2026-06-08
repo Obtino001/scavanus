@@ -230,45 +230,7 @@
   {
     "name": "Colors",
     "settings": [
-      {
-        "type": "color_scheme_group",
-        "id": "color_schemes",
-        "name": "Color schemes",
-        "definition": [
-          {
-            "header": "Scheme settings"
-          },
-          {
-            "type": "color",
-            "id": "background",
-            "label": "Background",
-            "default": "#ffffff"
-          },
-          {
-            "type": "color_background",
-            "id": "background_gradient",
-            "label": "Background gradient"
-          },
-          {
-            "type": "color",
-            "id": "text_color",
-            "label": "Text",
-            "default": "#1c1b1b"
-          },
-          {
-            "type": "color",
-            "id": "button_background",
-            "label": "Button background",
-            "default": "#000000"
-          },
-          {
-            "type": "color",
-            "id": "button_text_color",
-            "label": "Button text",
-            "default": "#ffffff"
-          }
-        ]
-      },
+
       {
         "type": "header",
         "content": "General"
