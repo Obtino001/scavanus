@@ -646,7 +646,7 @@
               {{ terms_label }} <a href="{{ section.settings.terms_link_url }}" style="text-decoration: underline;">{{ terms_link_text }}</a>
             </label>
           </div>
-          <p id="cart-terms-warning" style="display: none; color: #c0392b; font-size: 13px; text-align: center; margin: -8px 0 12px; animation: termsShake 0.4s ease;">{{ terms_warning_text }}</p>
+          <p id="cart-terms-warning" style="display: none; color: {{ section.settings.terms_warning_color | default: '#c0392b' }}; font-size: 13px; text-align: center; margin: -8px 0 12px; animation: termsShake 0.4s ease;">{{ terms_warning_text }}</p>
           <style>
 
             @keyframes termsShake {
@@ -827,6 +827,12 @@
       "id": "terms_warning_text",
       "label": "Warning message",
       "default": "Please accept the terms and conditions to proceed."
+    },
+    {
+      "type": "color",
+      "id": "terms_warning_color",
+      "label": "Terms warning message Color",
+      "default": "#c0392b"
     },
     {
       "type": "header",

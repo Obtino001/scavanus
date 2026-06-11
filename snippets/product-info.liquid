@@ -623,7 +623,7 @@ Supported variables
                   </div>
                   <style>
                     .specific p:nth-child(2n+1) {
-                      background-color: #f5f5f5;                      
+                      background-color: {{ section.settings.custom_background_color_19 | default: '#f5f5f5' }};                      
                     }
                     .specific p {
                       margin-top: 0px !important;
