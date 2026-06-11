@@ -2361,7 +2361,7 @@ var FreeShippingBar = class extends HTMLElement {
     this._currencyFormatter = new Intl.NumberFormat(Shopify.locale, { style: "currency", currency: Shopify.currency.active });
   }
   async connectedCallback() {
-    this.threshold = Math.round(this.threshold * (Shopify.currency.rate || 1));
+    this.threshold = Math.round(this.threshold);
     document.addEventListener("cart:change", this._onCartChangedListener);
   }
   disconnectedCallback() {

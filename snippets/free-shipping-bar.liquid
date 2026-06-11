@@ -13,6 +13,11 @@ Supported variables
 * size: accept the value "sm"
 {%- endcomment -%}
 
+{%- assign free_shipping_threshold = localization.market.metafields.custom.free_shipping_threshold.value -%}
+{%- if free_shipping_threshold.amount != blank -%}
+  {%- assign free_shipping_threshold = free_shipping_threshold.amount -%}
+{%- endif -%}
+{%- if free_shipping_threshold != blank -%}
 {%- liquid
   assign calculated_total_price = 0
 
@@ -34,7 +39,7 @@ Supported variables
 -%}
 
 {%- if cart.requires_shipping -%}
-  <free-shipping-bar class="free-shipping-bar" threshold="{{ settings.cart_free_shipping_threshold | times: 100.0 }}" total-price="{{ calculated_total_price }}" reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}" unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}" helper-message-template="{{ 'cart.free_shipping_bar.limit_unreached_html' | t: remaining_amount: '[[amount]]' | strip_html | escape }}">
+  <free-shipping-bar class="free-shipping-bar" threshold="{{ free_shipping_threshold | times: 100.0 }}" total-price="{{ calculated_total_price }}" reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}" unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}" helper-message-template="{{ 'cart.free_shipping_bar.limit_unreached_html' | t: remaining_amount: '[[amount]]' | strip_html | escape }}">
     <span class="free-shipping-bar__status">
       <span class="free-shipping-bar__reached-icon" aria-hidden="true">
         <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,4 +57,5 @@ Supported variables
       <span class="free-shipping-bar__helper-amount"></span>
     </div>
   </free-shipping-bar>
+{%- endif -%}
 {%- endif -%}

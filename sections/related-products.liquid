@@ -289,9 +289,7 @@ LIQUID
   "class": "shopify-section--product-recommendations",
   "tag": "section",
   "enabled_on": {
-    "templates": [
-      "product"
-    ]
+    "templates": ["product"]
   },
   "settings": [
     {
@@ -337,18 +335,9 @@ LIQUID
       "id": "image_ratio",
       "label": "Product image ratio",
       "options": [
-        {
-          "value": "square",
-          "label": "Square (Figma)"
-        },
-        {
-          "value": "short",
-          "label": "Landscape (4:3)"
-        },
-        {
-          "value": "tall",
-          "label": "Portrait (2:3)"
-        }
+        { "value": "square", "label": "Square (Figma)" },
+        { "value": "short", "label": "Landscape (4:3)" },
+        { "value": "tall", "label": "Portrait (2:3)" }
       ],
       "default": "square"
     },
@@ -396,6 +385,21 @@ LIQUID
       "type": "header",
       "content": "Colors",
       "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
     },
     {
       "type": "color",

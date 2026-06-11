@@ -173,13 +173,8 @@
   "class": "shopify-section--origin-image-text-equal",
   "tag": "section",
   "disabled_on": {
-    "templates": [
-      "password"
-    ],
-    "groups": [
-      "header",
-      "custom.overlay"
-    ]
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
   },
   "settings": [
     {
@@ -193,6 +188,8 @@
       "id": "image",
       "label": "Image (Default/Denmark)"
     },
+    
+    
     {
       "type": "image_picker",
       "id": "image_us_ca_mx",
@@ -203,18 +200,9 @@
       "id": "image_ratio",
       "label": "Image ratio",
       "options": [
-        {
-          "value": "landscape",
-          "label": "Landscape (714:578)"
-        },
-        {
-          "value": "square",
-          "label": "Square (1:1)"
-        },
-        {
-          "value": "portrait",
-          "label": "Portrait (3:4)"
-        }
+        { "value": "landscape", "label": "Landscape (714:578)" },
+        { "value": "square", "label": "Square (1:1)" },
+        { "value": "portrait", "label": "Portrait (3:4)" }
       ],
       "default": "landscape"
     },
@@ -223,14 +211,8 @@
       "id": "media_position",
       "label": "Image position (desktop)",
       "options": [
-        {
-          "value": "start",
-          "label": "Left"
-        },
-        {
-          "value": "end",
-          "label": "Right"
-        }
+        { "value": "start", "label": "Left" },
+        { "value": "end", "label": "Right" }
       ],
       "default": "end"
     },
@@ -263,6 +245,21 @@
     },
     {
       "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
       "id": "content_background",
       "label": "Content panel background",
       "default": "#f4f2f0"
@@ -272,22 +269,10 @@
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        {
-          "value": "all",
-          "label": "Global (All Markets)"
-        },
-        {
-          "value": "denmark",
-          "label": "Denmark Only"
-        },
-        {
-          "value": "us_ca_mx",
-          "label": "US, CA & MX Only"
-        },
-        {
-          "value": "global_excluding_us_ca_mx",
-          "label": "Global (Exclude US, CA & MX)"
-        }
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
       ],
       "default": "all"
     }
