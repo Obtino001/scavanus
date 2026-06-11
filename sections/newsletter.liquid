@@ -5,6 +5,7 @@
 {%- endif -%}
 
 <style>
+
   #shopify-section-{{ section.id }} {
     {%- if section.settings.image and has_custom_background -%}
       --section-spacing-block: 0px;
@@ -50,7 +51,7 @@
     max-width: 456px;
     font-size: 14px;
     line-height: 1.3;
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_1 }};
     margin-top: 15px;
   }
 
@@ -76,7 +77,7 @@
     height: 55px;
     border-radius: 24px;
     border: 0;
-    background: #fff;
+    background: {{ section.settings.custom_background_2 }};
     box-shadow: none;
     padding: 0 20px;
     font-size: 14px;    
@@ -90,8 +91,8 @@
     border-radius: 20px;
     height: 55px;
     box-shadow: none;
-    background: rgba(243, 233, 217, 1);
-    color:rgba(22, 22, 22, 1);
+    background: {{ section.settings.custom_background_3 }};
+    color: {{ section.settings.custom_color_4 }};
     font-size: 14px;
     font-weight: 500;
   }
@@ -108,7 +109,7 @@
     text-align: center;
     font-size: 10px;
     line-height: 1.3;
-    color: rgba(7, 7, 7, 1);
+    color: {{ section.settings.custom_color_5 }};
   }
 
   @media screen and (max-width: 699px) {
@@ -140,7 +141,7 @@
       font-size: 40px;
       line-height: 1.3;
       max-width: 520px;
-      color: rgba(39, 39, 39, 1);
+      color: {{ section.settings.custom_color_6 }};
     }
 
     #shopify-section-{{ section.id }} .newsletter-custom-box .newsletter-content .prose p {
@@ -148,6 +149,7 @@
       line-height: 1.35;
     }
   }
+
 </style>
 
 {%- capture newsletter_content -%}
@@ -233,8 +235,13 @@
   "class": "shopify-section--newsletter",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -323,6 +330,46 @@
       "type": "color",
       "id": "button_text_color",
       "label": "Button text color"
+    },
+    {
+      "type": "header",
+      "content": "Custom Added Colors"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_1",
+      "label": "Custom color 1",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_2",
+      "label": "Custom background 2",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_3",
+      "label": "Custom background 3",
+      "default": "rgba(243, 233, 217, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_4",
+      "label": "Custom color 4",
+      "default": "rgba(22, 22, 22, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_5",
+      "label": "Custom color 5",
+      "default": "rgba(7, 7, 7, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_6",
+      "label": "Custom color 6",
+      "default": "rgba(39, 39, 39, 1)"
     }
   ],
   "presets": [

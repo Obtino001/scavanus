@@ -1,6 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
 <style>
+
   #shopify-section-{{ section.id }} .origin-image-text-highlights {
     display: grid;
     gap: 28px;
@@ -55,7 +56,7 @@
     min-width: 60px;
     height: 60px;
     border-radius: 12px;
-    background: rgba(247, 245, 242, 1);
+    background: {{ section.settings.custom_background_1 }};
     display: grid;
     place-items: center;
     flex: 0 0 auto;
@@ -155,6 +156,7 @@
       max-width: 540px;
     }
   }
+
 </style>
 
 {%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
@@ -240,8 +242,13 @@
   "class": "shopify-section--origin-image-text-highlights",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -255,8 +262,6 @@
       "id": "image",
       "label": "Image (Default/Denmark)"
     },
-    
-    
     {
       "type": "image_picker",
       "id": "image_us_ca_mx",
@@ -267,9 +272,18 @@
       "id": "image_ratio",
       "label": "Image ratio",
       "options": [
-        { "value": "landscape", "label": "Landscape (4:3)" },
-        { "value": "square", "label": "Square (1:1)" },
-        { "value": "portrait", "label": "Portrait (3:4)" }
+        {
+          "value": "landscape",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "square",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait (3:4)"
+        }
       ],
       "default": "landscape"
     },
@@ -278,8 +292,14 @@
       "id": "media_position",
       "label": "Image position (desktop)",
       "options": [
-        { "value": "start", "label": "Left" },
-        { "value": "end", "label": "Right" }
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
       ],
       "default": "start"
     },
@@ -304,10 +324,22 @@
       "id": "stat_1_icon",
       "label": "Icon",
       "options": [
-        { "value": "picto-happy", "label": "Happy" },
-        { "value": "picto-validation", "label": "Validation" },
-        { "value": "picto-star", "label": "Star" },
-        { "value": "picto-like", "label": "Like" }
+        {
+          "value": "picto-happy",
+          "label": "Happy"
+        },
+        {
+          "value": "picto-validation",
+          "label": "Validation"
+        },
+        {
+          "value": "picto-star",
+          "label": "Star"
+        },
+        {
+          "value": "picto-like",
+          "label": "Like"
+        }
       ],
       "default": "picto-happy"
     },
@@ -337,10 +369,22 @@
       "id": "stat_2_icon",
       "label": "Icon",
       "options": [
-        { "value": "picto-star", "label": "Star" },
-        { "value": "picto-validation", "label": "Validation" },
-        { "value": "picto-like", "label": "Like" },
-        { "value": "picto-happy", "label": "Happy" }
+        {
+          "value": "picto-star",
+          "label": "Star"
+        },
+        {
+          "value": "picto-validation",
+          "label": "Validation"
+        },
+        {
+          "value": "picto-like",
+          "label": "Like"
+        },
+        {
+          "value": "picto-happy",
+          "label": "Happy"
+        }
       ],
       "default": "picto-star"
     },
@@ -402,12 +446,34 @@
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        { "value": "all", "label": "Global (All Markets)" },
-        { "value": "denmark", "label": "Denmark Only" },
-        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+        {
+          "value": "all",
+          "label": "Global (All Markets)"
+        },
+        {
+          "value": "denmark",
+          "label": "Denmark Only"
+        },
+        {
+          "value": "us_ca_mx",
+          "label": "US, CA & MX Only"
+        },
+        {
+          "value": "global_excluding_us_ca_mx",
+          "label": "Global (Exclude US, CA & MX)"
+        }
       ],
       "default": "all"
+    },
+    {
+      "type": "header",
+      "content": "Custom Added Colors"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_1",
+      "label": "Custom background 1",
+      "default": "rgba(247, 245, 242, 1)"
     }
   ],
   "presets": [

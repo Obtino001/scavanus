@@ -1,6 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
 <style>
+
   #shopify-section-{{ section.id }} .origin-faq-image {
     display: grid;
     gap: 24px;
@@ -15,14 +16,14 @@
     margin: 0;
     font-size: 32px;
     font-weight: 500;
-    color: rgba(39, 39, 39, 1);
+    color: {{ section.settings.custom_color_1 }};
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron {
     width: auto;
     height: auto;
     border-radius: 0;
     background: transparent;
-    color: rgba(39, 39, 39, 1);
+    color: {{ section.settings.custom_color_2 }};
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron svg {
     display: none;
@@ -33,19 +34,19 @@
     font-size: 24px;
     line-height: 1;
     font-weight: 400;
-    color: rgba(39, 39, 39, 1) !important;
+    color: {{ section.settings.custom_color_3 }} !important;
   }
   #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron::before {
     content: "−";
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron::before {
-    color: rgba(39, 39, 39, 1);
+    color: {{ section.settings.custom_color_4 }};
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron,
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:focus-visible .circle-chevron,
   #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron {
     background: transparent;
-    color: rgba(39, 39, 39, 1);
+    color: {{ section.settings.custom_color_5 }};
     border-color: transparent;
   }
 
@@ -67,7 +68,7 @@
     padding: 24px 0px;
     font-size: 16px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
+    color: {{ section.settings.custom_color_6 }};
   }
   .origin-faq-image  .accordion:first-child {
     border-block-start-width: 0px;
@@ -96,7 +97,7 @@
     }
     #shopify-section-{{ section.id }} .origin-faq-image__content {
       padding: 46px 16px 16px 16px;
-      background: rgba(247, 245, 242, 1);
+      background: {{ section.settings.custom_background_7 }};
       border-radius: 12px;
     }
   }
@@ -112,6 +113,7 @@
       min-height: 100%;
     }
   }
+
 </style>
 
 <div {% render 'section-properties' %}>
@@ -151,7 +153,10 @@
   "class": "shopify-section--origin-faq-with-image",
   "tag": "section",
   "disabled_on": {
-    "groups": ["header", "custom.overlay"]
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -170,6 +175,52 @@
       "type": "image_picker",
       "id": "image",
       "label": "Right image"
+    },
+    {
+      "type": "header",
+      "content": "Custom Added Colors"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_1",
+      "label": "Custom color 1",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_2",
+      "label": "Custom color 2",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_3",
+      "label": "Custom color 3",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_4",
+      "label": "Custom color 4",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_5",
+      "label": "Custom color 5",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_6",
+      "label": "Custom color 6",
+      "default": "rgba(0, 0, 0, 0.85)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_7",
+      "label": "Custom background 7",
+      "default": "rgba(247, 245, 242, 1)"
     }
   ],
   "blocks": [
@@ -196,7 +247,23 @@
     {
       "name": "Origin FAQ with image",
       "category": "Trust & social proof",
-      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }]
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
     }
   ]
 }

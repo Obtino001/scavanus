@@ -6,13 +6,14 @@
     ------------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
     <style>
+
       :root {
         --sticky-announcement-bar-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
       }
 
       #shopify-section-{{ section.id }} .announcement-bar--features {
-        background: rgba(247, 245, 242, 1);
-        color: #3f3f46;
+        background: {{ section.settings.custom_background_1 }};
+        color: {{ section.settings.custom_color_2 }};
       }
 
       #shopify-section-{{ section.id }} .announcement-bar__layout {
@@ -85,7 +86,7 @@
       #shopify-section-{{ section.id }} .announcement-bar__flag::after {
         content: "";
         position: absolute;
-        background: #ffffff;
+        background: {{ section.settings.custom_background_3 }};
       }
 
       #shopify-section-{{ section.id }} .announcement-bar__flag::before {
@@ -153,7 +154,7 @@
           right: -9px;
           width: 1px;
           height: 90%;
-          background: rgb(0 0 0 / 0.12);
+          background: {{ section.settings.custom_background_4 }};
           transform: translateY(-50%);
         }        
 
@@ -187,7 +188,8 @@
           top: calc(var(--sticky-header-enabled, 0) * var(--header-height, 0px));
         }
       {%- endif -%}
-    </style>
+    
+</style>
 
     {%- comment -%}
     ------------------------------------------------------------------------------------------------------------------------
@@ -447,6 +449,34 @@
       "type": "color",
       "id": "text_color",
       "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Custom Added Colors"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_1",
+      "label": "Custom background 1",
+      "default": "rgba(247, 245, 242, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_2",
+      "label": "Custom color 2",
+      "default": "#3f3f46"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_3",
+      "label": "Custom background 3",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_4",
+      "label": "Custom background 4",
+      "default": "rgb(0 0 0 / 0.12)"
     }
   ]
 }

@@ -1,6 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
 <style>
+
   #shopify-section-{{ section.id }} .section {
     --calculated-section-spacing-inline: 80px;
   }
@@ -56,7 +57,7 @@
     margin-bottom: 22px;
     font-size: 12px;
     line-height: 1.3;
-    color: rgba(0, 0, 0, 0.85);
+    color: {{ section.settings.custom_color_1 }};
     margin-top: 27px;
   }
 
@@ -208,7 +209,7 @@
     font-size: 24px;
     line-height: 1;
     font-weight: 400;
-    color: rgba(39, 39, 39, 1) !important;
+    color: {{ section.settings.custom_color_2 }} !important;
   }
 
   #shopify-section-{{ section.id }} .main-product__left-collapsible details[open].accordion .accordion__toggle .circle-chevron::before {
@@ -219,7 +220,7 @@
   #shopify-section-{{ section.id }} .main-product__left-collapsible .accordion__toggle .circle-chevron:hover,
   #shopify-section-{{ section.id }} .main-product__left-collapsible .accordion__toggle .circle-chevron:focus-visible,
   #shopify-section-{{ section.id }} .main-product__left-collapsible .group[aria-expanded="true"] .circle-chevron {
-    color: rgba(39, 39, 39, 1);
+    color: {{ section.settings.custom_color_3 }};
     background: transparent;
   }
 
@@ -242,14 +243,14 @@
     height: 8px;
     border-radius: 999px;
     opacity: 1;
-    background: rgba(255, 255, 255, 0.45);
+    background: {{ section.settings.custom_background_4 }};
     transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
   }
 
   #shopify-section-{{ section.id }} .product-gallery__desktop-dots > button[aria-current="true"] {
     width: 12px;
     height: 12px;
-    background: #fff;
+    background: {{ section.settings.custom_background_5 }};
   }
 
   #shopify-section-{{ section.id }} .product-gallery__zoom {
@@ -263,7 +264,7 @@
   }
 
   #shopify-section-{{ section.id }} .product-gallery__thumbnail[aria-current="true"] {
-    border-color: #000;
+    border-color: {{ section.settings.custom_border_color_6 }};
     opacity: 1;
   }
 
@@ -271,7 +272,7 @@
     gap: 10px;
     align-items: center;
     font-size: 12px;
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_7 }};
   }
 
   #shopify-section-{{ section.id }} .rating--trustpilot .rating__trustpilot-stars {
@@ -282,7 +283,7 @@
   }
 
   #shopify-section-{{ section.id }} .product .price-list compare-at-price {
-    color: rgba(7, 7, 7, 0.2) !important;
+    color: {{ section.settings.custom_color_8 }} !important;
   }
 
   #shopify-section-{{ section.id }} .product-info__price .product-info__badge-list .badge--on-sale {
@@ -306,10 +307,10 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    {% comment %} background: rgba(244, 244, 244, 1); {% endcomment %}
+    {% comment %} background: {{ section.settings.custom_background_9 }}; {% endcomment %}
     {% comment %} border-radius: 6px; {% endcomment %}
     {% comment %} padding: 9px 10px; {% endcomment %}
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_10 }};
     font-size: 13px;
     font-weight: 500;
     line-height: 1.3;
@@ -354,7 +355,7 @@
     align-items: center;
     gap: 8px;
     margin: 0 0 20px;            
-    color: rgba(0, 0, 0, 0.85);
+    color: {{ section.settings.custom_color_11 }};
     font-size: 16px;
     line-height: 1.2;
     font-weight: 400;    
@@ -367,7 +368,7 @@
     width: 10px;
     height: 10px;
     border-radius: 999px;
-    background: rgba(38, 190, 43, 1);
+    background: {{ section.settings.custom_background_12 }};
     flex: 0 0 10px;
     animation: product-stock-dot-core-{{ section.id }} 1.4s ease-in-out infinite;
   }
@@ -467,7 +468,7 @@
 
   #shopify-section-{{ section.id }} .product-info__icon-text-feature p {
     margin-top: 9px;
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_13 }};
     font-size: 12px;
     line-height: 1.3;
     font-weight: 400;
@@ -487,7 +488,7 @@
   }
   #shopify-section-{{ section.id }} .product-info__fit-products-title {
     padding-bottom: 22px;
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_14 }};
     font-size: 16px;
     line-height: 1.3;
     font-weight: 400;
@@ -524,21 +525,21 @@
   #shopify-section-{{ section.id }} .product-info__fit-products .horizontal-product__info .bold {
     font-size: 14px;
     font-weight: 500;
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_15 }};
   }
   .product-info__fit-products .horizontal-product__cta {
     margin-right: 0px;
   }
   .product .product-info__fit-products .price-list sale-price {
     font-size: 14px;
-    color: rgba(72, 72, 72, 1);
+    color: {{ section.settings.custom_color_16 }};
     font-weight: 500;
   }
   #shopify-section-{{ section.id }} .product-info__fit-products .horizontal-product__cta .button {
     padding: 12px 20px;
     border-radius: 100px;
-    background: rgba(234, 226, 211, 1);
-    color: rgba(35, 35, 35, 1);
+    background: {{ section.settings.custom_background_17 }};
+    color: {{ section.settings.custom_color_18 }};
     border: 0;
     box-shadow: none;
     font-weight: 500;
@@ -701,6 +702,7 @@
       display: flex;
     }
   }
+
 </style>
 
 {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
@@ -751,15 +753,17 @@
                     {% endfor %}
                   </div>
                   <style>
+
                     .specific p:nth-child(2n+1) {
-                      background-color: #f5f5f5;                      
+                      background-color: {{ section.settings.custom_background_color_19 }};                      
                     }
                     .specific p {
                       margin-top: 0px !important;
                       max-width: 240px;
                       padding: 10px 8px;
                     }
-                  </style>
+                  
+</style>
                 {%- endcapture -%}
               {% else %}
                 {%- capture accordion_content -%}<div class="prose">{{ block.settings.page.content | default: block.settings.content }}</div>{%- endcapture -%}
@@ -3028,6 +3032,124 @@ quick buy information in a template, that will be extracted in JS, but ensure it
       "type": "color",
       "id": "input_text_color",
       "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Custom Added Colors"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_1",
+      "label": "Custom color 1",
+      "default": "rgba(0, 0, 0, 0.85)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_2",
+      "label": "Custom color 2",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_3",
+      "label": "Custom color 3",
+      "default": "rgba(39, 39, 39, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_4",
+      "label": "Custom background 4",
+      "default": "rgba(255, 255, 255, 0.45)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_5",
+      "label": "Custom background 5",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "custom_border_color_6",
+      "label": "Custom border-color 6",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_7",
+      "label": "Custom color 7",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_8",
+      "label": "Custom color 8",
+      "default": "rgba(7, 7, 7, 0.2)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_9",
+      "label": "Custom background 9",
+      "default": "rgba(244, 244, 244, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_10",
+      "label": "Custom color 10",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_11",
+      "label": "Custom color 11",
+      "default": "rgba(0, 0, 0, 0.85)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_12",
+      "label": "Custom background 12",
+      "default": "rgba(38, 190, 43, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_13",
+      "label": "Custom color 13",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_14",
+      "label": "Custom color 14",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_15",
+      "label": "Custom color 15",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_16",
+      "label": "Custom color 16",
+      "default": "rgba(72, 72, 72, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_17",
+      "label": "Custom background 17",
+      "default": "rgba(234, 226, 211, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_color_18",
+      "label": "Custom color 18",
+      "default": "rgba(35, 35, 35, 1)"
+    },
+    {
+      "type": "color",
+      "id": "custom_background_color_19",
+      "label": "Custom background-color 19",
+      "default": "#f5f5f5"
     }
   ]
 }
