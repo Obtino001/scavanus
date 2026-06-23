@@ -1,1 +1,842 @@
-{"sections":{"origin_modern_hero_bH9Nee":{"type":"origin-modern-hero","custom_css":["@media (max-width: 699px) {.content-over-media--md {--content-over-media-height: 565px; }}"],"name":"Origin modern hero Global","settings":{"image":"shopify:\/\/shop_images\/5734c08954874ead8b66034ed5e66ced.HD-1080p-7.2Mbps-381450411-ezgif.com-mute-video_1.jpg","video":"shopify:\/\/files\/videos\/Website - banner video.mov","mobile_video":"shopify:\/\/files\/videos\/Ironing in the back.mov","image_size":"md","heading":"Få din tid tilbage","heading_size":"h1","description":"<p>Vi fjerner de opgaver i hverdagen, du udskyder – så du kan bruge tiden på det, der betyder noget.<\/p>","button_text":"Shop nu","button_link":"https:\/\/scanovus.com\/products\/det-automatiske-strygejern","show_rating":true,"rating_text":"TrustScore 4.7 | +500 anmeldelser","content_max_width":900,"text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":20,"button_background":"#ffffff","button_text_color":"#1f2937","market_visibility":"global_excluding_us_ca_mx"}},"origin_modern_hero_PqRfhK":{"type":"origin-modern-hero","custom_css":["@media (max-width: 699px) {.content-over-media--md {--content-over-media-height: 565px; }}"],"name":"Origin modern hero us\/ca\/mx","settings":{"image":"shopify:\/\/shop_images\/5734c08954874ead8b66034ed5e66ced.HD-1080p-7.2Mbps-381450411-ezgif.com-mute-video_1.jpg","video":"shopify:\/\/files\/videos\/Website - banner video.mov","mobile_video":"shopify:\/\/files\/videos\/Ironing in the back.mov","image_size":"md","heading":"Få din tid tilbage","heading_size":"h1","description":"<p>Vi fjerner de opgaver, du udskyder<br\/> så du får din tid tilbage<\/p>","button_text":"Shop now","button_link":"shopify:\/\/products\/automatic-ironing-machine-4-0","show_rating":true,"rating_text":"TrustScore 4.7 | +460 anmeldelser","content_max_width":900,"text_color":"#ffffff","overlay_color":"#000000","overlay_opacity":20,"button_background":"#ffffff","button_text_color":"#1f2937","market_visibility":"us_ca_mx"}},"text_with_icons_JU33iR":{"type":"text-with-icons","blocks":{"item_MXUKEg":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/Vector_3.svg","mobile_icon_width":32,"icon_width":32,"icon_background_type":"none","icon_background":"","icon_color":"","title":"","content":"<p><strong>Anbefalet af over 25.000 <\/strong><br\/>tilfredse kunder<\/p>"}},"item_pEK8H7":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/Vector_4.svg","mobile_icon_width":32,"icon_width":32,"icon_background_type":"none","icon_background":"","icon_color":"","title":"","content":"<p><strong>Gratis levering<\/strong><br\/>på ordrer over 299kr.<\/p>"}},"item_9pGgpa":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/Vector_5.svg","mobile_icon_width":32,"icon_width":32,"icon_background_type":"none","icon_background":"","icon_color":"","title":"","content":"<p><strong>Hurtig levering<\/strong><br\/>på 1-3 hverdage <\/p>"}},"item_pJaQBh":{"type":"item","settings":{"icon":"picto-coupon","custom_icon":"shopify:\/\/shop_images\/Vector_6.svg","mobile_icon_width":32,"icon_width":32,"icon_background_type":"none","icon_background":"","icon_color":"","title":"","content":"<p><strong>Tilfredshedsgaranti<\/strong><br\/>Prøv helt risikofrit<\/p>"}}},"block_order":["item_MXUKEg","item_pEK8H7","item_9pGgpa","item_pJaQBh"],"custom_css":["@media (max-width: 699px) {.text-with-icons {margin-top: -24px; margin-bottom: -24px; }}"],"name":"Text with icons","settings":{"full_width":true,"stack_on_mobile":true,"title":"","heading_tag":"h5","text_alignment":"center","icon_spacing":"medium","background":"","background_gradient":"","text_color":""}},"featured_collections_tabs_ijLfbf":{"type":"featured-collections-tabs","blocks":{"collection_tab_9GYNT7":{"type":"collection_tab","settings":{"title":"Bestsellers","collection":"bestsellers-frontpage","button_text":"Udforsk alle produkter"}},"collection_tab_9JwV6q":{"type":"collection_tab","settings":{"title":"Nyheder","collection":"nyheder","button_text":"Udforsk alle produkter"}},"collection_tab_jkYpEk":{"type":"collection_tab","settings":{"title":"","collection":"","button_text":"Udforsk alle produkter"}}},"block_order":["collection_tab_9GYNT7","collection_tab_9JwV6q","collection_tab_jkYpEk"],"name":"Featured collections tabs","settings":{"show_header":false,"full_width":true,"stack_products":false,"show_progress_bar":true,"products_count":10,"products_per_row_mobile":"2","products_per_row_desktop":4,"image_aspect_ratio":"0.85","image_fit":"cover","subheading":"","title":"Featured collections","content":"","background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","product_card_background":"","product_card_text_color":""}},"origin_image_text_highlights_n9VxGH":{"type":"origin-image-text-highlights","name":"Origin image text highlights","settings":{"full_width":false,"image":"shopify:\/\/shop_images\/Web_billede_pool.png","image_us_ca_mx":"shopify:\/\/shop_images\/Web_billede_pool.png","image_ratio":"landscape","media_position":"start","heading":"Gør hverdagen nemmere.","description":"<p>Drop besværet og spar værdifuld tid i en travl hverdag. Med Scanovus får du en smartere løsning, der klarer det tidskrævende arbejde for dig - så du kan fokusere på det, der virkelig betyder noget.<\/p>","stat_1_icon":"picto-happy","stat_1_custom_icon":"shopify:\/\/shop_images\/Vector_7.svg","stat_1_title":"25,000+","stat_1_text":"Tusindvis har allerede gjort deres hverdag lettere.","stat_2_icon":"picto-star","stat_2_custom_icon":"shopify:\/\/shop_images\/Vector_8.svg","stat_2_title":"4.7 ud af 5","stat_2_text":"Kunder anbefaler os for kvalitet, pålidelighed og enkelhed.","button_text":"Opdag fordelene","button_url":"\/collections\/all","background":"","background_gradient":"","text_color":"","stat_card_background":"#f6f4f1","market_visibility":"global_excluding_us_ca_mx"}},"origin_image_text_highlights_7kdFFM":{"type":"origin-image-text-highlights","name":"Origin image text highlights","settings":{"full_width":false,"image":"shopify:\/\/shop_images\/Web_billede_pool.png","image_ratio":"landscape","media_position":"start","heading":"Make everyday life easier.","description":"<p>Avoid the hassle and save valuable time in a busy daily life. With Scanovus, you get a smarter solution that handles the time-consuming work for you - so you can focus on what really matters.<\/p>","stat_1_icon":"picto-happy","stat_1_custom_icon":"shopify:\/\/shop_images\/Vector_7.svg","stat_1_title":"25,000+","stat_1_text":"Thousands have already made their everyday lives easier.","stat_2_icon":"picto-star","stat_2_custom_icon":"shopify:\/\/shop_images\/Vector_8.svg","stat_2_title":"4.7 out of 5","stat_2_text":"Customers recommend us for quality, reliability, and simplicity.","button_text":"Discover the benefits","button_url":"shopify:\/\/products\/automatic-ironing-machine-4-0","background":"","background_gradient":"","text_color":"","stat_card_background":"#f6f4f1","market_visibility":"us_ca_mx"}},"origin_featured_product_video_popup_p664Dx":{"type":"origin-featured-product-video-popup","blocks":{"avatar_PwUwJM":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/Banner video - 4x5.mov","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}},"avatar_Cdeye3":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect_1.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/Cleaning the kitchen.mov","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}},"avatar_6rWfyL":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect_2.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/Scanovus V2 EDIT.mp4","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}},"avatar_qaeHj9":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect_3.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/I'm testing this automatic ironing machine to see if it is any good. I've given it a heavily cr (1) (1).mp4","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}}},"block_order":["avatar_PwUwJM","avatar_Cdeye3","avatar_6rWfyL","avatar_qaeHj9"],"name":"Origin video popup","settings":{"full_width":false,"image":"shopify:\/\/shop_images\/Screen_Recording_2026-02-26_at_6.57.24_AM_1_1.jpg","main_video":"shopify:\/\/files\/videos\/Website - banner video.mov","heading":"Det Automatiske Strygejern 3.0","description":"<p>Sig farvel til tidskrævende strygning. Med det Automatiske Strygejern 3.0 får du nystrøgne skjorter på blot 8–12 minutter. Den justerbare pasform sikrer et flot og ensartet resultat hver gang – nemt, hurtigt og uden besvær.<\/p>","button_text":"Shop nu","button_url":"https:\/\/scanovus.com\/products\/det-automatiske-strygejern","proof_text":"Mere end 25.000 tilfredse kunder","background":"","background_gradient":"","text_color":"","content_background":"#f4f2f0","market_visibility":"global_excluding_us_ca_mx"}},"origin_featured_product_video_popup_QUyyCp":{"type":"origin-featured-product-video-popup","blocks":{"avatar_DhtDEi":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/Banner video - 4x5.mov","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}},"avatar_PdLN9J":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect_1.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/Cleaning the kitchen.mov","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}},"avatar_pAqhFG":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect_2.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/Scanovus V2 EDIT.mp4","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}},"avatar_VBea4D":{"type":"avatar","settings":{"image":"shopify:\/\/shop_images\/Intersect_3.png","alt":"Customer avatar","video":"shopify:\/\/files\/videos\/I'm testing this automatic ironing machine to see if it is any good. I've given it a heavily cr (1) (1).mp4","external_video_url":"","video_popup_title":"Customer video","market_visibility":"all"}}},"block_order":["avatar_DhtDEi","avatar_PdLN9J","avatar_pAqhFG","avatar_VBea4D"],"name":"Origin video popup","settings":{"full_width":false,"image":"shopify:\/\/shop_images\/Screen_Recording_2026-02-26_at_6.57.24_AM_1_1.jpg","main_video":"shopify:\/\/files\/videos\/Website - banner video.mov","heading":"Automatic Ironing Machine 4.0","description":"<p>Say goodbye to time-consuming ironing. With the Automatic Iron 4.0, you get freshly ironed shirts in just 8–12 minutes. The adjustable fit ensures a beautiful and consistent result every time – easy, fast, and hassle-free.<\/p>","button_text":"Shop now","button_url":"shopify:\/\/products\/automatic-ironing-machine-4-0","proof_text":"More than 25.000 happy customers","background":"","background_gradient":"","text_color":"","content_background":"#f4f2f0","market_visibility":"us_ca_mx"}},"origin_review_slider_HynL6G":{"type":"origin-review-slider","blocks":{"review_yf6CT7":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Vildt overrasket over resultatet. For første gang i årevis har jeg lutter strøgne skjorter i skabet.<\/p>","author":"Rasmus P."}},"review_U9ryPG":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Det var en top oplevelse fra A-Å. Kvik og hjælpsom kommunikation samt hurtig levering. Produktet fungerer som forventet omend ikke perfekt, så er den rigtig god, prisen taget i betragtning.<\/p>","author":"Johnson"}},"review_bWMDya":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Har aldrig været udpræget begejstret for at stryge, stor var min glæde, da jeg fandt Scanovus. Jeg har nu haft den i et år, og har ikke rørt et strygejern siden. Det er simpelthen en super hjælp. Når at lave andre ting når der stryges. Hurtig respons fra kundeservice, da jeg havde brug for hjælp.<\/p>","author":"Vibeke"}},"review_fEGUck":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Jeg er SÅ glad for mit nye køb. Det bedste er, at man kan få lavet andre ting i mens den står og stryger. Jeg har allerede brugt alle tre dele. Skjorter, bukser og sko funktionen.<\/p>","author":"Anne K."}},"review_LRKLdV":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Vi købte et automatisk strygejern fra SCANOVUS – og det er hurtigt blevet en fast del af vores uge.<\/p><p>På “Stryge-lørdag” kører vi tøjet direkte fra vaskemaskinen, og på 10–12 minutter er skjorter glatte og klar. Kjoler falder pænt, bukser bliver blødere – og selv børnene bruger den.<\/p><p>Jeg var skeptisk først. Men det virker. Hver gang.<\/p><p>Nu er tøjpleje en nem vane – ikke en bunke.<\/p>","author":"Clara L."}},"review_yGhAWH":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Har siden dag 1 været glad for mit automatiske strygejern – og har haft det med mange steder for altid at have en flot, strøget skjorte til anledningen.<\/p><p>Kan anbefale alle at investere i et automatisk strygejern, hvis man ønsker at se godt ud!<\/p>","author":"Frederik D."}},"review_HNPCma":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Super nemt at bestille. Lynhurtig levering i optimal emballage. Fantastiske produkter.<\/p><p>Jeg har både en damper og en strygemaskine, som jeg er super glad for. Jeg har allerede anbefalet jeres produkter til flere veninder, og jeg ved, at i hvert fald én har bestilt hos jer efterfølgende.<\/p>","author":"Helle S."}},"review_eWAPBQ":{"type":"review","settings":{"stars_label":"★★★★★","content":"<p>Nok verdens bedste kundeservice. Jeg er lidt for stor til de størrelser, deres strygerobot havde som standard, så de kære mennesker hos Scanovus har sat en speciallavet ballon i produktion. De vil gå til verdens ende for deres kunder – de er seriøst i en anden liga!<\/p><p>Derudover fungerer strygerobotten rigtig godt. Vi har prøvet den med min kærestes tøj, og den er blevet en uundværlig del af hverdagen hos os.<\/p>","author":"Nicolai B."}}},"block_order":["review_yf6CT7","review_U9ryPG","review_bWMDya","review_fEGUck","review_LRKLdV","review_yGhAWH","review_HNPCma","review_eWAPBQ"],"name":"Origin review slider","settings":{"full_width":false,"heading":"Hvad vores kunder siger","heading_mobile":"Hvad vores kunder siger","desktop_cards":3,"read_more_text":"Læs mere","read_less_text":"Læs mindre","summary_title":"Trustpilot","summary_rating":"4.7\/5","summary_meta":"(Baseret på +500 anmeldelser)","summary_button_text":"Se alle","summary_button_url":"https:\/\/www.trustpilot.com\/review\/scanovus.com","background":"","background_gradient":"","text_color":"","summary_card_background":"#f4f2f0"}},"section-15":{"type":"feature-chart","blocks":{"block-1":{"type":"headings","settings":{"heading_1":"Driver","heading_2":"Weight","heading_3":"Dimensions","heading_4":"Battery","heading_5":"","heading_6":"","heading_7":"","heading_8":"","heading_9":"","heading_10":"","heading_11":"","heading_12":"","heading_13":"","heading_14":"","heading_15":"","heading_16":"","heading_17":"","heading_18":"","heading_19":"","heading_20":""}},"block-2":{"type":"values","settings":{"product":"","value_1":"<p>40mm Beryllium<\/p>","value_2":"<p>245g<\/p>","value_3":"<p>165mm x 190mm x 66mm<\/p>","value_4":"<p>24 hours<\/p>","value_5":"","value_6":"","value_7":"","value_8":"","value_9":"","value_10":"","value_11":"","value_12":"","value_13":"","value_14":"","value_15":"","value_16":"","value_17":"","value_18":"","value_19":"","value_20":"","view_button_background":"","view_button_text_color":""}},"block-3":{"type":"values","settings":{"product":"","value_1":"<p>40mm Beryllium<\/p>","value_2":"<p>205g (On-Ear), 239g (Over-Ear)<\/p>","value_3":"<p>190mm x 155mm x 34mm (On-Ear), 200mm x 165mm x 40mm (Over-Ear)<\/p>","value_4":"<p>16 hours<\/p>","value_5":"","value_6":"","value_7":"","value_8":"","value_9":"","value_10":"","value_11":"","value_12":"","value_13":"","value_14":"","value_15":"","value_16":"","value_17":"","value_18":"","value_19":"","value_20":"","view_button_background":"","view_button_text_color":""}}},"block_order":["block-1","block-2","block-3"],"disabled":true,"settings":{"full_width":true,"subheading":"Compare","title":"Highlight key differences at a glance","content":"<p>This section is perfect for showcasing product comparisons side-by-side. Use it to display key features, specifications, and pricing so customers can quickly decide which item fits their needs.<\/p>","button_text":"Learn more","button_url":"","text_position":"start","max_rows":5,"view_all_text":"View all","view_less_text":"View less","view_product":"View","viewing_product":"","show_product_swatch":true,"background":"","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","button_background":"","button_text_color":"","chart_background":"","chart_text_color":"","chart_true_false_color":""}},"section-18":{"type":"faq","blocks":{"block-1":{"type":"item","settings":{"title":"Har Scanovus 30 dages tilfredshedsgaranti?","content":"<p>Ja – du kan prøve Scanovus derhjemme i 30 dage.<\/p><p>Hvis du ikke er tilfreds, kan du returnere produktet via vores returportal, og vi betaler returfragten.<\/p><p>Det gør det nemt og risikofrit at handle hos Scanovus.<\/p>"}},"block-2":{"type":"item","settings":{"title":"Hvornår modtager jeg min ordre?","content":"<p>Vi bestræber os på at afsende ordrer inden for 1-2 hverdage.<\/p><p>Den forventede leveringstid i Danmark er typisk 1-3 hverdage, hvis varen er på lager.<\/p>"}},"block-4":{"type":"item","settings":{"title":"Er det trygt at handle hos Scanovus?","content":"<p>Ja – vi gør en stor indsats for at sikre, at du får en tryg og god oplevelse hos os.<\/p><p>Vi har 4,7\/5 stjerner på Trustpilot baseret på mere end 500 anmeldelser, og vi tilbyder sikker betaling, hurtig levering og 30 dages tilfredshedsgaranti.<\/p>"}},"block-3":{"type":"item","settings":{"title":"Hvordan returnerer jeg en ordre?","content":"<p>Du kan nemt oprette din retur via vores returportal.<\/p><p>Du skal bruge dit ordrenummer og den e-mailadresse, du brugte ved bestilling. Når returen er oprettet, følger du instruktionerne i portalen.<\/p><p>For fulde returvilkår henviser vi til vores refunderingspolitik.<\/p>"}},"block-5":{"type":"item","settings":{"title":"Hvor finder jeg hjælp til mit produkt?","content":"<p>Du finder produktspecifikke FAQ’er direkte på de enkelte produktsider.<\/p><p>Du kan også besøge vores Produktguides, hvor vi har samlet tips, brugervejledninger og anbefalinger, så du får det bedst mulige resultat.<\/p>"}},"block-6":{"type":"item","disabled":true,"settings":{"title":"Har du brug for hjælp?","content":"<p>Du er velkommen til at kontakte os på <a>contact@scanovus.com <\/a>– vi svarer så hurtigt som muligt.<\/p>"}}},"block_order":["block-1","block-2","block-4","block-3","block-5","block-6"],"settings":{"full_width":false,"subheading":"","title":"Ofte stillede spørgsmål","content":"<p>Vi elsker at høre fra vores kunder.<\/p><p>Du er velkommen til at kontakte os via <strong>e-mail <\/strong>eller <strong>chatfunktionen<\/strong> – vi svarer så hurtigt som muligt.<\/p><p><strong>Email:<\/strong> kontakt@scanovus.com<br\/><br\/><a href=\"\/pages\/kontakt-os\" title=\"Kontakt Os\">Kontakt os her<\/a><\/p>","team_avatar_width":160,"support_hours":"","answer_time":"","button_text":"","button_url":"","text_position":"start","background":"#ffffff","background_gradient":"","text_color":"","heading_color":"","heading_gradient":"","button_background":"","button_text_color":"","accordion_background":"","accordion_text_color":""}},"origin_logos_marquee_mzWqR6":{"type":"origin-logos-marquee","blocks":{"logo_EXRD3A":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/Group_212.jpg","logo_width":210,"link":""}},"logo_wT3YK6":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/Group_213.jpg","logo_width":210,"link":""}},"logo_E7BR8E":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/Group_214.jpg","logo_width":210,"link":""}},"logo_JUjrNY":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/Group_215.jpg","logo_width":210,"link":""}},"logo_XAxqdb":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/Group_216.jpg","logo_width":210,"link":""}},"logo_9U8tPR":{"type":"logo","settings":{"logo":"shopify:\/\/shop_images\/Scanovus_logos.png","logo_width":210,"link":""}}},"block_order":["logo_EXRD3A","logo_wT3YK6","logo_E7BR8E","logo_JUjrNY","logo_XAxqdb","logo_9U8tPR"],"name":"Origin logos marquee","settings":{"market_visibility":"all","full_width":true,"heading":"Vi er blevet omtalt i","scrolling_speed":20,"logo_height":62,"logo_gap":62,"logo_opacity":100}},"origin_image_text_equal_DHNXrb":{"type":"origin-image-text-equal","name":"Origin image text equal","settings":{"full_width":false,"image":"shopify:\/\/shop_images\/Frontpage_founders_pic.png","image_ratio":"landscape","media_position":"end","heading":"Mød grundlæggerne af Scanovus","description":"<p>Vores vision er at være markedsleder inden for udviklingen af innovative produkter, der effektiviserer og forenkler hverdagsrutiner. Velkommen til Scanovus - din vej til en mere overskuelig hverdag.<\/p>","button_text":"Læs mere om os her","button_url":"\/pages\/about-us","background":"","background_gradient":"","text_color":"","content_background":"#f4f2f0","market_visibility":"all"}}},"order":["origin_modern_hero_bH9Nee","origin_modern_hero_PqRfhK","text_with_icons_JU33iR","featured_collections_tabs_ijLfbf","origin_image_text_highlights_n9VxGH","origin_image_text_highlights_7kdFFM","origin_featured_product_video_popup_p664Dx","origin_featured_product_video_popup_QUyyCp","origin_review_slider_HynL6G","section-15","section-18","origin_logos_marquee_mzWqR6","origin_image_text_equal_DHNXrb"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "origin_modern_hero_bH9Nee": {
+      "type": "origin-modern-hero",
+      "custom_css": [
+        "@media (max-width: 699px) {.content-over-media--md {--content-over-media-height: 565px; }}"
+      ],
+      "name": "Origin modern hero Global",
+      "settings": {
+        "image": "shopify://shop_images/5734c08954874ead8b66034ed5e66ced.HD-1080p-7.2Mbps-381450411-ezgif.com-mute-video_1.jpg",
+        "video": "shopify://files/videos/Website - banner video.mov",
+        "mobile_video": "shopify://files/videos/Ironing in the back.mov",
+        "image_size": "md",
+        "heading": "Få din tid tilbage",
+        "heading_size": "h1",
+        "description": "<p>Vi fjerner de opgaver i hverdagen, du udskyder – så du kan bruge tiden på det, der betyder noget.</p>",
+        "button_text": "Shop nu",
+        "button_link": "https://scanovus.com/products/det-automatiske-strygejern",
+        "show_rating": true,
+        "rating_text": "TrustScore 4.7 | +500 anmeldelser",
+        "content_max_width": 900,
+        "text_color": "#FFD1F1",
+        "overlay_color": "#FFD1F1",
+        "overlay_opacity": 4,
+        "button_background": "#79072F",
+        "button_text_color": "#FFD1F1",
+        "rating_icon_bg": "#79072F",
+        "rating_icon_star": "#ffffff",
+        "market_visibility": "global_excluding_us_ca_mx"
+      }
+    },
+    "origin_modern_hero_PqRfhK": {
+      "type": "origin-modern-hero",
+      "custom_css": [
+        "@media (max-width: 699px) {.content-over-media--md {--content-over-media-height: 565px; }}"
+      ],
+      "name": "Origin modern hero us/ca/mx",
+      "settings": {
+        "image": "shopify://shop_images/5734c08954874ead8b66034ed5e66ced.HD-1080p-7.2Mbps-381450411-ezgif.com-mute-video_1.jpg",
+        "video": "shopify://files/videos/Website - banner video.mov",
+        "mobile_video": "shopify://files/videos/Ironing in the back.mov",
+        "image_size": "md",
+        "heading": "Få din tid tilbage",
+        "heading_size": "h1",
+        "description": "<p>Vi fjerner de opgaver, du udskyder<br/> så du får din tid tilbage</p>",
+        "button_text": "Shop now",
+        "button_link": "shopify://products/automatic-ironing-machine-4-0",
+        "show_rating": true,
+        "rating_text": "TrustScore 4.7 | +460 anmeldelser",
+        "content_max_width": 900,
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 20,
+        "button_background": "#ffffff",
+        "button_text_color": "#1f2937",
+        "rating_icon_bg": "#579f78",
+        "rating_icon_star": "#ffffff",
+        "market_visibility": "us_ca_mx"
+      }
+    },
+    "text_with_icons_JU33iR": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_MXUKEg": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Vector_3.svg",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<p><strong>Anbefalet af over 25.000 </strong><br/>tilfredse kunder</p>"
+          }
+        },
+        "item_pEK8H7": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Vector_4.svg",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<p><strong>Gratis levering</strong><br/>på ordrer over 299kr.</p>"
+          }
+        },
+        "item_9pGgpa": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Vector_5.svg",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<p><strong>Hurtig levering</strong><br/>på 1-3 hverdage </p>"
+          }
+        },
+        "item_pJaQBh": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-coupon",
+            "custom_icon": "shopify://shop_images/Vector_6.svg",
+            "mobile_icon_width": 32,
+            "icon_width": 32,
+            "icon_background_type": "none",
+            "icon_background": "",
+            "icon_color": "",
+            "title": "",
+            "content": "<p><strong>Tilfredshedsgaranti</strong><br/>Prøv helt risikofrit</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_MXUKEg",
+        "item_pEK8H7",
+        "item_9pGgpa",
+        "item_pJaQBh"
+      ],
+      "custom_css": [
+        "@media (max-width: 699px) {.text-with-icons {margin-top: -24px; margin-bottom: -24px; }}"
+      ],
+      "name": "Text with icons",
+      "settings": {
+        "full_width": true,
+        "stack_on_mobile": true,
+        "title": "",
+        "heading_tag": "h5",
+        "text_alignment": "center",
+        "icon_spacing": "medium",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "custom_background_1": "#0000001f"
+      }
+    },
+    "featured_collections_tabs_ijLfbf": {
+      "type": "featured-collections-tabs",
+      "blocks": {
+        "collection_tab_9GYNT7": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Bestsellers",
+            "collection": "bestsellers-frontpage",
+            "button_text": "Udforsk alle produkter"
+          }
+        },
+        "collection_tab_9JwV6q": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "Nyheder",
+            "collection": "nyheder",
+            "button_text": "Udforsk alle produkter"
+          }
+        },
+        "collection_tab_jkYpEk": {
+          "type": "collection_tab",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "button_text": "Udforsk alle produkter"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_9GYNT7",
+        "collection_tab_9JwV6q",
+        "collection_tab_jkYpEk"
+      ],
+      "name": "Featured collections tabs",
+      "settings": {
+        "show_header": false,
+        "full_width": true,
+        "stack_products": false,
+        "show_progress_bar": true,
+        "products_count": 10,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "image_aspect_ratio": "0.85",
+        "image_fit": "cover",
+        "subheading": "",
+        "title": "Featured collections",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": "",
+        "custom_background_1": "#FFD1F1",
+        "custom_background_2": "#ffffff",
+        "custom_color_3": "#79072F",
+        "custom_color_4": "#FFD1F1",
+        "custom_color_5": "#79072F",
+        "custom_color_6": "#79072F",
+        "custom_color_7": "#79072F",
+        "custom_color_8": "#79072F",
+        "custom_color_9": "#79072F"
+      }
+    },
+    "origin_image_text_highlights_n9VxGH": {
+      "type": "origin-image-text-highlights",
+      "name": "Origin image text highlights",
+      "settings": {
+        "full_width": false,
+        "image": "shopify://shop_images/Web_billede_pool.png",
+        "image_us_ca_mx": "shopify://shop_images/Web_billede_pool.png",
+        "image_ratio": "landscape",
+        "media_position": "start",
+        "heading": "Gør hverdagen nemmere.",
+        "description": "<p>Drop besværet og spar værdifuld tid i en travl hverdag. Med Scanovus får du en smartere løsning, der klarer det tidskrævende arbejde for dig - så du kan fokusere på det, der virkelig betyder noget.</p>",
+        "stat_1_icon": "picto-happy",
+        "stat_1_custom_icon": "shopify://shop_images/Vector_7.svg",
+        "stat_1_title": "25,000+",
+        "stat_1_text": "Tusindvis har allerede gjort deres hverdag lettere.",
+        "stat_2_icon": "picto-star",
+        "stat_2_custom_icon": "shopify://shop_images/Vector_8.svg",
+        "stat_2_title": "4.7 ud af 5",
+        "stat_2_text": "Kunder anbefaler os for kvalitet, pålidelighed og enkelhed.",
+        "button_text": "Opdag fordelene",
+        "button_url": "/collections/all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "stat_card_background": "#f6f4f1",
+        "market_visibility": "global_excluding_us_ca_mx",
+        "custom_background_1": "#f7f5f2"
+      }
+    },
+    "origin_image_text_highlights_7kdFFM": {
+      "type": "origin-image-text-highlights",
+      "name": "Origin image text highlights",
+      "settings": {
+        "full_width": false,
+        "image": "shopify://shop_images/Web_billede_pool.png",
+        "image_ratio": "landscape",
+        "media_position": "start",
+        "heading": "Make everyday life easier.",
+        "description": "<p>Avoid the hassle and save valuable time in a busy daily life. With Scanovus, you get a smarter solution that handles the time-consuming work for you - so you can focus on what really matters.</p>",
+        "stat_1_icon": "picto-happy",
+        "stat_1_custom_icon": "shopify://shop_images/Vector_7.svg",
+        "stat_1_title": "25,000+",
+        "stat_1_text": "Thousands have already made their everyday lives easier.",
+        "stat_2_icon": "picto-star",
+        "stat_2_custom_icon": "shopify://shop_images/Vector_8.svg",
+        "stat_2_title": "4.7 out of 5",
+        "stat_2_text": "Customers recommend us for quality, reliability, and simplicity.",
+        "button_text": "Discover the benefits",
+        "button_url": "shopify://products/automatic-ironing-machine-4-0",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "stat_card_background": "#f6f4f1",
+        "market_visibility": "us_ca_mx",
+        "custom_background_1": "#f7f5f2"
+      }
+    },
+    "origin_featured_product_video_popup_p664Dx": {
+      "type": "origin-featured-product-video-popup",
+      "blocks": {
+        "avatar_PwUwJM": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/Banner video - 4x5.mov",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        },
+        "avatar_Cdeye3": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect_1.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/Cleaning the kitchen.mov",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        },
+        "avatar_6rWfyL": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect_2.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/Scanovus V2 EDIT.mp4",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        },
+        "avatar_qaeHj9": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect_3.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/I'm testing this automatic ironing machine to see if it is any good. I've given it a heavily cr (1) (1).mp4",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        }
+      },
+      "block_order": [
+        "avatar_PwUwJM",
+        "avatar_Cdeye3",
+        "avatar_6rWfyL",
+        "avatar_qaeHj9"
+      ],
+      "name": "Origin video popup",
+      "settings": {
+        "full_width": false,
+        "image": "shopify://shop_images/Screen_Recording_2026-02-26_at_6.57.24_AM_1_1.jpg",
+        "main_video": "shopify://files/videos/Website - banner video.mov",
+        "heading": "Det Automatiske Strygejern 3.0",
+        "description": "<p>Sig farvel til tidskrævende strygning. Med det Automatiske Strygejern 3.0 får du nystrøgne skjorter på blot 8–12 minutter. Den justerbare pasform sikrer et flot og ensartet resultat hver gang – nemt, hurtigt og uden besvær.</p>",
+        "button_text": "Shop nu",
+        "button_url": "https://scanovus.com/products/det-automatiske-strygejern",
+        "proof_text": "Mere end 25.000 tilfredse kunder",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "content_background": "#f4f2f0",
+        "market_visibility": "global_excluding_us_ca_mx",
+        "custom_background_1": "#f7f5f2",
+        "custom_background_2": "#f7f5f2",
+        "custom_color_3": "#000000",
+        "custom_color_4": "#ffffff",
+        "custom_background_5": "#000000a6",
+        "custom_background_6": "#000000",
+        "custom_background_7": "#00000099",
+        "custom_color_8": "#ffffff"
+      }
+    },
+    "origin_featured_product_video_popup_QUyyCp": {
+      "type": "origin-featured-product-video-popup",
+      "blocks": {
+        "avatar_DhtDEi": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/Banner video - 4x5.mov",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        },
+        "avatar_PdLN9J": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect_1.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/Cleaning the kitchen.mov",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        },
+        "avatar_pAqhFG": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect_2.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/Scanovus V2 EDIT.mp4",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        },
+        "avatar_VBea4D": {
+          "type": "avatar",
+          "settings": {
+            "image": "shopify://shop_images/Intersect_3.png",
+            "alt": "Customer avatar",
+            "video": "shopify://files/videos/I'm testing this automatic ironing machine to see if it is any good. I've given it a heavily cr (1) (1).mp4",
+            "external_video_url": "",
+            "video_popup_title": "Customer video",
+            "market_visibility": "all"
+          }
+        }
+      },
+      "block_order": [
+        "avatar_DhtDEi",
+        "avatar_PdLN9J",
+        "avatar_pAqhFG",
+        "avatar_VBea4D"
+      ],
+      "name": "Origin video popup",
+      "settings": {
+        "full_width": false,
+        "image": "shopify://shop_images/Screen_Recording_2026-02-26_at_6.57.24_AM_1_1.jpg",
+        "main_video": "shopify://files/videos/Website - banner video.mov",
+        "heading": "Automatic Ironing Machine 4.0",
+        "description": "<p>Say goodbye to time-consuming ironing. With the Automatic Iron 4.0, you get freshly ironed shirts in just 8–12 minutes. The adjustable fit ensures a beautiful and consistent result every time – easy, fast, and hassle-free.</p>",
+        "button_text": "Shop now",
+        "button_url": "shopify://products/automatic-ironing-machine-4-0",
+        "proof_text": "More than 25.000 happy customers",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "content_background": "#f4f2f0",
+        "market_visibility": "us_ca_mx",
+        "custom_background_1": "#f7f5f2",
+        "custom_background_2": "#f7f5f2",
+        "custom_color_3": "#000000",
+        "custom_color_4": "#ffffff",
+        "custom_background_5": "#000000a6",
+        "custom_background_6": "#000000",
+        "custom_background_7": "#00000099",
+        "custom_color_8": "#ffffff"
+      }
+    },
+    "origin_review_slider_HynL6G": {
+      "type": "origin-review-slider",
+      "blocks": {
+        "review_yf6CT7": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Vildt overrasket over resultatet. For første gang i årevis har jeg lutter strøgne skjorter i skabet.</p>",
+            "author": "Rasmus P."
+          }
+        },
+        "review_U9ryPG": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Det var en top oplevelse fra A-Å. Kvik og hjælpsom kommunikation samt hurtig levering. Produktet fungerer som forventet omend ikke perfekt, så er den rigtig god, prisen taget i betragtning.</p>",
+            "author": "Johnson"
+          }
+        },
+        "review_bWMDya": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Har aldrig været udpræget begejstret for at stryge, stor var min glæde, da jeg fandt Scanovus. Jeg har nu haft den i et år, og har ikke rørt et strygejern siden. Det er simpelthen en super hjælp. Når at lave andre ting når der stryges. Hurtig respons fra kundeservice, da jeg havde brug for hjælp.</p>",
+            "author": "Vibeke"
+          }
+        },
+        "review_fEGUck": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Jeg er SÅ glad for mit nye køb. Det bedste er, at man kan få lavet andre ting i mens den står og stryger. Jeg har allerede brugt alle tre dele. Skjorter, bukser og sko funktionen.</p>",
+            "author": "Anne K."
+          }
+        },
+        "review_LRKLdV": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Vi købte et automatisk strygejern fra SCANOVUS – og det er hurtigt blevet en fast del af vores uge.</p><p>På “Stryge-lørdag” kører vi tøjet direkte fra vaskemaskinen, og på 10–12 minutter er skjorter glatte og klar. Kjoler falder pænt, bukser bliver blødere – og selv børnene bruger den.</p><p>Jeg var skeptisk først. Men det virker. Hver gang.</p><p>Nu er tøjpleje en nem vane – ikke en bunke.</p>",
+            "author": "Clara L."
+          }
+        },
+        "review_yGhAWH": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Har siden dag 1 været glad for mit automatiske strygejern – og har haft det med mange steder for altid at have en flot, strøget skjorte til anledningen.</p><p>Kan anbefale alle at investere i et automatisk strygejern, hvis man ønsker at se godt ud!</p>",
+            "author": "Frederik D."
+          }
+        },
+        "review_HNPCma": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Super nemt at bestille. Lynhurtig levering i optimal emballage. Fantastiske produkter.</p><p>Jeg har både en damper og en strygemaskine, som jeg er super glad for. Jeg har allerede anbefalet jeres produkter til flere veninder, og jeg ved, at i hvert fald én har bestilt hos jer efterfølgende.</p>",
+            "author": "Helle S."
+          }
+        },
+        "review_eWAPBQ": {
+          "type": "review",
+          "settings": {
+            "stars_label": "★★★★★",
+            "content": "<p>Nok verdens bedste kundeservice. Jeg er lidt for stor til de størrelser, deres strygerobot havde som standard, så de kære mennesker hos Scanovus har sat en speciallavet ballon i produktion. De vil gå til verdens ende for deres kunder – de er seriøst i en anden liga!</p><p>Derudover fungerer strygerobotten rigtig godt. Vi har prøvet den med min kærestes tøj, og den er blevet en uundværlig del af hverdagen hos os.</p>",
+            "author": "Nicolai B."
+          }
+        }
+      },
+      "block_order": [
+        "review_yf6CT7",
+        "review_U9ryPG",
+        "review_bWMDya",
+        "review_fEGUck",
+        "review_LRKLdV",
+        "review_yGhAWH",
+        "review_HNPCma",
+        "review_eWAPBQ"
+      ],
+      "name": "Origin review slider",
+      "settings": {
+        "full_width": false,
+        "heading": "Hvad vores kunder siger",
+        "heading_mobile": "Hvad vores kunder siger",
+        "desktop_cards": 3,
+        "read_more_text": "Læs mere",
+        "read_less_text": "Læs mindre",
+        "summary_title": "Trustpilot",
+        "summary_rating": "4.7/5",
+        "summary_meta": "(Baseret på +500 anmeldelser)",
+        "summary_button_text": "Se alle",
+        "summary_button_url": "https://www.trustpilot.com/review/scanovus.com",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "summary_card_background": "#f4f2f0",
+        "custom_color_1": "#272727",
+        "custom_color_2": "#272727",
+        "custom_color_3": "#272727",
+        "custom_background_4": "#f7f5f2",
+        "custom_color_5": "#1a1a1a",
+        "custom_color_6": "#000000",
+        "custom_color_7": "#00b67a",
+        "custom_color_8": "#484848",
+        "custom_color_9": "#484848",
+        "custom_color_10": "#484848",
+        "custom_background_11": "#f7f5f2"
+      }
+    },
+    "section-15": {
+      "type": "feature-chart",
+      "blocks": {
+        "block-1": {
+          "type": "headings",
+          "settings": {
+            "heading_1": "Driver",
+            "heading_2": "Weight",
+            "heading_3": "Dimensions",
+            "heading_4": "Battery",
+            "heading_5": "",
+            "heading_6": "",
+            "heading_7": "",
+            "heading_8": "",
+            "heading_9": "",
+            "heading_10": "",
+            "heading_11": "",
+            "heading_12": "",
+            "heading_13": "",
+            "heading_14": "",
+            "heading_15": "",
+            "heading_16": "",
+            "heading_17": "",
+            "heading_18": "",
+            "heading_19": "",
+            "heading_20": ""
+          }
+        },
+        "block-2": {
+          "type": "values",
+          "settings": {
+            "product": "",
+            "value_1": "<p>40mm Beryllium</p>",
+            "value_2": "<p>245g</p>",
+            "value_3": "<p>165mm x 190mm x 66mm</p>",
+            "value_4": "<p>24 hours</p>",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": "",
+            "value_11": "",
+            "value_12": "",
+            "value_13": "",
+            "value_14": "",
+            "value_15": "",
+            "value_16": "",
+            "value_17": "",
+            "value_18": "",
+            "value_19": "",
+            "value_20": "",
+            "view_button_background": "",
+            "view_button_text_color": ""
+          }
+        },
+        "block-3": {
+          "type": "values",
+          "settings": {
+            "product": "",
+            "value_1": "<p>40mm Beryllium</p>",
+            "value_2": "<p>205g (On-Ear), 239g (Over-Ear)</p>",
+            "value_3": "<p>190mm x 155mm x 34mm (On-Ear), 200mm x 165mm x 40mm (Over-Ear)</p>",
+            "value_4": "<p>16 hours</p>",
+            "value_5": "",
+            "value_6": "",
+            "value_7": "",
+            "value_8": "",
+            "value_9": "",
+            "value_10": "",
+            "value_11": "",
+            "value_12": "",
+            "value_13": "",
+            "value_14": "",
+            "value_15": "",
+            "value_16": "",
+            "value_17": "",
+            "value_18": "",
+            "value_19": "",
+            "value_20": "",
+            "view_button_background": "",
+            "view_button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "Compare",
+        "title": "Highlight key differences at a glance",
+        "content": "<p>This section is perfect for showcasing product comparisons side-by-side. Use it to display key features, specifications, and pricing so customers can quickly decide which item fits their needs.</p>",
+        "button_text": "Learn more",
+        "button_url": "",
+        "text_position": "start",
+        "max_rows": 5,
+        "view_all_text": "View all",
+        "view_less_text": "View less",
+        "view_product": "View",
+        "viewing_product": "",
+        "show_product_swatch": true,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "chart_background": "",
+        "chart_text_color": "",
+        "chart_true_false_color": ""
+      }
+    },
+    "section-18": {
+      "type": "faq",
+      "blocks": {
+        "block-1": {
+          "type": "item",
+          "settings": {
+            "title": "Har Scanovus 30 dages tilfredshedsgaranti?",
+            "content": "<p>Ja – du kan prøve Scanovus derhjemme i 30 dage.</p><p>Hvis du ikke er tilfreds, kan du returnere produktet via vores returportal, og vi betaler returfragten.</p><p>Det gør det nemt og risikofrit at handle hos Scanovus.</p>"
+          }
+        },
+        "block-2": {
+          "type": "item",
+          "settings": {
+            "title": "Hvornår modtager jeg min ordre?",
+            "content": "<p>Vi bestræber os på at afsende ordrer inden for 1-2 hverdage.</p><p>Den forventede leveringstid i Danmark er typisk 1-3 hverdage, hvis varen er på lager.</p>"
+          }
+        },
+        "block-4": {
+          "type": "item",
+          "settings": {
+            "title": "Er det trygt at handle hos Scanovus?",
+            "content": "<p>Ja – vi gør en stor indsats for at sikre, at du får en tryg og god oplevelse hos os.</p><p>Vi har 4,7/5 stjerner på Trustpilot baseret på mere end 500 anmeldelser, og vi tilbyder sikker betaling, hurtig levering og 30 dages tilfredshedsgaranti.</p>"
+          }
+        },
+        "block-3": {
+          "type": "item",
+          "settings": {
+            "title": "Hvordan returnerer jeg en ordre?",
+            "content": "<p>Du kan nemt oprette din retur via vores returportal.</p><p>Du skal bruge dit ordrenummer og den e-mailadresse, du brugte ved bestilling. Når returen er oprettet, følger du instruktionerne i portalen.</p><p>For fulde returvilkår henviser vi til vores refunderingspolitik.</p>"
+          }
+        },
+        "block-5": {
+          "type": "item",
+          "settings": {
+            "title": "Hvor finder jeg hjælp til mit produkt?",
+            "content": "<p>Du finder produktspecifikke FAQ’er direkte på de enkelte produktsider.</p><p>Du kan også besøge vores Produktguides, hvor vi har samlet tips, brugervejledninger og anbefalinger, så du får det bedst mulige resultat.</p>"
+          }
+        },
+        "block-6": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "title": "Har du brug for hjælp?",
+            "content": "<p>Du er velkommen til at kontakte os på <a>contact@scanovus.com </a>– vi svarer så hurtigt som muligt.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-4",
+        "block-3",
+        "block-5",
+        "block-6"
+      ],
+      "settings": {
+        "full_width": false,
+        "subheading": "",
+        "title": "Ofte stillede spørgsmål",
+        "content": "<p>Vi elsker at høre fra vores kunder.</p><p>Du er velkommen til at kontakte os via <strong>e-mail </strong>eller <strong>chatfunktionen</strong> – vi svarer så hurtigt som muligt.</p><p><strong>Email:</strong> kontakt@scanovus.com<br/><br/><a href=\"/pages/kontakt-os\" title=\"Kontakt Os\">Kontakt os her</a></p>",
+        "team_avatar_width": 160,
+        "support_hours": "",
+        "answer_time": "",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "#ffffff",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": "",
+        "custom_color_1": "#272727"
+      }
+    },
+    "origin_logos_marquee_mzWqR6": {
+      "type": "origin-logos-marquee",
+      "blocks": {
+        "logo_EXRD3A": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_212.jpg",
+            "logo_width": 210,
+            "link": ""
+          }
+        },
+        "logo_wT3YK6": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_213.jpg",
+            "logo_width": 210,
+            "link": ""
+          }
+        },
+        "logo_E7BR8E": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_214.jpg",
+            "logo_width": 210,
+            "link": ""
+          }
+        },
+        "logo_JUjrNY": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_215.jpg",
+            "logo_width": 210,
+            "link": ""
+          }
+        },
+        "logo_XAxqdb": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_216.jpg",
+            "logo_width": 210,
+            "link": ""
+          }
+        },
+        "logo_9U8tPR": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Scanovus_logos.png",
+            "logo_width": 210,
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_EXRD3A",
+        "logo_wT3YK6",
+        "logo_E7BR8E",
+        "logo_JUjrNY",
+        "logo_XAxqdb",
+        "logo_9U8tPR"
+      ],
+      "name": "Origin logos marquee",
+      "settings": {
+        "market_visibility": "all",
+        "full_width": true,
+        "heading": "Vi er blevet omtalt i",
+        "scrolling_speed": 20,
+        "logo_height": 62,
+        "logo_gap": 62,
+        "logo_opacity": 100
+      }
+    },
+    "origin_image_text_equal_DHNXrb": {
+      "type": "origin-image-text-equal",
+      "name": "Origin image text equal",
+      "settings": {
+        "full_width": false,
+        "image": "shopify://shop_images/Frontpage_founders_pic.png",
+        "image_ratio": "landscape",
+        "media_position": "end",
+        "heading": "Mød grundlæggerne af Scanovus",
+        "description": "<p>Vores vision er at være markedsleder inden for udviklingen af innovative produkter, der effektiviserer og forenkler hverdagsrutiner. Velkommen til Scanovus - din vej til en mere overskuelig hverdag.</p>",
+        "button_text": "Læs mere om os her",
+        "button_url": "/pages/about-us",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "content_background": "#f4f2f0",
+        "market_visibility": "all"
+      }
+    }
+  },
+  "order": [
+    "origin_modern_hero_bH9Nee",
+    "origin_modern_hero_PqRfhK",
+    "text_with_icons_JU33iR",
+    "featured_collections_tabs_ijLfbf",
+    "origin_image_text_highlights_n9VxGH",
+    "origin_image_text_highlights_7kdFFM",
+    "origin_featured_product_video_popup_p664Dx",
+    "origin_featured_product_video_popup_QUyyCp",
+    "origin_review_slider_HynL6G",
+    "section-15",
+    "section-18",
+    "origin_logos_marquee_mzWqR6",
+    "origin_image_text_equal_DHNXrb"
+  ]
+}
