@@ -1,3 +1,4 @@
+{%- render 'section-color-css' -%}
 <style>
   #cart-drawer .cart-drawer__benefits,
   #cart-drawer .cart-drawer__trustpilot {
@@ -41,7 +42,7 @@
   }
 
   #cart-drawer .cart-drawer__line-items line-item.line-item {
-    background: rgba(247, 245, 242, 1);
+    background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
     border-radius: 12px;
     padding: 19px 16px;
   }
@@ -285,7 +286,7 @@
     width: calc(100% + 72px);
     margin-left: -36px;
     margin-right: -36px;
-    background: rgba(247, 245, 242, 1);
+    background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
     border-top: 1px solid rgba(206, 206, 206, 1);
     padding-right: 36px;
     padding-left: 36px;

@@ -157,7 +157,7 @@
   @media screen and (max-width: 699px) {
     #shopify-section-{{ section.id }} .why-scanovus {
       padding: 35px 17px;
-      background: rgba(247, 245, 242, 1);
+      background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
       border-radius: 12px;
     }
 
@@ -174,7 +174,7 @@
     }
 
     #shopify-section-{{ section.id }} .why-scanovus__machine-inner {
-      background: rgba(247, 245, 242, 1);
+      background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
     }
   }
 </style>

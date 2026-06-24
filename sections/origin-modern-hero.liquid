@@ -58,8 +58,8 @@
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    background: {{ section.settings.button_background }};
-    color: {{ section.settings.button_text_color }};
+    background: {{ section.settings.button_background | default: '#ffffff' }};
+    color: {{ section.settings.button_text_color | default: '#1f2937' }};
     margin-top: 34px;
   }
 

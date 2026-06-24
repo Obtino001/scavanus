@@ -99,7 +99,7 @@
     }
     #shopify-section-{{ section.id }} .origin-faq-image__content {
       padding: 46px 16px 16px 16px;
-      background: rgba(247, 245, 242, 1);
+      background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
       border-radius: 12px;
     }
   }

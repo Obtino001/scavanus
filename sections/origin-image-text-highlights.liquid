@@ -57,7 +57,7 @@
     min-width: 60px;
     height: 60px;
     border-radius: 12px;
-    background: rgba(247, 245, 242, 1);
+    background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
     display: grid;
     place-items: center;
     flex: 0 0 auto;

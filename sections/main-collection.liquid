@@ -62,7 +62,7 @@
   }
 
   #shopify-section-{{ section.id }} product-card {
-    background: rgba(247, 245, 242, 1);
+    background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
     border-radius: 12px;
     overflow: hidden;
     padding: 20px;
