@@ -39,11 +39,18 @@ Usage: {% render 'block-color-css', block: block %}
       p,
       span:not(.product-info__feature-pill-icon),
       li,
+      h1, h2, h3, h4, h5, h6, a,
+      sale-price, compare-at-price, unit-price, variant-sku,
       .text-subdued,
       .prose,
       .origin-review-slider__content,
       .origin-review-slider__author,
-      .text-with-icons__text
+      .text-with-icons__text,
+      .product-info__title,
+      .product-info__vendor,
+      .product-info__sku,
+      .price,
+      .price-list
     ) {
       color: {{ block_text }};
     }
@@ -63,6 +70,20 @@ Usage: {% render 'block-color-css', block: block %}
       .card
     ) {
       background: {{ block_bg }};
+    }
+
+    #shopify-block-{{ block.id }} :is(
+      .product-info__price,
+      .product-info__title,
+      .product-info__vendor,
+      .product-info__sku,
+      .product-info__button,
+      .product-info__badge-list
+    ) {
+      background: {{ block_bg }};
+      padding: 10px 14px;
+      border-radius: var(--rounded-sm, 6px);
+      width: fit-content;
     }
   {%- endif -%}
 
