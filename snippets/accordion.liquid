@@ -31,7 +31,12 @@ Supported parameters
             {% capture icon_widths %}{{ icon_width }},{{ icon_width | times: 2 }},{{ icon_width | times: 3 }}{%- endcapture -%}
             {% capture icon_style %}--image-max-width: {{ icon_sizes }}{%- endcapture -%}
 
-            {{- icon | image_url: width: icon.width | image_tag: loading: 'lazy', sizes: icon_sizes, widths: icon_widths, style: icon_style -}}
+            {%- assign custom_icon_url = icon | image_url -%}
+            {%- if custom_icon_url contains '.svg' -%}
+              <span style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: {{ icon_sizes }};"></span>
+            {%- else -%}
+              {{- icon | image_url: width: icon.width | image_tag: loading: 'lazy', sizes: icon_sizes, widths: icon_widths, style: icon_style -}}
+            {%- endif -%}
           {%- else -%}
             {%- render 'icon' with icon, width: icon_width -%}
           {%- endif -%}

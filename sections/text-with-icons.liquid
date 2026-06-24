@@ -132,9 +132,14 @@
             <div id="block-{{ section.id }}-{{ block.id }}" class="text-with-icons__item snap-center" role="group" aria-label="{{ 'general.accessibility.item_nth_of_count' | t: index: forloop.index, count: section.blocks.size }}" {{ block.shopify_attributes }}>
               {%- capture icon -%}
                 {%- if block.settings.custom_icon != blank -%}
-                  {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
-                  {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
-                  {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: loading: loading_strategy, sizes: sizes, widths: widths, class: 'image-icon' -}}
+                  {%- assign custom_icon_url = block.settings.custom_icon | image_url -%}
+                  {%- if custom_icon_url contains '.svg' -%}
+                    <span class="image-icon image-icon--svg" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain;"></span>
+                  {%- else -%}
+                    {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
+                    {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
+                    {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: loading: loading_strategy, sizes: sizes, widths: widths, class: 'image-icon' -}}
+                  {%- endif -%}
                 {%- else -%}
                   {%- render 'icon' with block.settings.icon, width: block.settings.mobile_icon_width, height: block.settings.mobile_icon_width, class: 'sm:hidden' -%}
                   {%- render 'icon' with block.settings.icon, width: block.settings.icon_width, height: block.settings.icon_width, class: 'hidden sm:block' -%}
@@ -520,9 +525,8 @@
         {
           "type": "color",
           "id": "icon_color",
-          "label": "Icon color",
-          "visible_if": "{{ block.settings.custom_icon == blank }}"
-        },
+          "label": "Icon color"
+},
         {
           "type": "text",
           "id": "title",

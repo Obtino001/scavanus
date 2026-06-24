@@ -173,7 +173,12 @@ Supported variables
               <div class="product-info__icon-text-feature">
                 <span class="product-info__icon-text-feature-icon">
                   {%- if block.settings.item_1_custom_icon != blank -%}
+                  {%- assign custom_icon_url = block.settings.item_1_custom_icon | image_url -%}
+                  {%- if custom_icon_url contains '.svg' -%}
+                    <span class="product-info__icon-text-feature-icon-image" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.item_1_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 28px;"></span>
+                  {%- else -%}
                     {{- block.settings.item_1_custom_icon | image_url: width: 56 | image_tag: loading: 'lazy', widths: '28,56', sizes: '28px' -}}
+                  {%- endif -%}
                   {%- elsif block.settings.item_1_icon != 'none' -%}
                     {%- render 'icon' with block.settings.item_1_icon, width: 28, height: 28 -%}
                   {%- endif -%}
@@ -186,7 +191,12 @@ Supported variables
               <div class="product-info__icon-text-feature">
                 <span class="product-info__icon-text-feature-icon">
                   {%- if block.settings.item_2_custom_icon != blank -%}
+                  {%- assign custom_icon_url = block.settings.item_2_custom_icon | image_url -%}
+                  {%- if custom_icon_url contains '.svg' -%}
+                    <span class="product-info__icon-text-feature-icon-image" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.item_2_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 28px;"></span>
+                  {%- else -%}
                     {{- block.settings.item_2_custom_icon | image_url: width: 56 | image_tag: loading: 'lazy', widths: '28,56', sizes: '28px' -}}
+                  {%- endif -%}
                   {%- elsif block.settings.item_2_icon != 'none' -%}
                     {%- render 'icon' with block.settings.item_2_icon, width: 28, height: 28 -%}
                   {%- endif -%}
@@ -199,7 +209,12 @@ Supported variables
               <div class="product-info__icon-text-feature">
                 <span class="product-info__icon-text-feature-icon">
                   {%- if block.settings.item_3_custom_icon != blank -%}
+                  {%- assign custom_icon_url = block.settings.item_3_custom_icon | image_url -%}
+                  {%- if custom_icon_url contains '.svg' -%}
+                    <span class="product-info__icon-text-feature-icon-image" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.item_3_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 28px;"></span>
+                  {%- else -%}
                     {{- block.settings.item_3_custom_icon | image_url: width: 56 | image_tag: loading: 'lazy', widths: '28,56', sizes: '28px' -}}
+                  {%- endif -%}
                   {%- elsif block.settings.item_3_icon != 'none' -%}
                     {%- render 'icon' with block.settings.item_3_icon, width: 28, height: 28 -%}
                   {%- endif -%}

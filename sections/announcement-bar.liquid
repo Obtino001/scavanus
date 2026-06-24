@@ -229,7 +229,12 @@
                   <p class="announcement-bar__benefit" {{ block.shopify_attributes }}>
                     <span class="announcement-bar__benefit-icon">
                       {%- if block.settings.custom_icon != blank -%}
+                      {%- assign custom_icon_url = block.settings.custom_icon | image_url -%}
+                      {%- if custom_icon_url contains '.svg' -%}
+                        <span style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 14px;"></span>
+                      {%- else -%}
                         {{ block.settings.custom_icon | image_url: width: 28 | image_tag: widths: '14', width: 14, height: 14, loading: 'lazy', alt: block.settings.text | escape }}
+                      {%- endif -%}
                       {%- else -%}
                         {%- case block.settings.icon -%}
                           {%- when 'shield' -%}

@@ -3,7 +3,12 @@
   {%- capture sizes -%}(max-width: 699px) {{ block.settings.mobile_width }}px, {{ block.settings.width }}px{%- endcapture -%}
     {%- capture widths -%}{{ block.settings.width }}, {{ block.settings.width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
     {%- capture style -%}--mobile-icon-max-width: {{ block.settings.mobile_width }}px; --icon-max-width: {{ block.settings.width }}px{%- endcapture -%}
-    {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: sizes: sizes, widths: widths, style: style, class: 'image-icon' -}}
+    {%- assign custom_icon_url = block.settings.custom_icon | image_url -%}
+    {%- if custom_icon_url contains '.svg' -%}
+      <span class="image-icon image-icon--svg" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; {{ style }}"></span>
+    {%- else -%}
+      {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: sizes: sizes, widths: widths, style: style, class: 'image-icon' -}}
+    {%- endif -%}
   {%- else -%}
     {%- render 'icon' with block.settings.icon, width: block.settings.mobile_width, height: block.settings.mobile_width, class: 'sm:hidden' -%}
     {%- render 'icon' with block.settings.icon, width: block.settings.width, height: block.settings.width, class: 'hidden sm:block' -%}
@@ -370,8 +375,7 @@
     {
       "type": "color",
       "id": "color",
-      "label": "Color",
-      "visible_if": "{{ block.settings.custom_icon == blank }}"
+      "label": "Icon color"
     }
   ],
   "presets": [

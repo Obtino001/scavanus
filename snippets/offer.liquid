@@ -29,7 +29,12 @@ Supported variables
       {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
       {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
       {%- capture style -%}max-width: {{ block.settings.icon_width }}px{%- endcapture -%}
-      {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: style: style, sizes: sizes, widths: widths -}}
+      {%- assign custom_icon_url = block.settings.custom_icon | image_url -%}
+      {%- if custom_icon_url contains '.svg' -%}
+        <span style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: {{ block.settings.icon_width }}px; {{ style }}"></span>
+      {%- else -%}
+        {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: style: style, sizes: sizes, widths: widths -}}
+      {%- endif -%}
     {%- elsif block.settings.icon != 'none' -%}
       {%- render 'icon' with block.settings.icon, width: block.settings.icon_width, height: block.settings.icon_width -%}
     {%- endif -%}
