@@ -9,7 +9,6 @@
 {%- endfor -%}
 
 <style>
-
   .shopify-section--origin-video-grid-popup .section-stack {
     gap: 20px;    
   }
@@ -25,14 +24,14 @@
     font-size: 40px;
     line-height: 1.08;
     font-weight: 500;
-    color: {{ section.settings.custom_color_1 }};
+    color: #171717;
   }
 
   #shopify-section-{{ section.id }} .origin-video-grid-popup__subheading {
     margin-top: 16px;
     font-size: 16px;
     line-height: 1.35;
-    color: {{ section.settings.custom_color_2 }};
+    color: rgba(72, 72, 72, 1);
     font-weight: 400;
     max-width: 780px;
     margin-left: auto;
@@ -55,11 +54,11 @@
     border-radius: 12px;
     border: 0;
     cursor: pointer;
-    background: {{ section.settings.custom_background_3 }};
+    background: #000;
     padding: 0;
     text-align: left;
     width: 100%;
-    color: {{ section.settings.custom_color_4 }};
+    color: #fff;
   }
 
   #shopify-section-{{ section.id }} .origin-video-grid-popup__item::after {
@@ -95,7 +94,7 @@
     font-size: 16px;
     line-height: 1.2;
     font-weight: 400;
-    color: {{ section.settings.custom_color_5 }};
+    color: #fff;
     text-shadow: 0 1px 6px rgb(0 0 0 / 0.28);
     font-family: var(--heading-font-family);
   }
@@ -105,7 +104,7 @@
     font-size: 40px;
     line-height: 1.06;
     font-weight: 500;    
-    color: {{ section.settings.custom_color_6 }};    
+    color: #fff;    
     font-family: var(--heading-font-family);
   }
 
@@ -130,7 +129,7 @@
     position: fixed;
     inset: 0;
     z-index: 200;
-    background: {{ section.settings.custom_background_7 }};
+    background: #000;
     width: 100vw;
     height: 100vh;
   }
@@ -151,8 +150,8 @@
     display: grid;
     place-items: center;
     cursor: pointer;
-    color: {{ section.settings.custom_color_8 }};
-    background: {{ section.settings.custom_background_9 }};
+    color: #fff;
+    background: rgb(0 0 0 / 0.48);
   }
 
   #shopify-section-{{ section.id }} .origin-video-grid-popup__modal-media {
@@ -211,7 +210,6 @@
       height: 70px;
     }
   }
-
 </style>
 
 {%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
@@ -402,13 +400,8 @@
   "class": "shopify-section--origin-video-grid-popup",
   "tag": "section",
   "disabled_on": {
-    "templates": [
-      "password"
-    ],
-    "groups": [
-      "header",
-      "custom.overlay"
-    ]
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
   },
   "settings": [
     {
@@ -434,18 +427,9 @@
       "id": "image_aspect_ratio",
       "label": "Image aspect ratio",
       "options": [
-        {
-          "value": "auto",
-          "label": "Natural"
-        },
-        {
-          "value": "1:1",
-          "label": "Square (1:1)"
-        },
-        {
-          "value": "16:9",
-          "label": "Wide (16:9)"
-        }
+        { "value": "auto", "label": "Natural" },
+        { "value": "1:1", "label": "Square (1:1)" },
+        { "value": "16:9", "label": "Wide (16:9)" }
       ],
       "default": "1:1"
     },
@@ -454,14 +438,8 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        {
-          "value": "cover",
-          "label": "Fill (Cover)"
-        },
-        {
-          "value": "contain",
-          "label": "Fit (Contain)"
-        }
+        { "value": "cover", "label": "Fill (Cover)" },
+        { "value": "contain", "label": "Fit (Contain)" }
       ],
       "default": "cover"
     },
@@ -489,82 +467,12 @@
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        {
-          "value": "all",
-          "label": "Global (All Markets)"
-        },
-        {
-          "value": "denmark",
-          "label": "Denmark Only"
-        },
-        {
-          "value": "us_ca_mx",
-          "label": "US, CA & MX Only"
-        },
-        {
-          "value": "global_excluding_us_ca_mx",
-          "label": "Global (Exclude US, CA & MX)"
-        }
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
       ],
       "default": "all"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "Origin video grid popup  heading Color",
-      "default": "#171717"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Origin video grid popup  subheading Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_3",
-      "label": "Origin video grid popup  item Color",
-      "default": "#000"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_4",
-      "label": "Custom element Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_5",
-      "label": "Origin video grid popup  eyebrow Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_6",
-      "label": "Origin video grid popup  title Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_7",
-      "label": "Origin video grid popup  modal Color",
-      "default": "#000"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_8",
-      "label": "Origin video grid popup  modal close Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_9",
-      "label": "Custom element Color",
-      "default": "rgb(0 0 0 / 0.48)"
     }
   ],
   "blocks": [
@@ -597,10 +505,7 @@
         {
           "type": "video_url",
           "id": "external_video_url",
-          "accept": [
-            "youtube",
-            "vimeo"
-          ],
+          "accept": ["youtube", "vimeo"],
           "label": "External video URL"
         },
         {
@@ -614,22 +519,10 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            {
-              "value": "all",
-              "label": "Global (All Markets)"
-            },
-            {
-              "value": "denmark",
-              "label": "Denmark Only"
-            },
-            {
-              "value": "us_ca_mx",
-              "label": "US, CA & MX Only"
-            },
-            {
-              "value": "global_excluding_us_ca_mx",
-              "label": "Global (Exclude US, CA & MX)"
-            }
+            { "value": "all", "label": "Global (All Markets)" },
+            { "value": "denmark", "label": "Denmark Only" },
+            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
           ],
           "default": "all"
         }
@@ -641,18 +534,10 @@
       "name": "Origin video grid popup",
       "category": "Video",
       "blocks": [
-        {
-          "type": "video_item"
-        },
-        {
-          "type": "video_item"
-        },
-        {
-          "type": "video_item"
-        },
-        {
-          "type": "video_item"
-        }
+        { "type": "video_item" },
+        { "type": "video_item" },
+        { "type": "video_item" },
+        { "type": "video_item" }
       ]
     }
   ]

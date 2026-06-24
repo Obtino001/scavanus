@@ -3,7 +3,6 @@
 {%- assign text_position = section.settings.text_position -%}
 
 <style>
-
   #shopify-section-{{ section.id }} {
     --section-stack-intro: {% if text_position == 'center' %}60%{% else %}50%{% endif %};
     --section-stack-main: {% if text_position == 'center' %}60%{% else %}50%{% endif %};
@@ -26,13 +25,12 @@
     font-size: 24px;
     line-height: 1;
     font-weight: 400;
-    color: {{ section.settings.custom_color_1 }} !important;
+    color: rgba(39, 39, 39, 1) !important;
   }
 
   #shopify-section-{{ section.id }} details[open].accordion .accordion__toggle .circle-chevron::before {
     content: "−";
   }
-
 </style>
 
 <div {% render 'section-properties' %}>
@@ -147,10 +145,7 @@
   "class": "shopify-section--faq",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "custom.overlay"
-    ]
+    "groups": ["header", "custom.overlay"]
   },
   "blocks": [
     {
@@ -307,16 +302,6 @@
       "type": "color",
       "id": "accordion_text_color",
       "label": "Accordion text"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "Circle chevron Color",
-      "default": "rgba(39, 39, 39, 1)"
     }
   ],
   "presets": [

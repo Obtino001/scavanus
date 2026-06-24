@@ -1,7 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
 <style>
-
   #shopify-section-{{ section.id }} .why-scanovus {
     text-align: center;
     gap: 0px;
@@ -12,7 +11,7 @@
     font-size: 32px;
     line-height: 1.2;
     font-weight: 500;
-    color: {{ section.settings.custom_color_1 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #shopify-section-{{ section.id }} .why-scanovus__subheading {
@@ -20,7 +19,7 @@
     max-width: 610px;
     font-size: 14px;
     line-height: 1.3;
-    color: {{ section.settings.custom_color_2 }};
+    color: rgba(0, 0, 0, 0.85);
   }
 
   #shopify-section-{{ section.id }} .why-scanovus__matrix-wrap {
@@ -49,7 +48,7 @@
     font-size: 14px;
     line-height: 1.3;
     font-weight: 500;
-    color: {{ section.settings.custom_color_3 }};
+    color: rgba(0, 0, 0, 0.85);
     padding: 31px 19px;
   }
 
@@ -60,7 +59,7 @@
     min-height: var(--why-row-height);
     font-size: 14px;
     line-height: 1.3;
-    color: {{ section.settings.custom_color_4 }};
+    color: rgba(0, 0, 0, 0.85);
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     padding-inline: 8px 18px;
   }
@@ -138,7 +137,7 @@
       min-height: 64px;
       align-items: center;
       font-weight: 500;
-      color: {{ section.settings.custom_color_5 }};
+      color: rgba(0, 0, 0, 0.85);
     }
 
     #shopify-section-{{ section.id }} .why-scanovus__value {
@@ -156,7 +155,7 @@
   @media screen and (max-width: 699px) {
     #shopify-section-{{ section.id }} .why-scanovus {
       padding: 35px 17px;
-      background: {{ section.settings.custom_background_6 }};
+      background: rgba(247, 245, 242, 1);
       border-radius: 12px;
     }
 
@@ -173,10 +172,9 @@
     }
 
     #shopify-section-{{ section.id }} .why-scanovus__machine-inner {
-      background: {{ section.settings.custom_background_7 }};
+      background: rgba(247, 245, 242, 1);
     }
   }
-
 </style>
 
 {% assign titles = product.metafields.custom.comparison_texts.value %}
@@ -251,116 +249,22 @@
   "class": "shopify-section--product-why-comparison",
   "tag": "section",
   "settings": [
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Full width",
-      "default": false
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Why Scanovus?"
-    },
-    {
-      "type": "text",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "Whether it's Monday morning rush, a last-minute outfit prep, or keeping shirts crisp for work - the Scanovus Automatic Ironing Machine makes it effortless."
-    },
-    {
-      "type": "text",
-      "id": "machine_title",
-      "label": "Machine column title",
-      "default": "Scanovus Automatic Ironing Machine"
-    },
-    {
-      "type": "text",
-      "id": "traditional_title",
-      "label": "Traditional column title",
-      "default": "Traditional Ironing"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "Why scanovus  heading Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Why scanovus  subheading Color",
-      "default": "rgba(0, 0, 0, 0.85)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_3",
-      "label": "Why scanovus  head Color",
-      "default": "rgba(0, 0, 0, 0.85)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_4",
-      "label": "Why scanovus  feature Color",
-      "default": "rgba(0, 0, 0, 0.85)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_5",
-      "label": "Why scanovus  head Color",
-      "default": "rgba(0, 0, 0, 0.85)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_6",
-      "label": "Why scanovus Color",
-      "default": "rgba(247, 245, 242, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_7",
-      "label": "Why scanovus  machine inner Color",
-      "default": "rgba(247, 245, 242, 1)"
-    }
+    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why Scanovus?" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Whether it's Monday morning rush, a last-minute outfit prep, or keeping shirts crisp for work - the Scanovus Automatic Ironing Machine makes it effortless." },
+    { "type": "text", "id": "machine_title", "label": "Machine column title", "default": "Scanovus Automatic Ironing Machine" },
+    { "type": "text", "id": "traditional_title", "label": "Traditional column title", "default": "Traditional Ironing" }
   ],
   "blocks": [
     {
       "type": "row",
       "name": "Feature row",
       "settings": [
-        {
-          "type": "text",
-          "id": "feature",
-          "label": "Feature",
-          "default": "Hands-free drying & ironing"
-        },
-        {
-          "type": "text",
-          "id": "machine_label",
-          "label": "Machine mobile label"
-        },
-        {
-          "type": "text",
-          "id": "traditional_label",
-          "label": "Traditional mobile label"
-        },
-        {
-          "type": "checkbox",
-          "id": "machine_ok",
-          "label": "Machine has this",
-          "default": true
-        },
-        {
-          "type": "checkbox",
-          "id": "traditional_ok",
-          "label": "Traditional has this",
-          "default": false
-        }
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Hands-free drying & ironing" },
+        { "type": "text", "id": "machine_label", "label": "Machine mobile label" },
+        { "type": "text", "id": "traditional_label", "label": "Traditional mobile label" },
+        { "type": "checkbox", "id": "machine_ok", "label": "Machine has this", "default": true },
+        { "type": "checkbox", "id": "traditional_ok", "label": "Traditional has this", "default": false }
       ]
     }
   ],
@@ -368,23 +272,7 @@
     {
       "name": "Product why comparison",
       "category": "Product",
-      "blocks": [
-        {
-          "type": "row"
-        },
-        {
-          "type": "row"
-        },
-        {
-          "type": "row"
-        },
-        {
-          "type": "row"
-        },
-        {
-          "type": "row"
-        }
-      ]
+      "blocks": [{ "type": "row" }, { "type": "row" }, { "type": "row" }, { "type": "row" }, { "type": "row" }]
     }
   ]
 }

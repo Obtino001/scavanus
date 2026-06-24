@@ -41,13 +41,12 @@
 </div>
 
 <style>
-
   .country-banner-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
-    background-color: {{ section.settings.custom_background_color_1 }};
+    background-color: #f4f4f4;
   }
   
   .country-banner-content {
@@ -68,35 +67,17 @@
   .country-banner-text {
     position: absolute;
     text-align: center;
-    color: {{ section.settings.custom_color_2 }};
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-
 </style>
 
 {% schema %}
 {
   "name": "Country Specific Banner",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_color_1",
-      "label": "Country banner wrapper Color",
-      "default": "#f4f4f4"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Country banner text Color",
-      "default": "#ffffff"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "country_banner",

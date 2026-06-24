@@ -1,7 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
 <style>
-
   #shopify-section-{{ section.id }} .origin-faq-image {
     display: grid;
     gap: 24px;
@@ -16,14 +15,14 @@
     margin: 0;
     font-size: 32px;
     font-weight: 500;
-    color: {{ section.settings.custom_color_1 }};
+    color: rgba(39, 39, 39, 1);
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron {
     width: auto;
     height: auto;
     border-radius: 0;
     background: transparent;
-    color: {{ section.settings.custom_color_2 }};
+    color: rgba(39, 39, 39, 1);
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron svg {
     display: none;
@@ -34,19 +33,19 @@
     font-size: 24px;
     line-height: 1;
     font-weight: 400;
-    color: {{ section.settings.custom_color_3 }} !important;
+    color: rgba(39, 39, 39, 1) !important;
   }
   #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron::before {
     content: "−";
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron::before {
-    color: {{ section.settings.custom_color_4 }};
+    color: rgba(39, 39, 39, 1);
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron,
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:focus-visible .circle-chevron,
   #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron {
     background: transparent;
-    color: {{ section.settings.custom_color_5 }};
+    color: rgba(39, 39, 39, 1);
     border-color: transparent;
   }
 
@@ -69,7 +68,7 @@
     padding: 24px 0px;
     font-size: 16px;
     font-weight: 400;
-    color: {{ section.settings.custom_color_6 }};
+    color: rgba(0, 0, 0, 0.85);
   }
   .origin-faq-image  .accordion:first-child {
     border-block-start-width: 0px;
@@ -98,7 +97,7 @@
     }
     #shopify-section-{{ section.id }} .origin-faq-image__content {
       padding: 46px 16px 16px 16px;
-      background: {{ section.settings.custom_background_7 }};
+      background: rgba(247, 245, 242, 1);
       border-radius: 12px;
     }
   }
@@ -114,7 +113,6 @@
       min-height: 100%;
     }
   }
-
 </style>
 {%- liquid
   capture market_code
@@ -195,10 +193,7 @@
   "class": "shopify-section--origin-faq-with-image",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "custom.overlay"
-    ]
+    "groups": ["header", "custom.overlay"]
   },
   "settings": [
     {
@@ -223,22 +218,10 @@
       "id": "image_aspect_ratio",
       "label": "Image aspect ratio",
       "options": [
-        {
-          "value": "auto",
-          "label": "Natural"
-        },
-        {
-          "value": "1:1",
-          "label": "Square (1:1)"
-        },
-        {
-          "value": "4:5",
-          "label": "Portrait (4:5)"
-        },
-        {
-          "value": "16:9",
-          "label": "Wide (16:9)"
-        }
+        { "value": "auto", "label": "Natural" },
+        { "value": "1:1", "label": "Square (1:1)" },
+        { "value": "4:5", "label": "Portrait (4:5)" },
+        { "value": "16:9", "label": "Wide (16:9)" }
       ],
       "default": "auto"
     },
@@ -247,62 +230,10 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        {
-          "value": "cover",
-          "label": "Fill (Cover)"
-        },
-        {
-          "value": "contain",
-          "label": "Fit (Contain)"
-        }
+        { "value": "cover", "label": "Fill (Cover)" },
+        { "value": "contain", "label": "Fit (Contain)" }
       ],
       "default": "cover"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "Origin faq image  heading Color",
-      "default": "rgba(39, 39, 39, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Circle chevron Color",
-      "default": "rgba(39, 39, 39, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_3",
-      "label": "Circle chevron Color",
-      "default": "rgba(39, 39, 39, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_4",
-      "label": "Circle chevron Color",
-      "default": "rgba(39, 39, 39, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_5",
-      "label": "Circle chevron Color",
-      "default": "rgba(39, 39, 39, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_6",
-      "label": "Accordion  toggle Color",
-      "default": "rgba(0, 0, 0, 0.85)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_7",
-      "label": "Origin faq image  content Color",
-      "default": "rgba(247, 245, 242, 1)"
     }
   ],
   "blocks": [
@@ -329,23 +260,7 @@
     {
       "name": "Product FAQ with image",
       "category": "Trust & social proof",
-      "blocks": [
-        {
-          "type": "item"
-        },
-        {
-          "type": "item"
-        },
-        {
-          "type": "item"
-        },
-        {
-          "type": "item"
-        },
-        {
-          "type": "item"
-        }
-      ]
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }]
     }
   ]
 }

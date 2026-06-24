@@ -7,7 +7,6 @@ CSS
 {%- endcomment -%}
 
 <style>
-
   #shopify-section-{{ section.id }} .product-list {
     --product-list-gap: {% if section.settings.stack_products and section.settings.products_per_row_mobile == '2' %}var(--product-list-row-gap) var(--spacing-2){% else %}var(--product-list-row-gap) var(--product-list-column-gap){% endif %};
     --product-list-items-per-row: {{ section.settings.products_per_row_mobile | times: 1 }};
@@ -31,7 +30,7 @@ CSS
   }
 
   #shopify-section-{{ section.id }} product-card {
-    background: {{ section.settings.custom_background_1 }};
+    background: rgba(247, 245, 242, 1);
     border-radius: 12px;
     overflow: hidden;
     padding: 20px;
@@ -57,7 +56,7 @@ CSS
     font-weight: 400 !important;
     font-size: 14px;
     line-height: 1.3;
-    color: {{ section.settings.custom_color_2 }};
+    color: rgba(72, 72, 72, 1);
   }
 
   #shopify-section-{{ section.id }} .product-card__title a {
@@ -67,7 +66,7 @@ CSS
   #shopify-section-{{ section.id }} .sale-price {
     font-weight: 500;
     font-size: 14px;
-    color: {{ section.settings.custom_color_3 }};
+    color: rgba(72, 72, 72, 1);
   }
 
   #shopify-section-{{ section.id }} .product-card__quick-buy {
@@ -92,7 +91,7 @@ CSS
     width: 39px;
     height: 39px;
     border-radius: 999px;
-    background: {{ section.settings.custom_background_4 }};
+    background: #fff;
     color: transparent;
     place-content: center;
     display: grid;
@@ -105,7 +104,7 @@ CSS
 
   #shopify-section-{{ section.id }} .product-card__mobile-quick-buy-button::before {
     content: "+";
-    color: {{ section.settings.custom_color_5 }};
+    color: rgba(51, 51, 51, 1);
     font-size: 28px;
     line-height: 1;
     font-weight: 300;
@@ -116,13 +115,13 @@ CSS
     height: 38px;
     min-width: 38px;
     min-height: 38px;
-    color: {{ section.settings.custom_color_6 }};
+    color: rgba(39, 39, 39, 1);
     background: transparent;
   }
 
   #shopify-section-{{ section.id }} .circle-button:hover,
   #shopify-section-{{ section.id }} .circle-button:focus-visible {
-    color: {{ section.settings.custom_color_7 }};
+    color: rgba(39, 39, 39, 1);
     background: transparent;
   }
 
@@ -178,7 +177,6 @@ CSS
       display: none !important;
     }
   }
-
 </style>
 
 {%- comment -%}
@@ -291,9 +289,7 @@ LIQUID
   "class": "shopify-section--product-recommendations",
   "tag": "section",
   "enabled_on": {
-    "templates": [
-      "product"
-    ]
+    "templates": ["product"]
   },
   "settings": [
     {
@@ -339,18 +335,9 @@ LIQUID
       "id": "image_ratio",
       "label": "Product image ratio",
       "options": [
-        {
-          "value": "square",
-          "label": "Square (Figma)"
-        },
-        {
-          "value": "short",
-          "label": "Landscape (4:3)"
-        },
-        {
-          "value": "tall",
-          "label": "Portrait (2:3)"
-        }
+        { "value": "square", "label": "Square (Figma)" },
+        { "value": "short", "label": "Landscape (4:3)" },
+        { "value": "tall", "label": "Portrait (2:3)" }
       ],
       "default": "square"
     },
@@ -433,52 +420,6 @@ LIQUID
       "type": "color",
       "id": "product_card_text_color",
       "label": "Product card text"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_1",
-      "label": "Product card Color",
-      "default": "rgba(247, 245, 242, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Product card  title Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_3",
-      "label": "Sale price Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_4",
-      "label": "Product card  mobile quick buy button Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_5",
-      "label": "Product card  mobile quick buy button Color",
-      "default": "rgba(51, 51, 51, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_6",
-      "label": "Circle button Color",
-      "default": "rgba(39, 39, 39, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_7",
-      "label": "Circle button Color",
-      "default": "rgba(39, 39, 39, 1)"
     }
   ],
   "presets": [

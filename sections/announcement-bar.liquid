@@ -6,14 +6,13 @@
     ------------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
     <style>
-
       :root {
         --sticky-announcement-bar-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
       }
 
       #shopify-section-{{ section.id }} .announcement-bar--features {
-        background: {{ section.settings.custom_background_1 }};
-        color: {{ section.settings.custom_color_2 }};
+        background: rgba(247, 245, 242, 1);
+        color: #3f3f46;
       }
 
       #shopify-section-{{ section.id }} .announcement-bar__layout {
@@ -86,7 +85,7 @@
       #shopify-section-{{ section.id }} .announcement-bar__flag::after {
         content: "";
         position: absolute;
-        background: {{ section.settings.custom_background_3 }};
+        background: #ffffff;
       }
 
       #shopify-section-{{ section.id }} .announcement-bar__flag::before {
@@ -154,7 +153,7 @@
           right: -9px;
           width: 1px;
           height: 90%;
-          background: {{ section.settings.custom_background_4 }};
+          background: rgb(0 0 0 / 0.12);
           transform: translateY(-50%);
         }        
 
@@ -188,8 +187,7 @@
           top: calc(var(--sticky-header-enabled, 0) * var(--header-height, 0px));
         }
       {%- endif -%}
-    
-</style>
+    </style>
 
     {%- comment -%}
     ------------------------------------------------------------------------------------------------------------------------
@@ -449,34 +447,6 @@
       "type": "color",
       "id": "text_color",
       "label": "Text"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_1",
-      "label": "Announcement bar  features Color",
-      "default": "rgba(247, 245, 242, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Custom element Color",
-      "default": "#3f3f46"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_3",
-      "label": "Announcement bar  flag Color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_4",
-      "label": "Announcement bar  benefit Color",
-      "default": "rgb(0 0 0 / 0.12)"
     }
   ]
 }

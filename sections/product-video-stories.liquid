@@ -3,7 +3,6 @@
 
 
 <style>
-
   #shopify-section-{{ section.id }} .product-video-stories {
     display: grid;
     gap: 28px;
@@ -20,14 +19,14 @@
     font-size: 32px;
     line-height: 1.15;
     font-weight: 500;
-    color: {{ section.settings.custom_color_1 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #shopify-section-{{ section.id }} .product-video-stories__subheading {
     margin: 0;
     font-size: 16px;
     line-height: 1.3;
-    color: {{ section.settings.custom_color_2 }};
+    color: rgba(72, 72, 72, 1);
     text-align: center;
   }
 
@@ -100,7 +99,7 @@
   #shopify-section-{{ section.id }} .product-video-stories__modal-backdrop {
     position: absolute;
     inset: 0;
-    background: {{ section.settings.custom_background_3 }};
+    background: rgb(0 0 0 / 0.65);
   }
 
   #shopify-section-{{ section.id }} .product-video-stories__modal-dialog {
@@ -111,7 +110,7 @@
     max-height: calc(100vh - 48px);
     border-radius: 12px;
     overflow: hidden;
-    background: {{ section.settings.custom_background_4 }};
+    background: #000;
     box-shadow: 0 20px 60px rgb(0 0 0 / 0.4);
   }
 
@@ -126,8 +125,8 @@
     border: 0;
     display: grid;
     place-items: center;
-    background: {{ section.settings.custom_background_5 }};
-    color: {{ section.settings.custom_color_6 }};
+    background: rgb(0 0 0 / 0.6);
+    color: #fff;
     cursor: pointer;
   }
 
@@ -180,7 +179,7 @@
 
     #shopify-section-{{ section.id }} .product-video-stories__subheading {
       font-size: 14px;
-      {% comment %} background: {{ section.settings.custom_background_7 }}; {% endcomment %}
+      {% comment %} background: rgba(251, 251, 251, 1); {% endcomment %}
       border-radius: 12px;
       padding: 9px 40px;
     }
@@ -206,7 +205,6 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
-
 </style>
 {%- liquid
   capture market_code
@@ -552,52 +550,6 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "97.1% recommend scanovus iron machine after 30 days"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "Product video stories  heading Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Product video stories  subheading Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_3",
-      "label": "Product video stories  modal backdrop Color",
-      "default": "rgb(0 0 0 / 0.65)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_4",
-      "label": "Min(420px Color",
-      "default": "#000"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_5",
-      "label": "Product video stories  modal close Color",
-      "default": "rgb(0 0 0 / 0.6)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_6",
-      "label": "Custom element Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_7",
-      "label": "Custom element Color",
-      "default": "rgba(251, 251, 251, 1)"
     }
   ],
   "blocks": [

@@ -1,5 +1,4 @@
 <style>
-
   #cart-drawer .cart-drawer__benefits,
   #cart-drawer .cart-drawer__trustpilot {
     display: flex;
@@ -27,22 +26,22 @@
     line-height: 1;
     font-weight: 500;
     font-family: var(--heading-font-family);
-    color: {{ section.settings.custom_color_1 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #cart-drawer cart-count.count-bubble {
     min-width: 34px;
     height: 34px;
     border-radius: 999px;
-    background: {{ section.settings.custom_background_2 }};
-    color: {{ section.settings.custom_color_3 }};
+    background: #111;
+    color: #fff;
     font-size: 16px;
     font-weight: 600;
     display: none;
   }
 
   #cart-drawer .cart-drawer__line-items line-item.line-item {
-    background: {{ section.settings.custom_background_4 }};
+    background: rgba(247, 245, 242, 1);
     border-radius: 12px;
     padding: 19px 16px;
   }
@@ -81,23 +80,23 @@
     font-size: 16px;
     font-weight: 500;
     font-family: var(--heading-font-family);
-    color: {{ section.settings.custom_color_5 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #cart-drawer .cart-drawer__line-items .line-item__info sale-price {
     font-size: 14px;
     font-weight: 500;
     font-family: var(--heading-font-family);
-    color: {{ section.settings.custom_color_6 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #cart-drawer .cart-drawer__line-items .line-item__info compare-at-price {
-    color: {{ section.settings.custom_color_7 }};
+    color: rgba(7, 7, 7, 0.2);
   }
 
   #cart-drawer .cart-drawer__line-items .line-item__info .badge {
-    color: {{ section.settings.custom_color_8 }};
-    background: {{ section.settings.custom_background_9 }};
+    color: #fff;
+    background: rgba(53, 161, 93, 1);
     padding: 5px 10px;
     border-color: transparent;
   }
@@ -105,15 +104,15 @@
   #cart-drawer .cart-drawer__line-items .quantity-input {
     font-size: 14px;
     font-weight: 500;
-    color: {{ section.settings.custom_color_10 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #cart-drawer .free-shipping-bar__status {
-    background: {{ section.settings.custom_background_11 }};
+    background: rgba(231, 240, 208, 1);
     border-radius: 6px;
     padding: 8px 13px;
     font-size: 12px;
-    color: {{ section.settings.custom_color_12 }};
+    color: rgba(72, 72, 72, 1);
     margin-bottom: 10px;
   }
 
@@ -125,7 +124,7 @@
     gap: 10px;
     font-size: 14px;
     line-height: 1.3;
-    color: {{ section.settings.custom_color_13 }};
+    color: rgba(72, 72, 72, 1);
   }
 
   #cart-drawer .free-shipping-bar__helper-text {
@@ -135,7 +134,7 @@
 
   #cart-drawer .free-shipping-bar__helper-amount {
     white-space: nowrap;
-    color: {{ section.settings.custom_color_14 }};
+    color: rgba(72, 72, 72, 1);
     font-size: 14px;
     font-weight: 500;
   }
@@ -150,7 +149,7 @@
     font-size: 16px;
     line-height: 1.3;
     font-weight: 500;
-    color: {{ section.settings.custom_color_15 }};
+    color: rgba(7, 7, 7, 1);
   }
 
   #cart-drawer .horizontal-product {
@@ -162,7 +161,7 @@
   #cart-drawer .horizontal-product .horizontal-product__info .v-stack > a.text-sm.bold,
   #cart-drawer .horizontal-product .horizontal-product__info .v-stack > span.text-sm.bold {
     font-size: 12px;
-    color: {{ section.settings.custom_color_16 }};
+    color: rgba(72, 72, 72, 1);
     font-weight: 400;
   }
 
@@ -172,7 +171,7 @@
   }
 
   #cart-drawer .horizontal-product .horizontal-product__info compare-at-price {
-    color: {{ section.settings.custom_color_17 }};
+    color: rgba(72, 72, 72, 0.26);
   }
 
 #cart-drawer .horizontal-product .horizontal-product__image {
@@ -191,7 +190,7 @@
   }
 
   #cart-drawer .cart-drawer__recommendations-scroll::-webkit-scrollbar-thumb {
-    background: {{ section.settings.custom_background_18 }};
+    background: rgba(0, 0, 0, 0.85);
     border-radius: 999px;
   }
 
@@ -203,12 +202,12 @@
     min-height: 32px;
     border-radius: 999px;
     padding: 9px 20px;
-    background: {{ section.settings.custom_background_19 }};
+    background: rgba(243, 233, 217, 1);
     border-color: transparent;
     font-size: 13px;
     font-family: var(--heading-font-family);
     font-weight: 500;
-    color: {{ section.settings.custom_color_20 }};
+    color: rgba(7, 7, 7, 1);
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -238,7 +237,7 @@
     gap: 6px;
     font-size: 12px;
     line-height: 1.2;
-    color: {{ section.settings.custom_color_21 }};
+    color: rgba(52, 52, 52, 1);
     text-align: center;
   }
 
@@ -271,7 +270,7 @@
     min-height: 62px;
     font-size: 16px;
     font-weight: 500;
-    background: {{ section.settings.custom_background_22 }};
+    background: rgba(63, 63, 63, 1);
     width: 100%;
   }
   .cart-total {
@@ -286,7 +285,7 @@
     width: calc(100% + 72px);
     margin-left: -36px;
     margin-right: -36px;
-    background: {{ section.settings.custom_background_23 }};
+    background: rgba(247, 245, 242, 1);
     border-top: 1px solid rgba(206, 206, 206, 1);
     padding-right: 36px;
     padding-left: 36px;
@@ -370,7 +369,6 @@
       display: none;
     }
   }
-
 </style>
 
 <cart-drawer {% if request.design_mode %}handle-section-events{% endif %} class="cart-drawer drawer drawer--lg" id="cart-drawer">
@@ -646,9 +644,8 @@
               {{ terms_label }} <a href="{{ section.settings.terms_link_url }}" style="text-decoration: underline;">{{ terms_link_text }}</a>
             </label>
           </div>
-          <p id="cart-terms-warning" style="display: none; color: {{ section.settings.terms_warning_color | default: '#c0392b' }}; font-size: 13px; text-align: center; margin: -8px 0 12px; animation: termsShake 0.4s ease;">{{ terms_warning_text }}</p>
+          <p id="cart-terms-warning" style="display: none; color: #c0392b; font-size: 13px; text-align: center; margin: -8px 0 12px; animation: termsShake 0.4s ease;">{{ terms_warning_text }}</p>
           <style>
-
             @keyframes termsShake {
               0%, 100% { transform: translateX(0); }
               20% { transform: translateX(-6px); }
@@ -656,8 +653,7 @@
               60% { transform: translateX(-4px); }
               80% { transform: translateX(4px); }
             }
-          
-</style>
+          </style>
         {%- endif -%}
 
         {%- if section.settings.show_checkout_button -%}
@@ -827,154 +823,6 @@
       "id": "terms_warning_text",
       "label": "Warning message",
       "default": "Please accept the terms and conditions to proceed."
-    },
-    {
-      "type": "color",
-      "id": "terms_warning_color",
-      "label": "Terms warning message Color",
-      "default": "#c0392b"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "H5 Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_2",
-      "label": "Cart countcount bubble Color",
-      "default": "#111"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_3",
-      "label": "Custom element Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_4",
-      "label": "Line itemline item Color",
-      "default": "rgba(247, 245, 242, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_5",
-      "label": "Abold Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_6",
-      "label": "Sale price Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_7",
-      "label": "Compare at price Color",
-      "default": "rgba(7, 7, 7, 0.2)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_8",
-      "label": "Badge Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_9",
-      "label": "Custom element Color",
-      "default": "rgba(53, 161, 93, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_10",
-      "label": "Quantity input Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_11",
-      "label": "Free shipping bar  status Color",
-      "default": "rgba(231, 240, 208, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_12",
-      "label": "Custom element Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_13",
-      "label": "Free shipping bar  helper Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_14",
-      "label": "Free shipping bar  helper amount Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_15",
-      "label": "Cart drawer  recommendations title Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_16",
-      "label": "Atext smbold Color",
-      "default": "rgba(72, 72, 72, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_17",
-      "label": "Compare at price Color",
-      "default": "rgba(72, 72, 72, 0.26)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_18",
-      "label": "Cart drawer  recommendations scroll Color",
-      "default": "rgba(0, 0, 0, 0.85)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_19",
-      "label": "Button Color",
-      "default": "rgba(243, 233, 217, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_20",
-      "label": "Custom element Color",
-      "default": "rgba(7, 7, 7, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_21",
-      "label": "Cart drawer  benefit Color",
-      "default": "rgba(52, 52, 52, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_22",
-      "label": "Button[type=\"submit\"] Color",
-      "default": "rgba(63, 63, 63, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_23",
-      "label": "Buy buttons Color",
-      "default": "rgba(247, 245, 242, 1)"
     }
   ]
 }

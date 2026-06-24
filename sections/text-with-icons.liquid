@@ -2,7 +2,6 @@
   {%- render 'section-spacing-collapsing' -%}
 
   <style>
-
     #shopify-section-{{ section.id }} {
       --text-with-icons-template: {% if section.settings.stack_on_mobile %}minmax(0, 1fr){% else %}auto-flow 100%{% endif %};
       --text-with-icons-justify: center;
@@ -81,7 +80,7 @@
         bottom: 0;
         width: 60%;
         height: 1px;
-        background: {{ section.settings.custom_background_1 }};
+        background: rgba(0, 0, 0, 0.12);
         transform: translateX(-50%);
       }
 
@@ -107,8 +106,7 @@
         }
       }
     {%- endif -%}
-  
-</style>
+  </style>
 
   <div {% render 'section-properties' %}>
     <div class="section-stack">
@@ -191,10 +189,7 @@
   "class": "shopify-section--text-with-icons",
   "tag": "section",
   "disabled_on": {
-    "groups": [
-      "header",
-      "custom.overlay"
-    ]
+    "groups": ["header", "custom.overlay"]
   },
   "max_blocks": 5,
   "blocks": [
@@ -647,16 +642,6 @@
       "type": "color",
       "id": "text_color",
       "label": "Text"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_1",
-      "label": "2) Color",
-      "default": "rgba(0, 0, 0, 0.12)"
     }
   ],
   "presets": [

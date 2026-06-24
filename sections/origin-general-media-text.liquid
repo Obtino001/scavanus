@@ -6,7 +6,6 @@
 -%}
 
 <style>
-
   #shopify-section-{{ section.id }} .origin-general-media-text {
     padding-top: {{ section_padding_top }}px;
     padding-bottom: {{ section_padding_bottom }}px;
@@ -24,7 +23,7 @@
     line-height: 1.3;
     font-weight: 500;
     font-family: var(--heading-font-family);
-    color: {{ section.settings.custom_color_1 }};
+    color: rgba(23, 23, 23, 1);
   }
 
   #shopify-section-{{ section.id }} .origin-general-media-text__row {
@@ -141,7 +140,7 @@
     line-height: 1.3;
     font-weight: 500;
     font-family: var(--heading-font-family);
-    color: {{ section.settings.custom_color_2 }};
+    color: rgba(23, 23, 23, 1);
     text-transform: capitalize;
   }
 
@@ -149,7 +148,7 @@
     margin-top: 18px;
     font-size: var(--paragraph-size-desktop, 16px);
     line-height: 1.3;
-    color: {{ section.settings.custom_color_3 }};
+    color: rgba(17, 17, 17, 1);
     font-weight: 400;
   }
 
@@ -191,7 +190,6 @@
       font-size: var(--paragraph-size-mobile, 14px);
     }
   }
-
 </style>
 
 <div {% render 'section-properties' %}>
@@ -375,28 +373,6 @@
     {
       "type": "header",
       "content": "Typography"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_1",
-      "label": "Origin general media text  section heading Color",
-      "default": "rgba(23, 23, 23, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_2",
-      "label": "Var(  heading size desktop Color",
-      "default": "rgba(23, 23, 23, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_3",
-      "label": "Var(  paragraph size desktop Color",
-      "default": "rgba(17, 17, 17, 1)"
     }
   ],
   "blocks": [

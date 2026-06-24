@@ -12,17 +12,16 @@
 {%- endfor -%}
 
 <style>
-
   #shopify-section-{{ section.id }} .origin-featured-video-popup {
     display: grid;
     gap: 24px;
     align-items: stretch;
-    background: {{ section.settings.custom_background_1 }};
+    background: rgba(247, 245, 242, 1);
     border-radius: 12px;
   }
 
   #shopify-section-{{ section.id }} .origin-featured-video-popup__content {
-    background: {{ section.settings.custom_background_2 }};
+    background: rgba(247, 245, 242, 1);
     border-radius: 12px;
     padding: 28px 24px;
     display: flex;
@@ -51,7 +50,7 @@
     box-shadow: unset;
     padding: 16px 49px;
     border: 1px solid #000;
-    color: {{ section.settings.custom_color_3 }};
+    color: #000;
     font-size: 14px;
     font-weight: 400;
   }
@@ -112,7 +111,7 @@
     inset: 0;
     display: grid;
     place-items: center;    
-    color: {{ section.settings.custom_color_4 }};
+    color: #fff;
   }
 
   #shopify-section-{{ section.id }} .origin-featured-video-popup__avatar-play svg {
@@ -159,7 +158,7 @@
   #shopify-section-{{ section.id }} .origin-featured-video-popup__modal-backdrop {
     position: absolute;
     inset: 0;
-    background: {{ section.settings.custom_background_5 }};
+    background: rgb(0 0 0 / 0.65);
   }
 
   #shopify-section-{{ section.id }} .origin-featured-video-popup__modal-dialog {
@@ -170,7 +169,7 @@
     max-height: calc(100vh - 48px);
     border-radius: 14px;
     overflow: hidden;
-    background: {{ section.settings.custom_background_6 }};
+    background: #000;
     box-shadow: 0 20px 60px rgb(0 0 0 / 0.4);
   }
 
@@ -185,8 +184,8 @@
     border: 0;
     display: grid;
     place-items: center;
-    background: {{ section.settings.custom_background_7 }};
-    color: {{ section.settings.custom_color_8 }};
+    background: rgb(0 0 0 / 0.6);
+    color: #fff;
     cursor: pointer;
   }
 
@@ -290,7 +289,6 @@
       padding: 70px 48px 40px 48px;
     }
   }
-
 
 </style>
 
@@ -547,13 +545,8 @@
   "class": "shopify-section--origin-featured-video-popup",
   "tag": "section",
   "disabled_on": {
-    "templates": [
-      "password"
-    ],
-    "groups": [
-      "header",
-      "custom.overlay"
-    ]
+    "templates": ["password"],
+    "groups": ["header", "custom.overlay"]
   },
   "settings": [
     {
@@ -643,76 +636,12 @@
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        {
-          "value": "all",
-          "label": "Global (All Markets)"
-        },
-        {
-          "value": "denmark",
-          "label": "Denmark Only"
-        },
-        {
-          "value": "us_ca_mx",
-          "label": "US, CA & MX Only"
-        },
-        {
-          "value": "global_excluding_us_ca_mx",
-          "label": "Global (Exclude US, CA & MX)"
-        }
+        { "value": "all", "label": "Global (All Markets)" },
+        { "value": "denmark", "label": "Denmark Only" },
+        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
       ],
       "default": "all"
-    },
-    {
-      "type": "header",
-      "content": "Custom Added Colors"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_1",
-      "label": "Origin featured video popup Color",
-      "default": "rgba(247, 245, 242, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_2",
-      "label": "Origin featured video popup  content Color",
-      "default": "rgba(247, 245, 242, 1)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_3",
-      "label": "Button Color",
-      "default": "#000"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_4",
-      "label": "Origin featured video popup  avatar play Color",
-      "default": "#fff"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_5",
-      "label": "Origin featured video popup  modal backdrop Color",
-      "default": "rgb(0 0 0 / 0.65)"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_6",
-      "label": "Min(420px Color",
-      "default": "#000"
-    },
-    {
-      "type": "color",
-      "id": "custom_background_7",
-      "label": "Origin featured video popup  modal close Color",
-      "default": "rgb(0 0 0 / 0.6)"
-    },
-    {
-      "type": "color",
-      "id": "custom_color_8",
-      "label": "Custom element Color",
-      "default": "#fff"
     }
   ],
   "blocks": [
@@ -746,10 +675,7 @@
         {
           "type": "video_url",
           "id": "external_video_url",
-          "accept": [
-            "youtube",
-            "vimeo"
-          ],
+          "accept": ["youtube", "vimeo"],
           "label": "External video URL"
         },
         {
@@ -763,22 +689,10 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            {
-              "value": "all",
-              "label": "Global (All Markets)"
-            },
-            {
-              "value": "denmark",
-              "label": "Denmark Only"
-            },
-            {
-              "value": "us_ca_mx",
-              "label": "US, CA & MX Only"
-            },
-            {
-              "value": "global_excluding_us_ca_mx",
-              "label": "Global (Exclude US, CA & MX)"
-            }
+            { "value": "all", "label": "Global (All Markets)" },
+            { "value": "denmark", "label": "Denmark Only" },
+            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
+            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
           ],
           "default": "all"
         }
