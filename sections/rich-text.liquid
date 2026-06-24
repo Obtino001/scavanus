@@ -74,15 +74,10 @@
           {%- when 'icon' -%}
             {%- capture icon -%}
               {%- if block.settings.custom_icon != blank -%}
-                {%- assign custom_icon_url = block.settings.custom_icon | image_url -%}
-                  {%- if custom_icon_url contains '.svg' -%}
-                    <span class="image-icon image-icon--svg" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ block.settings.custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain;"></span>
-                  {%- else -%}
-                    {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
+                {%- capture sizes -%}{{ block.settings.icon_width }}px{%- endcapture -%}
                 {%- capture widths -%}{{ block.settings.icon_width }}, {{ block.settings.icon_width | times: 2 | at_most: block.settings.custom_icon.width }}{%- endcapture -%}
                 {%- capture style -%}--icon-max-width: {{ block.settings.icon_width }}px{%- endcapture -%}
                 {{- block.settings.custom_icon | image_url: width: block.settings.custom_icon.width | image_tag: sizes: sizes, widths: widths, style: style, class: 'image-icon' -}}
-                  {%- endif -%}
               {%- else -%}
                 {%- render 'icon' with block.settings.icon, width: block.settings.icon_width, height: block.settings.icon_width -%}
               {%- endif -%}

@@ -18,12 +18,12 @@
     display: grid;
     gap: 24px;
     align-items: stretch;
-    background: {{ section.settings.background | default: 'rgba(247, 245, 242, 1)' }};
+    background: rgba(247, 245, 242, 1);
     border-radius: 12px;
   }
 
   #shopify-section-{{ section.id }} .origin-featured-video-popup__content {
-    background: {{ section.settings.content_background | default: 'rgba(247, 245, 242, 1)' }};
+    background: rgba(247, 245, 242, 1);
     border-radius: 12px;
     padding: 28px 24px;
     display: flex;
@@ -51,6 +51,8 @@
   #shopify-section-{{ section.id }} .button {
     box-shadow: unset;
     padding: 16px 49px;
+    border: 1px solid #000;
+    color: #000;
     font-size: 14px;
     font-weight: 400;
   }
@@ -169,7 +171,7 @@
     max-height: calc(100vh - 48px);
     border-radius: 14px;
     overflow: hidden;
-    background: {{ section.settings.background | default: \'#000\' }};
+    background: #000;
     box-shadow: 0 20px 60px rgb(0 0 0 / 0.4);
   }
 
