@@ -152,11 +152,11 @@
             "show_payment_icons": true,
             "atc_button_background": "",
             "atc_button_text_color": "",
-            "payment_button_background": "#1a1a1a",
+            "payment_button_background": "#79072F",
             "payment_button_text_color": "#ffffff",
             "market_visibility": "all",
             "background": "",
-            "text_color": "",
+            "text_color": "#79072F",
             "button_background": "",
             "button_text_color": ""
           }
@@ -174,7 +174,7 @@
             "item_3_custom_icon": "shopify://shop_images/Group_52.svg",
             "item_3_icon": "picto-shield",
             "background": "",
-            "text_color": "",
+            "text_color": "#79072F",
             "button_background": "",
             "button_text_color": ""
           }
@@ -283,9 +283,9 @@
             "stack_products": true,
             "products_count": 5,
             "background": "",
-            "text_color": "",
-            "button_background": "",
-            "button_text_color": ""
+            "text_color": "#79072F",
+            "button_background": "#79072F",
+            "button_text_color": "#FFD1F1"
           }
         }
       },
@@ -658,13 +658,13 @@
         "heading": "Hvad kan den bruges til?",
         "background": "",
         "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
+        "text_color": "#79072F",
+        "heading_color": "#79072F",
         "heading_gradient": "",
-        "button_background": "",
-        "button_text_color": "",
-        "card_background": "",
-        "card_text_color": ""
+        "button_background": "#79072F",
+        "button_text_color": "#79072F",
+        "card_background": "#FFD1F1",
+        "card_text_color": "#79072F"
       }
     },
     "video_V8DgwE": {
