@@ -50,20 +50,20 @@ Supported section.settings IDs:
     #shopify-section-{{ section.id }} .button:not(.button--outline):not(.button--subdued) {
       {%- if section.settings.button_background != blank -%}
         --button-background: {{ section.settings.button_background.rgb }};
-        background: {{ section.settings.button_background }};
+        background: {{ section.settings.button_background }} !important;
       {%- endif -%}
       {%- if section.settings.button_text_color != blank -%}
         --button-text-color: {{ section.settings.button_text_color.rgb }};
-        color: {{ section.settings.button_text_color }};
+        color: {{ section.settings.button_text_color }} !important;
       {%- endif -%}
     }
 
     #shopify-section-{{ section.id }} .button.button--outline {
       {%- if section.settings.button_background != blank -%}
-        border-color: {{ section.settings.button_background }};
+        border-color: {{ section.settings.button_background }} !important;
       {%- endif -%}
       {%- if section.settings.button_text_color != blank -%}
-        color: {{ section.settings.button_text_color }};
+        color: {{ section.settings.button_text_color }} !important;
       {%- endif -%}
     }
   {%- endif -%}
