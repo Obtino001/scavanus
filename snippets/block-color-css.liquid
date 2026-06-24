@@ -1,0 +1,80 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+BLOCK COLOR CSS
+----------------------------------------------------------------------------------------------------------------------
+
+Outputs scoped CSS for standard block color settings in the Theme Editor.
+Targets #shopify-block-{{ block.id }} (from block.shopify_attributes).
+
+Usage: {% render 'block-color-css', block: block %}
+{%- endcomment -%}
+
+{%- liquid
+  assign block_bg = block.settings.background
+  assign block_text = block.settings.text_color
+  assign block_btn_bg = block.settings.button_background
+  assign block_btn_text = block.settings.button_text_color
+
+  assign has_colors = false
+  if block_bg != blank or block_text != blank or block_btn_bg != blank or block_btn_text != blank
+    assign has_colors = true
+  endif
+-%}
+
+{%- if has_colors -%}
+<style>
+  #shopify-block-{{ block.id }} {
+    {%- if block_bg != blank -%}
+      --block-background: {{ block_bg }};
+      background: {{ block_bg }};
+    {%- endif -%}
+    {%- if block_text != blank -%}
+      --block-text-color: {{ block_text }};
+      color: {{ block_text }};
+    {%- endif -%}
+  }
+
+  {%- if block_text != blank -%}
+    #shopify-block-{{ block.id }} :is(
+      p,
+      span:not(.product-info__feature-pill-icon),
+      li,
+      .text-subdued,
+      .prose,
+      .origin-review-slider__content,
+      .origin-review-slider__author,
+      .text-with-icons__text
+    ) {
+      color: {{ block_text }};
+    }
+  {%- endif -%}
+
+  {%- if block_bg != blank -%}
+    #shopify-block-{{ block.id }} :is(
+      .product-info__feature-pill,
+      .product-info__icon-text-feature,
+      .product-info__text,
+      .offer,
+      .text-with-icons__item,
+      .origin-review-slider__item,
+      .origin-review-slider__summary,
+      .accordion,
+      .accordion-box,
+      .card
+    ) {
+      background: {{ block_bg }};
+    }
+  {%- endif -%}
+
+  {%- if block_btn_bg != blank or block_btn_text != blank -%}
+    #shopify-block-{{ block.id }} .button {
+      {%- if block_btn_bg != blank -%}
+        background: {{ block_btn_bg }};
+      {%- endif -%}
+      {%- if block_btn_text != blank -%}
+        color: {{ block_btn_text }};
+      {%- endif -%}
+    }
+  {%- endif -%}
+</style>
+{%- endif -%}

@@ -24,6 +24,7 @@
 
 <div class="country-banner-wrapper">
   {% if active_block != blank %}
+    {%- render 'block-color-css', block: active_block -%}
     <div class="country-banner-content" {{ active_block.shopify_attributes }}>
       
       {% if active_block.settings.image != blank %}

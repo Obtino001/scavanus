@@ -52,6 +52,7 @@ LIQUID
 
       <image-link-blocks id="{{ scroll_area_id }}" class="image-link-blocks scroll-area bleed md:unbleed">
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- liquid
             assign loading_strategy = nil
   

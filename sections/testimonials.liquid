@@ -47,6 +47,7 @@
         {%- if section.settings.stack_testimonials -%}
           <div class="testimonial-list">
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               <div {% render 'surface', class: 'testimonial rounded-sm', background: section.settings.testimonial_card_background, text_color: section.settings.testimonial_card_text_color, background_fallback: 'bg-secondary' %} {{ block.shopify_attributes }}>
               {%- if block.settings.image != blank or block.settings.author != blank or block.settings.show_rating -%}
                 {%- liquid

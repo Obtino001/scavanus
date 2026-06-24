@@ -53,6 +53,7 @@ LIQUID
       <scroll-carousel selector=".collection-card" id="{{ scroll_area_id }}" class="scroll-area bleed {% if section.blocks.size > section.settings.collections_per_row %}is-scrollable{% endif %}">
         <collection-list class="collection-list">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- assign collection = block.settings.collection -%}
             {%- assign collection_url = block.settings.url | default: collection.url -%}
 

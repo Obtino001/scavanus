@@ -96,6 +96,7 @@ LIQUID
         {%- assign outputted_text_count = 0 -%}
 
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- if block.settings.subheading != blank or block.settings.title != blank or block.settings.content != blank -%}
             <div class="prose {% if outputted_text_count == 0 %}is-selected{% else %}reveal-invisible{% endif %}" {% if block.settings.image != blank %}image-id="image-{{ block.id }}"{% endif %} {{ block.shopify_attributes }}>
               {%- if block.settings.subheading != blank -%}

@@ -25,6 +25,7 @@
     <div class="timeline">
       <effect-carousel class="timeline__slider" id="timeline-carousel-{{ section.id }}">
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- liquid
             assign loading_strategy = nil
   

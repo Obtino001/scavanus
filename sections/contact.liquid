@@ -62,6 +62,7 @@
             </div>
 
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               {%- assign field_title = block.settings.title -%}
 
               {%- if field_title == blank -%}

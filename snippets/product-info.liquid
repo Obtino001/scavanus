@@ -20,6 +20,7 @@ Supported variables
   {%- assign current_block_group_name = '' -%}
 
   {%- for block in section.blocks -%}
+    {%- render 'block-color-css', block: block -%}
     {%- liquid
       assign previous_block_index = forloop.index0 | minus: 1
       assign next_block_index = forloop.index0 | plus: 1
@@ -149,22 +150,44 @@ Supported variables
             {%- render 'product-trustpilot-rating', product: product, block: block -%}
           </div>
 
+        {%- when 'countdown_timer' -%}
+          {%- render 'countdown-timer',
+            end_date: block.settings.end_date,
+            evergreen_hours: block.settings.evergreen_hours,
+            prefix_text: block.settings.prefix_text,
+            bg_color: block.settings.bg_color,
+            text_color: block.settings.text_color,
+            block: block
+          -%}
+
         {%- when 'feature_pill' -%}
           <div class="feature_pill-block">
-          {% assign pills = product.metafields.custom.icon_text_list.value %}
-          {% for pill in pills %}
-            {%- if pill.text != blank -%}
-              <div class="product-info__feature-pill">
-                <span class="product-info__feature-pill-icon">
-                  {%- if pill.icon != blank -%}
-                    {% comment %} {{- pill.icon | image_url: width: 40 | image_tag: loading: 'lazy', widths: '40', sizes: '40px' -}}     {% endcomment %}
-                    <img src="{{ pill.icon | img_url: 'large' }}" alt="">             
-                  {%- endif -%}
-                </span>
-                <span>{{ pill.text }}</span>
-              </div>
-            {%- endif -%}
-          {% endfor %}
+          {%- assign pills = product.metafields.custom.icon_text_list.value -%}
+          {%- if pills != blank -%}
+            {%- for pill in pills -%}
+              {%- if pill.text != blank -%}
+                <div class="product-info__feature-pill">
+                  <span class="product-info__feature-pill-icon">
+                    {%- if pill.icon != blank -%}
+                      <img src="{{ pill.icon | image_url: width: 80 }}" alt="" width="20" height="20" loading="lazy">
+                    {%- endif -%}
+                  </span>
+                  <span>{{ pill.text }}</span>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- elsif block.settings.text != blank -%}
+            <div class="product-info__feature-pill">
+              <span class="product-info__feature-pill-icon">
+                {%- if block.settings.custom_icon != blank -%}
+                  <img src="{{ block.settings.custom_icon | image_url: width: 80 }}" alt="" width="20" height="20" loading="lazy">
+                {%- elsif block.settings.icon != 'none' -%}
+                  {%- render 'icon' with block.settings.icon, width: 20, height: 20 -%}
+                {%- endif -%}
+              </span>
+              <span>{{ block.settings.text }}</span>
+            </div>
+          {%- endif -%}
           </div>
 
         {%- when 'icon_text_features' -%}

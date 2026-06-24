@@ -202,6 +202,7 @@
 
     <div class="origin-general-media-text__stack">
       {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
         {%- liquid
           assign row_classes = 'origin-general-media-text__row'
           assign has_video = false

@@ -15,6 +15,7 @@
     {%- assign blocks_after_divider = '' -%}
 
     {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
       {%- capture block_content -%}
         {%- case block.type -%}
           {%- when 'subheading' -%}

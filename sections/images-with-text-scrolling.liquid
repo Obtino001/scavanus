@@ -29,6 +29,7 @@
   {%- endcomment -%}
   <images-with-text-scrolling class="images-scrolling-mobile scroll-area bleed sm:unbleed">
     {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
       <div class="images-scrolling-mobile__item snap-start" {{ block.shopify_attributes }}>
         {%- if block.settings.image != blank -%}
           {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 100vw, 650px', widths: '200,300,400,600,800,1000,1200,1400,1600', class: 'rounded-sm' -}}

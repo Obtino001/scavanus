@@ -119,6 +119,7 @@
       <div class="place-self-center text-center">
         <div class="prose">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- case block.type -%}
               {%- when 'play' -%}
                 {%- unless section.settings.autoplay -%}

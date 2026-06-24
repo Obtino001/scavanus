@@ -126,6 +126,7 @@
 
         <div {% render 'surface', class: 'origin-faq-image__list rounded', background_fallback: '' %}>
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- if block.settings.title != blank and block.settings.content != blank -%}
               {%- capture accordion_content -%}
                 <div class="prose">{{ block.settings.content }}</div>

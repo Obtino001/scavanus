@@ -333,6 +333,7 @@
             </template>
 
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               {%- assign tab_title = block.settings.title | default: block.settings.collection.title -%}
               {%- if tab_title != blank -%}
                 <button type="button" slot="title" class="h2 tabs-nav__button bold text-subdued text-center" {{ block.shopify_attributes }}>

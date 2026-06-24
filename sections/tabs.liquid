@@ -36,6 +36,7 @@
         <div class="tabs-container">
           <div class="sm:hidden">
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               {%- liquid
                 assign title = block.settings.title | default: block.settings.page.title
 

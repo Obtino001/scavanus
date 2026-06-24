@@ -85,6 +85,7 @@ LIQUID
           {%- assign outputted_count = 0 -%}
 
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- if block.settings.value == blank -%}
               {%- continue -%}
             {%- endif -%}

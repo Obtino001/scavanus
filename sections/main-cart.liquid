@@ -90,6 +90,7 @@
           <safe-sticky class="cart-order__recap v-stack gap-6">
             <form action="{{ routes.cart_url }}" method="POST" class="cart-form rounded">
               {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
                 {%- case block.type -%}
                   {%- when '@app' -%}
                     {%- render block -%}

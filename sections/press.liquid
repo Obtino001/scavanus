@@ -27,6 +27,7 @@
       <div class="press">
         <press-carousel id="carousel-{{ section.id }}" class="press__list full-bleed text-center sm:unbleed" role="region">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             <div id="block-{{ section.id }}-{{ block.id }}" class="press__list-item snap-center {% if forloop.first %}is-selected{% endif %}" role="group" aria-label="{{ 'general.accessibility.item_nth_of_count' | t: index: forloop.index, count: section.blocks.size }}" {{ block.shopify_attributes }}>
               {%- if block.settings.show_rating -%}
                 <div class="rating">

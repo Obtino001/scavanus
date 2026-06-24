@@ -24,6 +24,7 @@ CSS
   }
 
   {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
     #block-{{ block.id }} {
       {%- if section.settings.controls_type == 'filled_arrows' -%}
         {%- assign controls_background = block.settings.button_background -%}

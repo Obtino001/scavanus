@@ -740,6 +740,7 @@
     <div class="product">
       {%- capture left_collapsible_blocks -%}
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- if block.type == 'collapsible_text' -%}
             {%- if block.settings.title != blank and block.settings.content != blank or block.settings.page.content != blank -%}
               {% if block.settings.check1 == true %}
@@ -3481,6 +3482,44 @@ quick buy information in a template, that will be extracted in JS, but ensure it
           "type": "color",
           "id": "button_text_color",
           "label": "Button text"
+        }
+      ]
+    },
+    {
+      "type": "countdown_timer",
+      "name": "Countdown timer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "prefix_text",
+          "label": "Prefix text",
+          "default": "Udløber om:"
+        },
+        {
+          "type": "number",
+          "id": "evergreen_hours",
+          "label": "Timer duration (hours)",
+          "info": "Set to 0 to use fixed end date below.",
+          "default": 93
+        },
+        {
+          "type": "text",
+          "id": "end_date",
+          "label": "End date/time",
+          "info": "Format: YYYY-MM-DD HH:MM:SS (e.g. 2026-12-31 23:59:59)",
+          "default": "2026-12-31 23:59:59"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background color",
+          "default": "#FDEDF5"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#7A0C2E"
         }
       ]
     }

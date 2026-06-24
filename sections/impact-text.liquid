@@ -33,6 +33,7 @@
     <div {% unless section.settings.stack_mobile %}class="scroll-area bleed {% if section.blocks.size < 3 %}sm:unbleed{% else %}md:unbleed{% endif %}"{% endunless %}>
       <div class="impact-text impact-text--{{ section.settings.text_alignment }} {% unless section.settings.stack_mobile %}impact-text--scroll{% endunless %}">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             <div class="snap-center" {{ block.shopify_attributes }}>
               {%- if block.settings.title != blank -%}
                 <h2 class="impact-text__text heading break-all">

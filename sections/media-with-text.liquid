@@ -21,6 +21,7 @@ CSS
   }
 
   {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
     {%- assign media_ratio = block.settings.media_width | divided_by: 50.0 -%}
     {%- assign content_ratio = 2.0 | minus: media_ratio -%}
 

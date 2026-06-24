@@ -28,6 +28,7 @@
         {%- paginate customer.orders by 16 -%}
           <div class="account__block-list">
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
                   {%- render block -%}

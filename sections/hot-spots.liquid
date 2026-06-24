@@ -32,6 +32,7 @@
   {%- endif -%}
 
   {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
     #block-{{ section.id }}-{{ block.id }} {
       --hot-spot-horizontal-position: {% if section.settings.mobile_image != blank %}{{ block.settings.horizontal_position_mobile }}{% else %}{{ block.settings.horizontal_position }}{% endif %}%;
       --hot-spot-vertical-position: {% if section.settings.mobile_image != blank %}{{ block.settings.vertical_position_mobile }}{% else %}{{ block.settings.vertical_position }}{% endif %}%;

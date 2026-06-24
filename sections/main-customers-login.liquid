@@ -32,6 +32,7 @@ LIQUID
 
           <div class="v-stack gap-6">
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               {%- case block.type -%}
                 {%- when '@app' -%}
                 {%- render block -%}

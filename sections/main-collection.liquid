@@ -51,6 +51,7 @@
     }
 
     {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
       #block-{{ section.id }}-{{ block.id }} {
         --product-list-promo-grid-column: span {{ block.settings.column_span }};
 

@@ -38,6 +38,7 @@ LIQUID
         {%- if section.blocks.size > 0 -%}
           {%- capture dots -%}
             {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
               <button type="button" style="--shop-the-look-dot-top: {{ block.settings.vertical_position }}%; --shop-the-look-dot-left: {{ block.settings.horizontal_position }}%;" class="shop-the-look__dot" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
                 <span class="sr-only">{{ 'general.accessibility.go_to_item' | t: index: forloop.index }}</span>
               </button>

@@ -105,6 +105,7 @@
 
             {%- if section.blocks.size > 0 -%}
               {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
                 {%- assign block_position = block.settings.position | at_most: section.settings.articles_per_page -%}
 
                 {%- if block_position == article_index -%}

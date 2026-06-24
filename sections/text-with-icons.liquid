@@ -121,6 +121,7 @@
       <div class="text-with-icons">
         <scroll-carousel class="text-with-icons__list scroll-area full-bleed {% if section.blocks.size <= 3 %}md:unbleed{% else %}lg:unbleed{% endif %}" id="carousel-{{ section.id }}" role="region">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- liquid
               assign loading_strategy = nil
     

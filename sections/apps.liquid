@@ -12,6 +12,7 @@
 
   <div {% render 'section-properties' %}>
     {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
       {%- render block -%}
     {%- endfor -%}
   </div>

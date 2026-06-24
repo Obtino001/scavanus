@@ -73,6 +73,7 @@
 
         <safe-sticky class="product-info">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- case block.type -%}
               {%- when 'vendor' -%}
                 <div class="product-info__vendor" {{ block.shopify_attributes }}>{{- 'general.on_boarding.product_vendor' | t -}}</div>

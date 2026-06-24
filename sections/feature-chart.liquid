@@ -91,6 +91,7 @@ LIQUID
         {%- assign has_product = false -%}
 
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- if block.type == 'values' and block.settings.product != blank -%}
             {%- assign has_product = true -%}
             {%- break -%}

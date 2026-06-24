@@ -126,6 +126,7 @@
     </div>
 
     {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
       {%- case block.type -%}
         {%- when 'navigation' -%}
           {%- render 'article-navigation', show_date: section.settings.show_date, show_author: section.settings.show_author, show_comments_count: section.settings.show_comments_count, block_attributes: block.shopify_attributes -%}

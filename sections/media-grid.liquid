@@ -20,6 +20,7 @@ CSS
   }
 
   {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
     #media-grid-{{ block.id }} {
       --content-over-media-overlay: {{ block.settings.overlay_color.rgb }} /{{ block.settings.overlay_opacity | divided_by: 100.0 }};
 

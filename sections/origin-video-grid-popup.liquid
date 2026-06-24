@@ -4,6 +4,7 @@
 
 {%- assign has_popup_video = false -%}
 {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
   {%- if block.settings.video != blank or block.settings.external_video_url != blank -%}
     {%- assign has_popup_video = true -%}
     {%- break -%}

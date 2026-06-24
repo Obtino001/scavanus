@@ -153,6 +153,7 @@
 
     <div id="custom-products-grid-{{ section.id }}" class="custom-products-grid">
       {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
         {%- capture is_block_visible -%}{%- render 'block-market-check', block: block -%}{%- endcapture -%}
         {%- if is_block_visible contains 'false' -%}{%- continue -%}{%- endif -%}
         {%- if block.settings.product == blank -%}{%- continue -%}{%- endif -%}

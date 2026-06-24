@@ -1,0 +1,118 @@
+{%- comment -%}
+  Countdown timer for Product Page
+  Accepts:
+  - end_date: Fixed date string (e.g. "2026-12-31T23:59:59")
+  - evergreen_hours: Number of hours to countdown from (evergreen)
+  - prefix_text: Text before the timer (e.g. "Udløber om:")
+  - bg_color: Background color
+  - text_color: Text color
+{%- endcomment -%}
+
+{%- assign timer_id = 'countdown-' | append: section.id | append: '-' | append: block.id -%}
+{%- assign storage_key = 'countdown_end_' | append: product.id | append: '_' | append: block.id -%}
+
+<div id="{{ timer_id }}" class="custom-countdown-timer" style="background-color: {{ bg_color }}; color: {{ text_color }};" {{ block.shopify_attributes }}>
+  <span class="countdown-prefix">{{ prefix_text }}</span>
+  <span class="countdown-time">
+    <span class="time-part"><span class="d-val">00</span>d</span><span class="colon">:</span>
+    <span class="time-part"><span class="h-val">00</span>t</span><span class="colon">:</span>
+    <span class="time-part"><span class="m-val">00</span>m</span><span class="colon">:</span>
+    <span class="time-part"><span class="s-val">00</span>s</span>
+  </span>
+</div>
+
+<style>
+  .custom-countdown-timer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .countdown-prefix {
+    font-weight: 600;
+  }
+  .countdown-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 500;
+  }
+  .time-part {
+    display: inline-flex;
+    align-items: center;
+  }
+  .colon {
+    opacity: 0.7;
+    margin: 0 4px;
+    font-size: 14px;
+  }
+</style>
+
+<script>
+  (function() {
+    const timerEl = document.getElementById('{{ timer_id }}');
+    if (!timerEl) return;
+
+    const dVal = timerEl.querySelector('.d-val');
+    const hVal = timerEl.querySelector('.h-val');
+    const mVal = timerEl.querySelector('.m-val');
+    const sVal = timerEl.querySelector('.s-val');
+
+    let endTime = null;
+    const isEvergreen = {{ evergreen_hours | default: 0 }} > 0;
+    const evergreenHours = {{ evergreen_hours | default: 0 }};
+    const fixedDateStr = "{{ end_date | escape }}";
+    const storageKey = "{{ storage_key }}";
+
+    if (isEvergreen) {
+      const storedEnd = localStorage.getItem(storageKey);
+      if (storedEnd) {
+        endTime = parseInt(storedEnd, 10);
+        if (Date.now() > endTime) {
+          // Reset if expired
+          endTime = Date.now() + (evergreenHours * 60 * 60 * 1000);
+          localStorage.setItem(storageKey, endTime.toString());
+        }
+      } else {
+        endTime = Date.now() + (evergreenHours * 60 * 60 * 1000);
+        localStorage.setItem(storageKey, endTime.toString());
+      }
+    } else if (fixedDateStr) {
+      endTime = new Date(fixedDateStr).getTime();
+    }
+
+    if (!endTime) return;
+
+    function updateTimer() {
+      const now = Date.now();
+      const distance = endTime - now;
+
+      if (distance < 0) {
+        dVal.textContent = "00";
+        hVal.textContent = "00";
+        mVal.textContent = "00";
+        sVal.textContent = "00";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      dVal.textContent = days.toString().padStart(2, '0');
+      hVal.textContent = hours.toString().padStart(2, '0');
+      mVal.textContent = minutes.toString().padStart(2, '0');
+      sVal.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  })();
+</script>

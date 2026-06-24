@@ -16,6 +16,7 @@
 
       <div class="multi-column scroll-area bleed md:unbleed">
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- liquid
             assign loading_strategy = nil
   

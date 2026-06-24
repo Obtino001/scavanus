@@ -129,6 +129,7 @@
           <span class="scrolling-text__text">
             <span class="origin-logos-marquee__track">
               {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
                 {%- liquid
                   assign loading_strategy = nil
                   if section.index > 3 or forloop.index > 6

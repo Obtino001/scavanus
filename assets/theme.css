@@ -10692,6 +10692,11 @@ b, strong {
 .product-info__feature-pill {
   margin-right: 9px;
   margin-bottom: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
 }
 .shopify-section--collection-banner .section {
   padding-block-start: 0px !important;

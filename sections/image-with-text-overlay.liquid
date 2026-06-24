@@ -46,6 +46,7 @@
       <div class="{{ section.settings.mobile_text_position }} {{ section.settings.desktop_text_position }}">
         <div class="prose">
           {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
             {%- case block.type -%}
               {%- when 'subheading' -%}
                 {%- if block.settings.text != blank -%}

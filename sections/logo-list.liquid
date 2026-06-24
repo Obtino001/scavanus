@@ -45,6 +45,7 @@
 
       <reveal-items class="logo-list {% unless section.settings.stack_mobile %}scroll-area bleed sm:unbleed{% endunless %}">
         {%- for block in section.blocks -%}
+            {%- render 'block-color-css', block: block -%}
           {%- liquid
             assign loading_strategy = nil
   
