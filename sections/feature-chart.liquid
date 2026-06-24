@@ -6,7 +6,7 @@ are upgrading their theme, but it no longer has the "presets" part in the schema
 
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- assign text_position = section.settings.text_position -%}
 {%- assign values_column_count = section.blocks | where: 'type', 'values' | size -%}
@@ -17,6 +17,8 @@ CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --feature-chart-values-columns-count: {{ values_column_count }};

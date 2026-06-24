@@ -1,9 +1,11 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     @media screen and (min-width: 700px) {
       #shopify-section-{{ section.id }} {
         --tabs-max-width: {% if section.settings.content_size == 'small' %}760{% elsif section.settings.content_size == 'medium' %}1000{% elsif section.settings.content_size == 'large' %}1260{% endif %}px;

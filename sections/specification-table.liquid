@@ -1,6 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 {%- assign text_position = section.settings.text_position -%}
 
 {%- comment -%}
@@ -9,6 +9,8 @@ CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --feature-chart-values-columns-count: 1;

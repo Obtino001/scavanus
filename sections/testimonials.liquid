@@ -1,9 +1,11 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --testimonial-list-items-per-row: 1;
       --testimonial-list-carousel-item-width: 74vw;

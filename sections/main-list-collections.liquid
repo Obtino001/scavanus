@@ -1,5 +1,5 @@
 {%- if collections.size == 0 -%}
-{%- render 'section-color-css' -%}
+
 
   <div class="empty-state">
     <div class="empty-state__icon-wrapper">
@@ -15,7 +15,9 @@
     </div>
   </div>
 {%- else -%}
-  <style>
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} .collection-list {
       --collection-list-grid: auto / repeat({{ section.settings.collections_per_row_mobile | times: 1 }}, minmax(0, 1fr));
     }

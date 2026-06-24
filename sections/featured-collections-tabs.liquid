@@ -1,9 +1,11 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     {%- assign section_background = section.settings.background | default: settings.background -%}
     {%- assign card_background = section.settings.product_card_background | default: section.settings.card_background | default: settings.product_card_background -%}
     {%- assign card_blends = false -%}

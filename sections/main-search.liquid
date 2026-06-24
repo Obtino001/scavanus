@@ -1,5 +1,5 @@
 {%- if section.settings.show_filters and search.filters.size > 0 -%}
-{%- render 'section-color-css' -%}
+
 
   {%- assign show_filters = true -%}
 {%- else -%}
@@ -26,6 +26,8 @@
   </form>
 {%- endcapture -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   {%- assign card_blends = false -%}
 

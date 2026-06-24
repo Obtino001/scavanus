@@ -90,10 +90,11 @@ Usage: {% render 'block-color-css', block: block %}
   {%- if block_btn_bg != blank or block_btn_text != blank -%}
     #shopify-block-{{ block.id }} .button {
       {%- if block_btn_bg != blank -%}
-        background: {{ block_btn_bg }};
+        background: {{ block_btn_bg }} !important;
+        border-color: {{ block_btn_bg }} !important;
       {%- endif -%}
       {%- if block_btn_text != blank -%}
-        color: {{ block_btn_text }};
+        color: {{ block_btn_text }} !important;
       {%- endif -%}
     }
   {%- endif -%}

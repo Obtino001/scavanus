@@ -1,6 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- comment -%}
 ------------------------------------------------------------------------------------------------------------------------
@@ -8,6 +8,8 @@ CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --media-with-text-gap: {% if section.settings.spacing == 'none' %}0{% else %}var(--grid-gutter){% endif %};

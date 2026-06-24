@@ -1,9 +1,15 @@
 {%- render 'section-spacing-collapsing' -%}
 
+
+{%- for block in section.blocks -%}
+  {%- render 'block-color-css', block: block -%}
+{%- endfor -%}
+
+
+
+
+
 {%- render 'section-color-css' -%}
-
-
-
 <style>
   #shopify-section-{{ section.id }} .product-video-stories {
     display: grid;

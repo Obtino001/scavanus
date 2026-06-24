@@ -1,6 +1,10 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
+{%- for block in section.blocks -%}
+  {%- render 'block-color-css', block: block -%}
+{%- endfor -%}
+
 
 {%- assign text_position = section.settings.text_position -%}
 {%- assign values_column_count = section.blocks | where: 'type', 'values' | size -%}
@@ -11,6 +15,8 @@ CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --feature-chart-values-columns-count: {{ values_column_count }};

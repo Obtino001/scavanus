@@ -43,7 +43,11 @@
             {%- endif -%}
           {%- endfor -%}
 
-          <style>
+          
+
+
+{%- render 'section-color-css' -%}
+<style>
             #shopify-section-{{ section.id }} {
               --predictive-search-column-count: {{ categories_count | at_least: 3}};
             }

@@ -1,4 +1,4 @@
-{%- render 'section-color-css' -%}
+
 
 {%- liquid
   assign section_padding_top = section.settings.padding_top
@@ -7,6 +7,8 @@
   assign block_gap_mobile = section.settings.block_gap_mobile
 -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} .origin-general-media-text {
     padding-top: {{ section_padding_top }}px;

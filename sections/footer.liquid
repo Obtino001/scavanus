@@ -1,8 +1,10 @@
 {%- assign newsletter_block = section.blocks | where: 'type', 'newsletter' | first -%}
-{%- render 'section-color-css' -%}
+
 
 
 {%- if section.blocks.size > 3 -%}
+
+{%- render 'section-color-css' -%}
 <style>
   @media screen and (min-width: 1000px) {
     #shopify-section-{{ section.id }} {

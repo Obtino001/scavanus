@@ -1,6 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- assign visible_images_count = section.blocks | map: 'settings' | where: 'image' | size -%}
 
@@ -10,6 +10,8 @@ CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --multiple-images-with-text-max-width: 580px;

@@ -1,11 +1,17 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
+{%- for block in section.blocks -%}
+  {%- render 'block-color-css', block: block -%}
+{%- endfor -%}
+
 
 {%- liquid
   assign steps_background = section.settings.background | default: section.settings.card_background
 -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} .product-steps-media {
     background: {% render 'setting-color', value: steps_background, default: 'rgba(247, 245, 242, 1)' %};

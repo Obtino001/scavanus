@@ -1,6 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- assign has_popup_video = false -%}
 {%- for block in section.blocks -%}
@@ -11,6 +11,8 @@
   {%- endif -%}
 {%- endfor -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   .shopify-section--origin-video-grid-popup .section-stack {
     gap: 20px;    

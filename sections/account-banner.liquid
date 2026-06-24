@@ -1,7 +1,9 @@
 {%- if section.settings.image != blank -%}
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --content-over-media-height: {% if section.settings.image_size == 'sm' %}180px{% elsif section.settings.image_size == 'md' %}250px{% elsif section.settings.image_size == 'lg' %}350px{% else %}auto{% endif %};
       --content-over-media-overlay: {{ section.settings.overlay_color.rgb }} / {{ section.settings.overlay_opacity | divided_by: 100.0 }};

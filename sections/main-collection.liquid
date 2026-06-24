@@ -1,6 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- if section.settings.show_filters and collection.filters.size > 0 -%}
   {%- assign show_filters = true -%}
@@ -8,6 +8,8 @@
   {%- assign show_filters = false -%}
 {%- endif -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   {%- assign card_blends = false -%}
 

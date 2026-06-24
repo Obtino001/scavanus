@@ -1,6 +1,6 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- comment -%}
 ------------------------------------------------------------------------------------------------------------------------
@@ -8,6 +8,8 @@ CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} .product-list {
     --product-list-gap: {% if section.settings.stack_products %}{% if section.settings.products_per_row_mobile == '1' %}var(--grid-gutter){% else %}var(--product-list-row-gap){% endif %} var(--spacing-2){% else %}var(--product-list-row-gap) var(--product-list-column-gap){% endif %};

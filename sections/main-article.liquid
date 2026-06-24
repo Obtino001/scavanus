@@ -1,11 +1,13 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- assign background_color = article.metafields.banner.background_color.value | default: section.settings.banner_background -%}
 {%- assign text_color = article.metafields.banner.text_color.value | default: section.settings.banner_text_color -%}
 {%- assign article_image = section.settings.image | default: article.image -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} .article-banner {
     --article-banner-background: {%- if background_color != blank -%}{{ background_color.rgb }}{%- else -%}var(--text-color) / 0.05{%- endif -%};

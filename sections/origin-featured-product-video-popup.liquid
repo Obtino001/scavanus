@@ -2,7 +2,7 @@
 {%- if is_section_visible contains 'true' -%}
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 
 {%- assign has_popup_video = false -%}
@@ -14,6 +14,8 @@
   {%- endif -%}
 {%- endfor -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} .origin-featured-video-popup {
     display: grid;

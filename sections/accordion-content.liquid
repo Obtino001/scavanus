@@ -1,9 +1,11 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
 {%- assign text_position = section.settings.text_position -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --section-stack-intro: {% if text_position == 'center' %}66.6667%{% else %}50%{% endif %};

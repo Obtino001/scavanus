@@ -1,5 +1,5 @@
 <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
-{%- render 'section-color-css' -%}
+
 
 
 <script type="module">
@@ -16,6 +16,8 @@
   }
 </script>
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     --gift-card-balance-font-size: 48px;

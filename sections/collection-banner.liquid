@@ -1,5 +1,5 @@
 {%- assign show_image = false -%}
-{%- render 'section-color-css' -%}
+
 
 
 {%- if section.settings.show_collection_image and collection.image or section.settings.image -%}
@@ -23,7 +23,9 @@
 {%- capture is_section_visible -%}{%- render 'block-market-check', block: section -%}{%- endcapture -%}
 {%- if is_section_visible contains 'true' -%}
   {%- if show_image -%}
-    <style>
+    
+{%- render 'section-color-css' -%}
+<style>
       #shopify-section-{{ section.id }} {
         {%- if section.settings.full_width -%}
           --section-outer-spacing-block: 0;

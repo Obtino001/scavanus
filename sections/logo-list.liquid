@@ -1,9 +1,11 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --logo-list-item-max-size: 280px;
       --logo-list-grid: {% if section.settings.stack_mobile %}auto-flow 1fr / repeat(var(--logo-list-items-per-row), minmax(0, var(--logo-list-item-max-size))){% else %}1fr / auto-flow 52vw{% endif %};

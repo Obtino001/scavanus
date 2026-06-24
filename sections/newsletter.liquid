@@ -1,11 +1,13 @@
 {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 {%- assign has_custom_background = false -%}
 {%- if section.settings.background_gradient != blank or section.settings.background != blank and section.settings.background != 'rgba(0,0,0,0)' -%}
   {%- assign has_custom_background = true -%}
 {%- endif -%}
 
+
+{%- render 'section-color-css' -%}
 <style>
   #shopify-section-{{ section.id }} {
     {%- if section.settings.image and has_custom_background -%}

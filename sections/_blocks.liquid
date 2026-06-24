@@ -1,9 +1,15 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+{%- for block in section.blocks -%}
+  {%- render 'block-color-css', block: block -%}
+{%- endfor -%}
+
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       {% if section.settings.remove_vertical_spacing %}--section-spacing-block: 0px;{% endif %}
       {% if section.settings.remove_horizontal_spacing %}--section-spacing-inline: 0px;{% endif %}

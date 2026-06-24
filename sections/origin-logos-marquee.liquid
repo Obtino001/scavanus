@@ -1,9 +1,11 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --origin-logos-marquee-gap: {{ section.settings.logo_gap }}px;
       --origin-logos-marquee-height: {{ section.settings.logo_height }}px;

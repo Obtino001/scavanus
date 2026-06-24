@@ -1,7 +1,7 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
   {%- comment -%}
   ------------------------------------------------------------------------------------------------------------------------
@@ -9,7 +9,9 @@
   ------------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
-  <style>
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --impact-text-font-size: calc(min(20vw, 65px) * {{ section.settings.impact_text_size_ratio }});
       --impact-text-auto-columns: {% if section.blocks.size == 1 %}minmax(0, 1fr){% else %}{% if section.settings.text_divider != 'none' %}48vw auto{% else %}64vw{% endif %}{% endif %};

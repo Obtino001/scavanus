@@ -1,9 +1,11 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --text-with-icons-template: {% if section.settings.stack_on_mobile %}minmax(0, 1fr){% else %}auto-flow 100%{% endif %};
       --text-with-icons-justify: center;

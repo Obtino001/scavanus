@@ -1,7 +1,7 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
   {%- comment -%}
   ------------------------------------------------------------------------------------------------------------------------
@@ -9,7 +9,9 @@
   ------------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
-  <style>
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --press-items-border: {{ section.settings.logo_item_border.rgb }} / {{ section.settings.logo_item_border.alpha }};
       --press-max-width: {% if section.settings.content_size == 'small' %}760{% elsif section.settings.content_size == 'medium' %}1000{% elsif section.settings.content_size == 'large' %}1260{% endif %}px;

@@ -1,5 +1,5 @@
 {%- if section.blocks.size > 0 -%}
-{%- render 'section-color-css' -%}
+
 
   {%- unless request.page_type != 'index' and section.settings.show_on_homepage_only -%}
     {%- comment -%}
@@ -7,7 +7,9 @@
     CSS
     ------------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
-    <style>
+    
+{%- render 'section-color-css' -%}
+<style>
       :root {
         --sticky-announcement-bar-enabled: {%- if section.settings.enable_sticky -%}1{% else %}0{% endif %};
       }

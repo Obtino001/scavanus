@@ -1,4 +1,4 @@
-{%- render 'section-color-css' -%}
+
 
 {%- liquid
   assign current_country = localization.country.iso_code | downcase
@@ -43,6 +43,8 @@
   {% endif %}
 </div>
 
+
+{%- render 'section-color-css' -%}
 <style>
   .country-banner-wrapper {
     display: flex;

@@ -1,10 +1,12 @@
 {%- comment -%}
-{%- render 'section-color-css' -%}
+
 
 ------------------------------------------------------------------------------------------------------------------------
 CSS
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
+
+{%- render 'section-color-css' -%}
 <style>
   {%- if section.settings.controls_type == 'filled_arrows' -%}
     {%- assign controls_background = section.blocks.first.settings.button_background -%}

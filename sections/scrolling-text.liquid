@@ -1,9 +1,11 @@
 {%- if section.settings.text != blank -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
 
-  <style>
+
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --section-spacing-inline: 0;
       --scrolling-text-font-size: {% if section.settings.text_size == 'xsmall' %}1.125rem{% elsif section.settings.text_size == 'small' %}2.5rem{% elsif section.settings.text_size == 'medium' %}3.75rem{% elsif section.settings.text_size == 'large' %}5rem{% else %}7.5rem{% endif %};

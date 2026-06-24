@@ -2,7 +2,7 @@
 {%- if reviews.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
-{%- render 'section-color-css' -%}
+
 
   {%- liquid
     assign review_card_bg = section.settings.card_background | default: section.settings.summary_card_background
@@ -10,7 +10,9 @@
 
   {%- assign scroll_area_id = 'review-scroll-area-' | append: section.id -%}
 
-  <style>
+  
+{%- render 'section-color-css' -%}
+<style>
     #shopify-section-{{ section.id }} {
       --origin-review-slider-mobile-card-width: 82vw;
       --origin-review-slider-desktop-card-width: calc((100% - (var(--grid-gutter) * 2)) / 3);
