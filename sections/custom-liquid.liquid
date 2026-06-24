@@ -1,6 +1,8 @@
 {%- if section.settings.liquid != blank -%}
   {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
   <style>
     #shopify-section-{{ section.id }} {
       {% if section.settings.remove_vertical_spacing %}--section-spacing-block: 0px;{% endif %}
@@ -19,7 +21,9 @@
   "class": "shopify-section--custom-liquid",
   "tag": "section",
   "disabled_on": {
-    "groups": ["custom.overlay"]
+    "groups": [
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -66,6 +70,36 @@
       "type": "color",
       "id": "text_color",
       "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "presets": [

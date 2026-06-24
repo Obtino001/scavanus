@@ -1,0 +1,5 @@
+{%- comment -%}
+Returns a color value from a section/block setting, or the provided default when blank.
+Usage: color: {% render 'setting-color', value: section.settings.heading_color, default: '#171717' %};
+{%- endcomment -%}
+{%- if value != blank -%}{{ value }}{%- else -%}{{ default }}{%- endif -%}

@@ -6,6 +6,8 @@ are upgrading their theme, but it no longer has the "presets" part in the schema
 
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 {%- assign text_position = section.settings.text_position -%}
 {%- assign values_column_count = section.blocks | where: 'type', 'values' | size -%}
 
@@ -244,7 +246,10 @@ LIQUID
   "class": "shopify-section--feature-chart",
   "tag": "section",
   "disabled_on": {
-    "groups": ["header", "custom.overlay"]
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -397,6 +402,16 @@ LIQUID
       "type": "color",
       "id": "chart_true_false_color",
       "label": "True/false color"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
@@ -508,6 +523,30 @@ LIQUID
           "type": "text",
           "id": "heading_20",
           "label": "Heading 20"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -635,6 +674,26 @@ LIQUID
           "type": "color",
           "id": "view_button_text_color",
           "label": "View product button text"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }

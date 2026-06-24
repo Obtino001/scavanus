@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 <style>
   #shopify-section-{{ section.id }} {
     {%- if section.settings.allow_transparent_header -%}
@@ -227,6 +229,16 @@
           "type": "color",
           "id": "text_color",
           "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }
@@ -351,6 +363,46 @@
       "id": "read_more_text",
       "label": "Read more text",
       "default": "Læs mere"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ]
 }

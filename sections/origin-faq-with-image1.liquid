@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 <style>
   #shopify-section-{{ section.id }} .origin-faq-image {
     display: grid;
@@ -15,14 +17,14 @@
     margin: 0;
     font-size: 32px;
     font-weight: 500;
-    color: rgba(39, 39, 39, 1);
+    color: {% render 'setting-color', value: section.settings.heading_color, default: 'rgba(39, 39, 39, 1)' %};
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron {
     width: auto;
     height: auto;
     border-radius: 0;
     background: transparent;
-    color: rgba(39, 39, 39, 1);
+    color: {% render 'setting-color', value: section.settings.heading_color, default: 'rgba(39, 39, 39, 1)' %};
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle .circle-chevron svg {
     display: none;
@@ -39,13 +41,13 @@
     content: "−";
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron::before {
-    color: rgba(39, 39, 39, 1);
+    color: {% render 'setting-color', value: section.settings.heading_color, default: 'rgba(39, 39, 39, 1)' %};
   }
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:hover .circle-chevron,
   #shopify-section-{{ section.id }} .origin-faq-image .accordion__toggle:focus-visible .circle-chevron,
   #shopify-section-{{ section.id }} .origin-faq-image details[open].accordion .accordion__toggle .circle-chevron {
     background: transparent;
-    color: rgba(39, 39, 39, 1);
+    color: {% render 'setting-color', value: section.settings.heading_color, default: 'rgba(39, 39, 39, 1)' %};
     border-color: transparent;
   }
 
@@ -68,7 +70,7 @@
     padding: 24px 0px;
     font-size: 16px;
     font-weight: 400;
-    color: rgba(0, 0, 0, 0.85);
+    color: {% render 'setting-color', value: section.settings.text_color, default: 'rgba(0, 0, 0, 0.85)' %};
   }
   .origin-faq-image  .accordion:first-child {
     border-block-start-width: 0px;
@@ -193,7 +195,10 @@
   "class": "shopify-section--origin-faq-with-image",
   "tag": "section",
   "disabled_on": {
-    "groups": ["header", "custom.overlay"]
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -218,10 +223,22 @@
       "id": "image_aspect_ratio",
       "label": "Image aspect ratio",
       "options": [
-        { "value": "auto", "label": "Natural" },
-        { "value": "1:1", "label": "Square (1:1)" },
-        { "value": "4:5", "label": "Portrait (4:5)" },
-        { "value": "16:9", "label": "Wide (16:9)" }
+        {
+          "value": "auto",
+          "label": "Natural"
+        },
+        {
+          "value": "1:1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "4:5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "16:9",
+          "label": "Wide (16:9)"
+        }
       ],
       "default": "auto"
     },
@@ -230,10 +247,66 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        { "value": "cover", "label": "Fill (Cover)" },
-        { "value": "contain", "label": "Fit (Contain)" }
+        {
+          "value": "cover",
+          "label": "Fill (Cover)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit (Contain)"
+        }
       ],
       "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
@@ -252,6 +325,30 @@
           "id": "content",
           "label": "Answer",
           "default": "<p>It gently dries and irons garments using controlled warm airflow.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }
@@ -260,7 +357,23 @@
     {
       "name": "Product FAQ with image",
       "category": "Trust & social proof",
-      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }]
+      "blocks": [
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        },
+        {
+          "type": "item"
+        }
+      ]
     }
   ]
 }

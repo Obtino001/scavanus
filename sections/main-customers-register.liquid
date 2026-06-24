@@ -1,4 +1,6 @@
 <div class="sm:container">
+{%- render 'section-color-css' -%}
+
   <div class="customer-form">
     {%- if section.settings.image != blank -%}
       {{- section.settings.image | image_url: width: section.settings.image.width | image_tag: sizes: '50vw', widths: '300,400,500,600,700,800,1000,1200,1400', class: 'customer-form__image rounded' -}}
@@ -123,11 +125,52 @@
       "type": "color",
       "id": "button_text_color",
       "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "@app",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
+        }
+      ]
     },
     {
       "type": "fields",
@@ -139,6 +182,30 @@
           "id": "show_email_consent",
           "label": "Show email consent",
           "default": false
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -150,6 +217,30 @@
           "type": "liquid",
           "id": "liquid",
           "label": "Liquid"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }

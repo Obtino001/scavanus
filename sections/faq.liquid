@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 {%- assign text_position = section.settings.text_position -%}
 
 <style>
@@ -145,7 +147,10 @@
   "class": "shopify-section--faq",
   "tag": "section",
   "disabled_on": {
-    "groups": ["header", "custom.overlay"]
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "blocks": [
     {
@@ -163,6 +168,30 @@
           "id": "content",
           "label": "Answer",
           "default": "<p>Write content to answer to common questions your customers may have about your products, shipping policies..</p>"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }
@@ -302,6 +331,16 @@
       "type": "color",
       "id": "accordion_text_color",
       "label": "Accordion text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "presets": [

@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 {%- comment -%}
 ------------------------------------------------------------------------------------------------------------------------
 CSS
@@ -289,7 +291,9 @@ LIQUID
   "class": "shopify-section--product-recommendations",
   "tag": "section",
   "enabled_on": {
-    "templates": ["product"]
+    "templates": [
+      "product"
+    ]
   },
   "settings": [
     {
@@ -335,9 +339,18 @@ LIQUID
       "id": "image_ratio",
       "label": "Product image ratio",
       "options": [
-        { "value": "square", "label": "Square (Figma)" },
-        { "value": "short", "label": "Landscape (4:3)" },
-        { "value": "tall", "label": "Portrait (2:3)" }
+        {
+          "value": "square",
+          "label": "Square (Figma)"
+        },
+        {
+          "value": "short",
+          "label": "Landscape (4:3)"
+        },
+        {
+          "value": "tall",
+          "label": "Portrait (2:3)"
+        }
       ],
       "default": "square"
     },
@@ -420,6 +433,26 @@ LIQUID
       "type": "color",
       "id": "product_card_text_color",
       "label": "Product card text"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "presets": [

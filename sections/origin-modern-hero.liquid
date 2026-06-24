@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 <style>
   #shopify-section-{{ section.id }} {
     --content-over-media-overlay: {{ section.settings.overlay_color.rgb }} / {{ section.settings.overlay_opacity | divided_by: 100.0 }};
@@ -212,8 +214,13 @@
   "class": "shopify-section--origin-modern-hero shopify-section--collection-list",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -243,11 +250,26 @@
       "id": "image_size",
       "label": "Image size",
       "options": [
-        { "value": "auto", "label": "Original image ratio" },
-        { "value": "sm", "label": "Small" },
-        { "value": "md", "label": "Medium" },
-        { "value": "lg", "label": "Large" },
-        { "value": "fill", "label": "Fill screen" }
+        {
+          "value": "auto",
+          "label": "Original image ratio"
+        },
+        {
+          "value": "sm",
+          "label": "Small"
+        },
+        {
+          "value": "md",
+          "label": "Medium"
+        },
+        {
+          "value": "lg",
+          "label": "Large"
+        },
+        {
+          "value": "fill",
+          "label": "Fill screen"
+        }
       ],
       "default": "md"
     },
@@ -262,9 +284,18 @@
       "id": "heading_size",
       "label": "Heading size",
       "options": [
-        { "value": "h1", "label": "Large" },
-        { "value": "h2", "label": "Medium" },
-        { "value": "h3", "label": "Small" }
+        {
+          "value": "h1",
+          "label": "Large"
+        },
+        {
+          "value": "h2",
+          "label": "Medium"
+        },
+        {
+          "value": "h3",
+          "label": "Small"
+        }
       ],
       "default": "h1"
     },
@@ -345,17 +376,59 @@
       "label": "Button text",
       "default": "#1f2937"
     },
-  {
+    {
       "type": "select",
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        { "value": "all", "label": "Global (All Markets)" },
-        { "value": "denmark", "label": "Denmark Only" },
-        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+        {
+          "value": "all",
+          "label": "Global (All Markets)"
+        },
+        {
+          "value": "denmark",
+          "label": "Denmark Only"
+        },
+        {
+          "value": "us_ca_mx",
+          "label": "US, CA & MX Only"
+        },
+        {
+          "value": "global_excluding_us_ca_mx",
+          "label": "Global (Exclude US, CA & MX)"
+        }
       ],
       "default": "all"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "presets": [

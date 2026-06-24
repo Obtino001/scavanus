@@ -2,6 +2,8 @@
 {%- if is_section_visible contains 'true' -%}
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 
 {%- assign has_popup_video = false -%}
 {%- for block in section.blocks -%}
@@ -545,8 +547,13 @@
   "class": "shopify-section--origin-featured-video-popup",
   "tag": "section",
   "disabled_on": {
-    "templates": ["password"],
-    "groups": ["header", "custom.overlay"]
+    "templates": [
+      "password"
+    ],
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -636,12 +643,54 @@
       "id": "market_visibility",
       "label": "Market visibility",
       "options": [
-        { "value": "all", "label": "Global (All Markets)" },
-        { "value": "denmark", "label": "Denmark Only" },
-        { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-        { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+        {
+          "value": "all",
+          "label": "Global (All Markets)"
+        },
+        {
+          "value": "denmark",
+          "label": "Denmark Only"
+        },
+        {
+          "value": "us_ca_mx",
+          "label": "US, CA & MX Only"
+        },
+        {
+          "value": "global_excluding_us_ca_mx",
+          "label": "Global (Exclude US, CA & MX)"
+        }
       ],
       "default": "all"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
@@ -675,7 +724,10 @@
         {
           "type": "video_url",
           "id": "external_video_url",
-          "accept": ["youtube", "vimeo"],
+          "accept": [
+            "youtube",
+            "vimeo"
+          ],
           "label": "External video URL"
         },
         {
@@ -689,12 +741,48 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            { "value": "all", "label": "Global (All Markets)" },
-            { "value": "denmark", "label": "Denmark Only" },
-            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+            {
+              "value": "all",
+              "label": "Global (All Markets)"
+            },
+            {
+              "value": "denmark",
+              "label": "Denmark Only"
+            },
+            {
+              "value": "us_ca_mx",
+              "label": "US, CA & MX Only"
+            },
+            {
+              "value": "global_excluding_us_ca_mx",
+              "label": "Global (Exclude US, CA & MX)"
+            }
           ],
           "default": "all"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }

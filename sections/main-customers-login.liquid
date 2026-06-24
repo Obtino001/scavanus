@@ -1,4 +1,6 @@
 {%- comment -%}
+{%- render 'section-color-css' -%}
+
 ------------------------------------------------------------------------------------------------------------------------
 LIQUID
 ------------------------------------------------------------------------------------------------------------------------
@@ -157,11 +159,52 @@ LIQUID
       "type": "color",
       "id": "button_text_color",
       "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "@app",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
+        }
+      ]
     },
     {
       "type": "fields",
@@ -173,6 +216,30 @@ LIQUID
           "id": "return_to",
           "label": "Redirect upon login",
           "info": "Default to customer account page."
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -184,6 +251,30 @@ LIQUID
           "type": "liquid",
           "id": "liquid",
           "label": "Liquid"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }

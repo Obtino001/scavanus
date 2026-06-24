@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
 <style>
   #shopify-section-{{ section.id }} .product-centered-features__heading {
     margin: 0;
@@ -9,7 +11,7 @@
     font-weight: 500;
     max-width: 760px;
     margin-inline: auto;
-    color: rgba(39, 39, 39, 1);
+    color: {% render 'setting-color', value: section.settings.heading_color, default: 'rgba(39, 39, 39, 1)' %};
   }
 
   #shopify-section-{{ section.id }} .product-centered-features__shell {
@@ -33,7 +35,7 @@
     position: absolute;
     inset-inline: 0;    
     height: var(--product-centered-features-panel-height);    
-    background: rgba(247, 245, 242, 1);
+    background: {% render 'setting-color', value: section.settings.card_background, default: 'rgba(247, 245, 242, 1)' %};
     border-radius: 12px;
     z-index: 0;
     pointer-events: none;
@@ -83,14 +85,14 @@
     font-size: 14px;
     line-height: 1.2;
     font-weight: 500;
-    color: rgba(0, 0, 0, 1);
+    color: {% render 'setting-color', value: section.settings.card_text_color, default: 'rgba(0, 0, 0, 1)' %};
   }
 
   #shopify-section-{{ section.id }} .product-centered-features__text {
     margin: 6px 0 0;
     font-size: 12px;
     line-height: 1.35;
-    color: #000;
+    color: {% render 'setting-color', value: section.settings.text_color, default: '#000000' %};
   }
 
   #shopify-section-{{ section.id }} .product-centered-features__media {
@@ -513,9 +515,73 @@
   "class": "shopify-section--product-centered-features",
   "tag": "section",
   "settings": [
-    { "type": "checkbox", "id": "full_width", "label": "Full width", "default": false },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Everything you need to know about Automatic Ironing Machine 3.0" },
-    { "type": "image_picker", "id": "image", "label": "Center product image" }
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Everything you need to know about Automatic Ironing Machine 3.0"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Center product image"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
+    }
   ],
   "blocks": [
     {
@@ -527,28 +593,91 @@
           "id": "side",
           "label": "Side",
           "options": [
-            { "value": "left", "label": "Left" },
-            { "value": "right", "label": "Right" }
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
           ],
           "default": "left"
         },
-        { "type": "image_picker", "id": "custom_icon", "label": "Custom icon" },
-        { "type": "image_picker", "id": "mobile_custom_icon", "label": "Mobile custom icon" },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_custom_icon",
+          "label": "Mobile custom icon"
+        },
         {
           "type": "select",
           "id": "icon",
           "label": "Fallback icon",
           "options": [
-            { "value": "none", "label": "None" },
-            { "value": "picto-star", "label": "Star" },
-            { "value": "picto-timer", "label": "Timer" },
-            { "value": "picto-validation", "label": "Validation" },
-            { "value": "picto-operator", "label": "Controls" }
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "picto-star",
+              "label": "Star"
+            },
+            {
+              "value": "picto-timer",
+              "label": "Timer"
+            },
+            {
+              "value": "picto-validation",
+              "label": "Validation"
+            },
+            {
+              "value": "picto-operator",
+              "label": "Controls"
+            }
           ],
           "default": "picto-star"
         },
-        { "type": "text", "id": "title", "label": "Title", "default": "Dry & Iron in One Step" },
-        { "type": "text", "id": "text", "label": "Description", "default": "Tackles both tasks in one go so clothes are ready to wear." }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dry & Iron in One Step"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Description",
+          "default": "Tackles both tasks in one go so clothes are ready to wear."
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
+        }
       ]
     }
   ],
@@ -556,7 +685,20 @@
     {
       "name": "Product centered features",
       "category": "Product",
-      "blocks": [{ "type": "feature" }, { "type": "feature" }, { "type": "feature" }, { "type": "feature" }]
+      "blocks": [
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature"
+        }
+      ]
     }
   ]
 }

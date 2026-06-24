@@ -1,6 +1,8 @@
 {%- if section.blocks.size > 0 -%}
   {%- render 'section-spacing-collapsing' -%}
 
+{%- render 'section-color-css' -%}
+
   <style>
     #shopify-section-{{ section.id }} {
       --testimonial-list-items-per-row: 1;
@@ -180,7 +182,10 @@
   "name": "Testimonials",
   "class": "shopify-section--testimonials",
   "disabled_on": {
-    "groups": ["header", "custom.overlay"]
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "tag": "section",
   "blocks": [
@@ -231,6 +236,30 @@
           "id": "content",
           "label": "Content",
           "default": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }
@@ -313,6 +342,26 @@
       "type": "color",
       "id": "testimonial_card_text_color",
       "label": "Testimonial card text"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "presets": [

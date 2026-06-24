@@ -1,0 +1,22 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+BLOCK COLOR STYLE
+----------------------------------------------------------------------------------------------------------------------
+
+Returns an inline style string for block-level color settings.
+Usage: <div style="{% render 'block-color-style', block: block %}">
+
+Supported block.settings IDs: background, text_color, button_background, button_text_color
+{%- endcomment -%}
+
+{%- liquid
+  assign block_styles = ''
+
+  if block.settings.background != blank
+    assign block_styles = block_styles | append: 'background:' | append: block.settings.background | append: ';'
+  endif
+
+  if block.settings.text_color != blank
+    assign block_styles = block_styles | append: 'color:' | append: block.settings.text_color | append: ';'
+  endif
+-%}{{- block_styles -}}

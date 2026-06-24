@@ -1,4 +1,6 @@
 {%- assign newsletter_block = section.blocks | where: 'type', 'newsletter' | first -%}
+{%- render 'section-color-css' -%}
+
 
 {%- if section.blocks.size > 3 -%}
 <style>
@@ -686,11 +688,87 @@
       "id": "show_locale_selector",
       "label": "Show language selector",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "@app",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
+        }
+      ]
     },
     {
       "type": "text",
@@ -749,12 +827,48 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            { "value": "all", "label": "Global (All Markets)" },
-            { "value": "denmark", "label": "Denmark Only" },
-            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+            {
+              "value": "all",
+              "label": "Global (All Markets)"
+            },
+            {
+              "value": "denmark",
+              "label": "Denmark Only"
+            },
+            {
+              "value": "us_ca_mx",
+              "label": "US, CA & MX Only"
+            },
+            {
+              "value": "global_excluding_us_ca_mx",
+              "label": "Global (Exclude US, CA & MX)"
+            }
           ],
           "default": "all"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -786,12 +900,48 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            { "value": "all", "label": "Global (All Markets)" },
-            { "value": "denmark", "label": "Denmark Only" },
-            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+            {
+              "value": "all",
+              "label": "Global (All Markets)"
+            },
+            {
+              "value": "denmark",
+              "label": "Denmark Only"
+            },
+            {
+              "value": "us_ca_mx",
+              "label": "US, CA & MX Only"
+            },
+            {
+              "value": "global_excluding_us_ca_mx",
+              "label": "Global (Exclude US, CA & MX)"
+            }
           ],
           "default": "all"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -860,12 +1010,48 @@
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-            { "value": "all", "label": "Global (All Markets)" },
-            { "value": "denmark", "label": "Denmark Only" },
-            { "value": "us_ca_mx", "label": "US, CA & MX Only" },
-            { "value": "global_excluding_us_ca_mx", "label": "Global (Exclude US, CA & MX)" }
+            {
+              "value": "all",
+              "label": "Global (All Markets)"
+            },
+            {
+              "value": "denmark",
+              "label": "Denmark Only"
+            },
+            {
+              "value": "us_ca_mx",
+              "label": "US, CA & MX Only"
+            },
+            {
+              "value": "global_excluding_us_ca_mx",
+              "label": "Global (Exclude US, CA & MX)"
+            }
           ],
           "default": "all"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }

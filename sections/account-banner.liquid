@@ -1,4 +1,6 @@
 {%- if section.settings.image != blank -%}
+{%- render 'section-color-css' -%}
+
   <style>
     #shopify-section-{{ section.id }} {
       --content-over-media-height: {% if section.settings.image_size == 'sm' %}180px{% elsif section.settings.image_size == 'md' %}250px{% elsif section.settings.image_size == 'lg' %}350px{% else %}auto{% endif %};
@@ -117,6 +119,46 @@
       "step": 1,
       "unit": "%",
       "default": 30
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ]
 }

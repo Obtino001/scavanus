@@ -1,0 +1,112 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+SECTION COLOR CSS
+----------------------------------------------------------------------------------------------------------------------
+
+Outputs section-scoped CSS for standard Theme Editor color settings (Dawn/Prestige-style).
+Include after section-spacing-collapsing in any section that exposes these setting IDs.
+
+Supported section.settings IDs:
+  background, background_gradient, text_color, heading_color, heading_gradient,
+  button_background, button_text_color, card_background, card_text_color
+{%- endcomment -%}
+
+{%- liquid
+  assign has_heading = false
+  if section.settings.heading_color != blank or section.settings.heading_gradient != blank
+    assign has_heading = true
+  endif
+
+  assign has_button = false
+  if section.settings.button_background != blank or section.settings.button_text_color != blank
+    assign has_button = true
+  endif
+
+  assign has_card = false
+  if section.settings.card_background != blank or section.settings.card_text_color != blank
+    assign has_card = true
+  endif
+-%}
+
+{%- if has_heading or has_button or has_card -%}
+<style>
+  {%- if section.settings.heading_color != blank -%}
+    #shopify-section-{{ section.id }} :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, .h6) {
+      color: {{ section.settings.heading_color }};
+    }
+  {%- endif -%}
+
+  {%- if section.settings.heading_gradient != blank -%}
+    #shopify-section-{{ section.id }} :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, .h6).text-gradient,
+    #shopify-section-{{ section.id }} .text-gradient :is(h1, h2, h3, h4, h5, h6, .h0, .h1, .h2, .h3, .h4, .h5, .h6) {
+      background: {{ section.settings.heading_gradient }};
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  {%- endif -%}
+
+  {%- if has_button -%}
+    #shopify-section-{{ section.id }} .button:not(.button--outline):not(.button--subdued) {
+      {%- if section.settings.button_background != blank -%}
+        --button-background: {{ section.settings.button_background.rgb }};
+        background: {{ section.settings.button_background }};
+      {%- endif -%}
+      {%- if section.settings.button_text_color != blank -%}
+        --button-text-color: {{ section.settings.button_text_color.rgb }};
+        color: {{ section.settings.button_text_color }};
+      {%- endif -%}
+    }
+
+    #shopify-section-{{ section.id }} .button.button--outline {
+      {%- if section.settings.button_background != blank -%}
+        border-color: {{ section.settings.button_background }};
+      {%- endif -%}
+      {%- if section.settings.button_text_color != blank -%}
+        color: {{ section.settings.button_text_color }};
+      {%- endif -%}
+    }
+  {%- endif -%}
+
+  {%- if section.settings.card_background != blank -%}
+    #shopify-section-{{ section.id }} :is(
+      .card,
+      .product-card,
+      .accordion-box,
+      .origin-review-slider__item,
+      .origin-review-slider__summary,
+      .risk-free-banner__card,
+      .origin-image-text-highlights__stat,
+      .product-centered-features__panel,
+      .product-centered-features__item,
+      .product-steps-media__step,
+      .product-video-stories__card,
+      .product-why-scanovus-comparison__table,
+      [class*="__card"],
+      [class*="__item"]:not([class*="__item img"])
+    ) {
+      background: {{ section.settings.card_background }};
+    }
+  {%- endif -%}
+
+  {%- if section.settings.card_text_color != blank -%}
+    #shopify-section-{{ section.id }} :is(
+      .card,
+      .product-card,
+      .accordion-box,
+      .origin-review-slider__item,
+      .origin-review-slider__summary,
+      .risk-free-banner__card,
+      .origin-image-text-highlights__stat,
+      .product-centered-features__panel,
+      .product-centered-features__item,
+      .product-steps-media__step,
+      .product-video-stories__card,
+      [class*="__card"],
+      [class*="__item"]
+    ) {
+      color: {{ section.settings.card_text_color }};
+    }
+  {%- endif -%}
+</style>
+{%- endif -%}

@@ -1,4 +1,6 @@
 {%- comment -%}
+{%- render 'section-color-css' -%}
+
 IMPLEMENTATION NOTE: Impact header with all the menu is an extremely complex piece of code. Due to requirements from design
 team, we had to cover over hundred of potential combinations. As a consequence, this part (and all the menu snippets) are
 extremely sensitive code that should (if possible) not be touched unless you have spend enough time to study and understand
@@ -647,6 +649,56 @@ the underlying logic of the menu.
       "label": "Background blur radius",
       "default": 4,
       "visible_if": "{{ section.settings.background_opacity < 100 }}"
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Gradient replaces solid colors when set."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
@@ -665,11 +717,20 @@ the underlying logic of the menu.
           "id": "market_visibility",
           "label": "Market visibility",
           "options": [
-        { "value": "all", "label": "All (Except Denmark)" },
-        { "value": "denmark", "label": "Denmark" },
-        { "value": "us_ca_mx", "label": "US, CA & MX" }
-      ],
-      "default": "all"
+            {
+              "value": "all",
+              "label": "All (Except Denmark)"
+            },
+            {
+              "value": "denmark",
+              "label": "Denmark"
+            },
+            {
+              "value": "us_ca_mx",
+              "label": "US, CA & MX"
+            }
+          ],
+          "default": "all"
         },
         {
           "type": "select",
@@ -874,6 +935,30 @@ the underlying logic of the menu.
             }
           ],
           "default": "hide"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }

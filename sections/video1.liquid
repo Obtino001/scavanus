@@ -1,5 +1,7 @@
 {%- unless section.settings.full_width -%}
   {%- render 'section-spacing-collapsing' -%}
+
+{%- render 'section-color-css' -%}
 {%- endunless -%}
 
 <style>
@@ -164,7 +166,10 @@
   "class": "shopify-section--video",
   "tag": "section",
   "disabled_on": {
-    "groups": ["header", "custom.overlay"]
+    "groups": [
+      "header",
+      "custom.overlay"
+    ]
   },
   "settings": [
     {
@@ -262,7 +267,10 @@
     {
       "type": "video_url",
       "id": "external_video_url",
-      "accept": ["vimeo", "youtube"],
+      "accept": [
+        "vimeo",
+        "youtube"
+      ],
       "label": "Video URL",
       "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc"
     },
@@ -278,10 +286,22 @@
       "id": "image_aspect_ratio",
       "label": "Image aspect ratio",
       "options": [
-        { "value": "auto", "label": "Natural" },
-        { "value": "1:1", "label": "Square (1:1)" },
-        { "value": "4:5", "label": "Portrait (4:5)" },
-        { "value": "16:9", "label": "Wide (16:9)" }
+        {
+          "value": "auto",
+          "label": "Natural"
+        },
+        {
+          "value": "1:1",
+          "label": "Square (1:1)"
+        },
+        {
+          "value": "4:5",
+          "label": "Portrait (4:5)"
+        },
+        {
+          "value": "16:9",
+          "label": "Wide (16:9)"
+        }
       ],
       "default": "auto"
     },
@@ -290,8 +310,14 @@
       "id": "image_fit",
       "label": "Image fit",
       "options": [
-        { "value": "cover", "label": "Fill (Cover)" },
-        { "value": "contain", "label": "Fit (Contain)" }
+        {
+          "value": "cover",
+          "label": "Fill (Cover)"
+        },
+        {
+          "value": "contain",
+          "label": "Fit (Contain)"
+        }
       ],
       "default": "cover"
     },
@@ -320,6 +346,46 @@
       "step": 1,
       "unit": "%",
       "default": 30
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "Background gradient"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading"
+    },
+    {
+      "type": "color_background",
+      "id": "heading_gradient",
+      "label": "Heading gradient"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card/block background"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card/block text"
     }
   ],
   "blocks": [
@@ -331,6 +397,30 @@
         {
           "type": "paragraph",
           "content": "Play button is hidden when autoplay is enabled."
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -343,6 +433,30 @@
           "id": "text",
           "label": "Text",
           "default": "Subheading"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -391,6 +505,30 @@
             }
           ],
           "default": "h1"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -403,6 +541,30 @@
           "id": "content",
           "label": "Content",
           "default": "<p>Use video to showcase product features or to create a unique atmosphere on your store.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "background",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     },
@@ -471,6 +633,20 @@
           "id": "text_color",
           "label": "Text",
           "default": "#ffffff"
+        },
+        {
+          "type": "header",
+          "content": "Colors"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Button background"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text"
         }
       ]
     }
