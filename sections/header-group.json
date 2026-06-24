@@ -22,7 +22,7 @@
             "icon": "truck",
             "custom_icon": "shopify://shop_images/Vector_2.svg",
             "background": "",
-            "text_color": "#FFD1F1",
+            "text_color": "#ffd1f1",
             "button_background": "",
             "button_text_color": ""
           }
@@ -70,15 +70,13 @@
         "show_country_badge": true,
         "country_label": "Dansk virksomhd",
         "flag_image": "shopify://shop_images/denmark-flag_1.svg",
-        "background": "#79072F",
+        "background": "",
         "background_gradient": "",
-        "text_color": "#FFD1F1",
+        "text_color": "",
         "heading_color": "",
         "heading_gradient": "",
         "button_background": "",
-        "button_text_color": "",
-        "card_background": "",
-        "card_text_color": ""
+        "button_text_color": ""
       }
     },
     "header": {
@@ -295,9 +293,7 @@
         "heading_color": "",
         "heading_gradient": "",
         "button_background": "",
-        "button_text_color": "",
-        "card_background": "",
-        "card_text_color": ""
+        "button_text_color": ""
       }
     },
     "17751292250211dd9f": {
