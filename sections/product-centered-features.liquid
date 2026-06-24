@@ -365,12 +365,7 @@
                   {{ item_mobile_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-mobile', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
                 {%- endif -%}
                 {%- if item_custom_icon != blank -%}
-                  {%- assign custom_icon_url = item_custom_icon | image_url -%}
-                  {%- if custom_icon_url contains '.svg' -%}
-                    <span class="product-centered-features__icon-default" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ item_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 60px;"></span>
-                  {%- else -%}
-                    {{ item_custom_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-default', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
-                  {%- endif -%}
+                  {{ item_custom_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-default', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
                 {%- elsif item_icon != 'none' -%}
                   <span class="product-centered-features__icon-default">
                     {%- render 'icon' with item_icon, width: 20, height: 20 -%}
@@ -428,12 +423,7 @@
                   {{ item_mobile_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-mobile', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
                 {%- endif -%}
                 {%- if item_custom_icon != blank -%}
-                  {%- assign custom_icon_url = item_custom_icon | image_url -%}
-                  {%- if custom_icon_url contains '.svg' -%}
-                    <span class="product-centered-features__icon-default" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ item_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 60px;"></span>
-                  {%- else -%}
-                    {{ item_custom_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-default', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
-                  {%- endif -%}
+                  {{ item_custom_icon | image_url: width: 60 | image_tag: class: 'product-centered-features__icon-default', loading: 'lazy', widths: '20,40,60', sizes: '20px' }}
                 {%- elsif item_icon != 'none' -%}
                   <span class="product-centered-features__icon-default">
                     {%- render 'icon' with item_icon, width: 20, height: 20 -%}

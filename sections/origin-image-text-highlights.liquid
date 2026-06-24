@@ -198,12 +198,7 @@
           <div class="origin-image-text-highlights__stat">
             <div class="origin-image-text-highlights__stat-icon-wrap">
               {%- if section.settings.stat_1_custom_icon != blank -%}
-                {%- assign custom_icon_url = section.settings.stat_1_custom_icon | image_url -%}
-                {%- if custom_icon_url contains '.svg' -%}
-                  <span class="origin-image-text-highlights__stat-icon-image" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ section.settings.stat_1_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 80px;"></span>
-                {%- else -%}
-                  {{ section.settings.stat_1_custom_icon | image_url: width: 80 | image_tag: class: 'origin-image-text-highlights__stat-icon-image', widths: '24,48,80', loading: 'lazy' }}
-                {%- endif -%}
+                {{ section.settings.stat_1_custom_icon | image_url: width: 80 | image_tag: class: 'origin-image-text-highlights__stat-icon-image', widths: '24,48,80', loading: 'lazy' }}
               {%- else -%}
                 {%- render 'icon' with section.settings.stat_1_icon -%}
               {%- endif -%}
@@ -217,12 +212,7 @@
           <div class="origin-image-text-highlights__stat">
             <div class="origin-image-text-highlights__stat-icon-wrap">
               {%- if section.settings.stat_2_custom_icon != blank -%}
-                {%- assign custom_icon_url = section.settings.stat_2_custom_icon | image_url -%}
-                {%- if custom_icon_url contains '.svg' -%}
-                  <span class="origin-image-text-highlights__stat-icon-image" style="--svg-url: url('{{ custom_icon_url }}'); aspect-ratio: {{ section.settings.stat_2_custom_icon.aspect_ratio | default: 1 }}; display: inline-block; background-color: currentColor; -webkit-mask: var(--svg-url) no-repeat center center / contain; mask: var(--svg-url) no-repeat center center / contain; width: 80px;"></span>
-                {%- else -%}
-                  {{ section.settings.stat_2_custom_icon | image_url: width: 80 | image_tag: class: 'origin-image-text-highlights__stat-icon-image', widths: '24,48,80', loading: 'lazy' }}
-                {%- endif -%}
+                {{ section.settings.stat_2_custom_icon | image_url: width: 80 | image_tag: class: 'origin-image-text-highlights__stat-icon-image', widths: '24,48,80', loading: 'lazy' }}
               {%- else -%}
                 {%- render 'icon' with section.settings.stat_2_icon -%}
               {%- endif -%}

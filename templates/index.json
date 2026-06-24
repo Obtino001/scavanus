@@ -28,14 +28,18 @@
         "show_rating": true,
         "rating_text": "TrustScore 4.7 | +500 anmeldelser",
         "content_max_width": 900,
-        "text_color": "#FFD1F1",
-        "overlay_color": "#FFD1F1",
+        "text_color": "#ffd1f1",
+        "overlay_color": "#ffd1f1",
         "overlay_opacity": 4,
-        "button_background": "#79072F",
-        "button_text_color": "#FFD1F1",
-        "rating_icon_bg": "#79072F",
-        "rating_icon_star": "#ffffff",
-        "market_visibility": "global_excluding_us_ca_mx"
+        "button_background": "#79072f",
+        "button_text_color": "#ffd1f1",
+        "market_visibility": "global_excluding_us_ca_mx",
+        "background": "",
+        "background_gradient": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_modern_hero_PqRfhK": {
@@ -62,9 +66,13 @@
         "overlay_opacity": 20,
         "button_background": "#ffffff",
         "button_text_color": "#1f2937",
-        "rating_icon_bg": "#579f78",
-        "rating_icon_star": "#ffffff",
-        "market_visibility": "us_ca_mx"
+        "market_visibility": "us_ca_mx",
+        "background": "",
+        "background_gradient": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "text_with_icons_JU33iR": {
@@ -81,7 +89,11 @@
             "icon_background": "",
             "icon_color": "",
             "title": "",
-            "content": "<p><strong>Anbefalet af over 25.000 </strong><br/>tilfredse kunder</p>"
+            "content": "<p><strong>Anbefalet af over 25.000 </strong><br/>tilfredse kunder</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "item_pEK8H7": {
@@ -95,7 +107,11 @@
             "icon_background": "",
             "icon_color": "",
             "title": "",
-            "content": "<p><strong>Gratis levering</strong><br/>på ordrer over 299kr.</p>"
+            "content": "<p><strong>Gratis levering</strong><br/>på ordrer over 299kr.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "item_9pGgpa": {
@@ -109,7 +125,11 @@
             "icon_background": "",
             "icon_color": "",
             "title": "",
-            "content": "<p><strong>Hurtig levering</strong><br/>på 1-3 hverdage </p>"
+            "content": "<p><strong>Hurtig levering</strong><br/>på 1-3 hverdage </p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "item_pJaQBh": {
@@ -123,7 +143,11 @@
             "icon_background": "",
             "icon_color": "",
             "title": "",
-            "content": "<p><strong>Tilfredshedsgaranti</strong><br/>Prøv helt risikofrit</p>"
+            "content": "<p><strong>Tilfredshedsgaranti</strong><br/>Prøv helt risikofrit</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -146,8 +170,13 @@
         "icon_spacing": "medium",
         "background": "",
         "background_gradient": "",
-        "text_color": "#79072F",
-        "custom_background_1": "#0000001f"
+        "text_color": "#79072f",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "featured_collections_tabs_ijLfbf": {
@@ -158,7 +187,11 @@
           "settings": {
             "title": "Bestsellers",
             "collection": "bestsellers-frontpage",
-            "button_text": "Udforsk alle produkter"
+            "button_text": "Udforsk alle produkter",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "collection_tab_9JwV6q": {
@@ -166,7 +199,11 @@
           "settings": {
             "title": "Nyheder",
             "collection": "nyheder",
-            "button_text": "Udforsk alle produkter"
+            "button_text": "Udforsk alle produkter",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "collection_tab_jkYpEk": {
@@ -174,7 +211,11 @@
           "settings": {
             "title": "",
             "collection": "",
-            "button_text": "Udforsk alle produkter"
+            "button_text": "Udforsk alle produkter",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -199,20 +240,15 @@
         "content": "",
         "background": "",
         "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
+        "text_color": "#FFD1F1",
+        "heading_color": "#79072F",
         "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": "",
-        "custom_background_1": "#FFD1F1",
-        "custom_background_2": "#ffffff",
-        "custom_color_3": "#79072F",
-        "custom_color_4": "#FFD1F1",
-        "custom_color_5": "#79072F",
-        "custom_color_6": "#79072F",
-        "custom_color_7": "#79072F",
-        "custom_color_8": "#79072F",
-        "custom_color_9": "#79072F"
+        "product_card_background": "#FFD1F1",
+        "product_card_text_color": "#79072F",
+        "button_background": "",
+        "button_text_color": "#79072F",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_image_text_highlights_n9VxGH": {
@@ -236,12 +272,17 @@
         "stat_2_text": "Kunder anbefaler os for kvalitet, pålidelighed og enkelhed.",
         "button_text": "Opdag fordelene",
         "button_url": "/collections/all",
-        "background": "#FFFFFF",
+        "background": "#FFD1F1",
         "background_gradient": "",
-        "text_color": "#79072F",
-        "stat_card_background": "#f6f4f1",
+        "text_color": "#79072f",
+        "stat_card_background": "#FFD1F1",
         "market_visibility": "global_excluding_us_ca_mx",
-        "custom_background_1": "#FFD1F1"
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_image_text_highlights_7kdFFM": {
@@ -269,7 +310,12 @@
         "text_color": "",
         "stat_card_background": "#f6f4f1",
         "market_visibility": "us_ca_mx",
-        "custom_background_1": "#f7f5f2"
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_featured_product_video_popup_p664Dx": {
@@ -283,7 +329,11 @@
             "video": "shopify://files/videos/Banner video - 4x5.mov",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "avatar_Cdeye3": {
@@ -294,7 +344,11 @@
             "video": "shopify://files/videos/Cleaning the kitchen.mov",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "avatar_6rWfyL": {
@@ -305,7 +359,11 @@
             "video": "shopify://files/videos/Scanovus V2 EDIT.mp4",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "avatar_qaeHj9": {
@@ -316,7 +374,11 @@
             "video": "shopify://files/videos/I'm testing this automatic ironing machine to see if it is any good. I've given it a heavily cr (1) (1).mp4",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -338,17 +400,15 @@
         "proof_text": "Mere end 25.000 tilfredse kunder",
         "background": "",
         "background_gradient": "",
-        "text_color": "#79072F",
+        "text_color": "#79072f",
         "content_background": "#f4f2f0",
         "market_visibility": "global_excluding_us_ca_mx",
-        "custom_background_1": "#FFD1F1",
-        "custom_background_2": "#FFD1F1",
-        "custom_color_3": "#79072F",
-        "custom_color_4": "#79072F",
-        "custom_background_5": "#000000a6",
-        "custom_background_6": "#000000",
-        "custom_background_7": "#00000099",
-        "custom_color_8": "#ffffff"
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_featured_product_video_popup_QUyyCp": {
@@ -362,7 +422,11 @@
             "video": "shopify://files/videos/Banner video - 4x5.mov",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "avatar_PdLN9J": {
@@ -373,7 +437,11 @@
             "video": "shopify://files/videos/Cleaning the kitchen.mov",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "avatar_pAqhFG": {
@@ -384,7 +452,11 @@
             "video": "shopify://files/videos/Scanovus V2 EDIT.mp4",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "avatar_VBea4D": {
@@ -395,7 +467,11 @@
             "video": "shopify://files/videos/I'm testing this automatic ironing machine to see if it is any good. I've given it a heavily cr (1) (1).mp4",
             "external_video_url": "",
             "video_popup_title": "Customer video",
-            "market_visibility": "all"
+            "market_visibility": "all",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -420,14 +496,12 @@
         "text_color": "",
         "content_background": "#f4f2f0",
         "market_visibility": "us_ca_mx",
-        "custom_background_1": "#f7f5f2",
-        "custom_background_2": "#f7f5f2",
-        "custom_color_3": "#000000",
-        "custom_color_4": "#ffffff",
-        "custom_background_5": "#000000a6",
-        "custom_background_6": "#000000",
-        "custom_background_7": "#00000099",
-        "custom_color_8": "#ffffff"
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_review_slider_HynL6G": {
@@ -438,7 +512,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Vildt overrasket over resultatet. For første gang i årevis har jeg lutter strøgne skjorter i skabet.</p>",
-            "author": "Rasmus P."
+            "author": "Rasmus P.",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_U9ryPG": {
@@ -446,7 +524,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Det var en top oplevelse fra A-Å. Kvik og hjælpsom kommunikation samt hurtig levering. Produktet fungerer som forventet omend ikke perfekt, så er den rigtig god, prisen taget i betragtning.</p>",
-            "author": "Johnson"
+            "author": "Johnson",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_bWMDya": {
@@ -454,7 +536,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Har aldrig været udpræget begejstret for at stryge, stor var min glæde, da jeg fandt Scanovus. Jeg har nu haft den i et år, og har ikke rørt et strygejern siden. Det er simpelthen en super hjælp. Når at lave andre ting når der stryges. Hurtig respons fra kundeservice, da jeg havde brug for hjælp.</p>",
-            "author": "Vibeke"
+            "author": "Vibeke",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_fEGUck": {
@@ -462,7 +548,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Jeg er SÅ glad for mit nye køb. Det bedste er, at man kan få lavet andre ting i mens den står og stryger. Jeg har allerede brugt alle tre dele. Skjorter, bukser og sko funktionen.</p>",
-            "author": "Anne K."
+            "author": "Anne K.",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_LRKLdV": {
@@ -470,7 +560,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Vi købte et automatisk strygejern fra SCANOVUS – og det er hurtigt blevet en fast del af vores uge.</p><p>På “Stryge-lørdag” kører vi tøjet direkte fra vaskemaskinen, og på 10–12 minutter er skjorter glatte og klar. Kjoler falder pænt, bukser bliver blødere – og selv børnene bruger den.</p><p>Jeg var skeptisk først. Men det virker. Hver gang.</p><p>Nu er tøjpleje en nem vane – ikke en bunke.</p>",
-            "author": "Clara L."
+            "author": "Clara L.",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_yGhAWH": {
@@ -478,7 +572,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Har siden dag 1 været glad for mit automatiske strygejern – og har haft det med mange steder for altid at have en flot, strøget skjorte til anledningen.</p><p>Kan anbefale alle at investere i et automatisk strygejern, hvis man ønsker at se godt ud!</p>",
-            "author": "Frederik D."
+            "author": "Frederik D.",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_HNPCma": {
@@ -486,7 +584,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Super nemt at bestille. Lynhurtig levering i optimal emballage. Fantastiske produkter.</p><p>Jeg har både en damper og en strygemaskine, som jeg er super glad for. Jeg har allerede anbefalet jeres produkter til flere veninder, og jeg ved, at i hvert fald én har bestilt hos jer efterfølgende.</p>",
-            "author": "Helle S."
+            "author": "Helle S.",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "review_eWAPBQ": {
@@ -494,7 +596,11 @@
           "settings": {
             "stars_label": "★★★★★",
             "content": "<p>Nok verdens bedste kundeservice. Jeg er lidt for stor til de størrelser, deres strygerobot havde som standard, så de kære mennesker hos Scanovus har sat en speciallavet ballon i produktion. De vil gå til verdens ende for deres kunder – de er seriøst i en anden liga!</p><p>Derudover fungerer strygerobotten rigtig godt. Vi har prøvet den med min kærestes tøj, og den er blevet en uundværlig del af hverdagen hos os.</p>",
-            "author": "Nicolai B."
+            "author": "Nicolai B.",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -525,17 +631,12 @@
         "background_gradient": "",
         "text_color": "",
         "summary_card_background": "#f4f2f0",
-        "custom_color_1": "#79072F",
-        "custom_color_2": "#79072F",
-        "custom_color_3": "#79072F",
-        "custom_background_4": "#FFD1F1",
-        "custom_color_5": "#79072F",
-        "custom_color_6": "#000000",
-        "custom_color_7": "#00b67a",
-        "custom_color_8": "#79072F",
-        "custom_color_9": "#79072F",
-        "custom_color_10": "#79072F",
-        "custom_background_11": "#f7f5f2"
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "section-15": {
@@ -563,7 +664,11 @@
             "heading_17": "",
             "heading_18": "",
             "heading_19": "",
-            "heading_20": ""
+            "heading_20": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-2": {
@@ -591,7 +696,11 @@
             "value_19": "",
             "value_20": "",
             "view_button_background": "",
-            "view_button_text_color": ""
+            "view_button_text_color": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-3": {
@@ -619,7 +728,11 @@
             "value_19": "",
             "value_20": "",
             "view_button_background": "",
-            "view_button_text_color": ""
+            "view_button_text_color": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -652,7 +765,9 @@
         "button_text_color": "",
         "chart_background": "",
         "chart_text_color": "",
-        "chart_true_false_color": ""
+        "chart_true_false_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "section-18": {
@@ -662,35 +777,55 @@
           "type": "item",
           "settings": {
             "title": "Har Scanovus 30 dages tilfredshedsgaranti?",
-            "content": "<p>Ja – du kan prøve Scanovus derhjemme i 30 dage.</p><p>Hvis du ikke er tilfreds, kan du returnere produktet via vores returportal, og vi betaler returfragten.</p><p>Det gør det nemt og risikofrit at handle hos Scanovus.</p>"
+            "content": "<p>Ja – du kan prøve Scanovus derhjemme i 30 dage.</p><p>Hvis du ikke er tilfreds, kan du returnere produktet via vores returportal, og vi betaler returfragten.</p><p>Det gør det nemt og risikofrit at handle hos Scanovus.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-2": {
           "type": "item",
           "settings": {
             "title": "Hvornår modtager jeg min ordre?",
-            "content": "<p>Vi bestræber os på at afsende ordrer inden for 1-2 hverdage.</p><p>Den forventede leveringstid i Danmark er typisk 1-3 hverdage, hvis varen er på lager.</p>"
+            "content": "<p>Vi bestræber os på at afsende ordrer inden for 1-2 hverdage.</p><p>Den forventede leveringstid i Danmark er typisk 1-3 hverdage, hvis varen er på lager.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-4": {
           "type": "item",
           "settings": {
             "title": "Er det trygt at handle hos Scanovus?",
-            "content": "<p>Ja – vi gør en stor indsats for at sikre, at du får en tryg og god oplevelse hos os.</p><p>Vi har 4,7/5 stjerner på Trustpilot baseret på mere end 500 anmeldelser, og vi tilbyder sikker betaling, hurtig levering og 30 dages tilfredshedsgaranti.</p>"
+            "content": "<p>Ja – vi gør en stor indsats for at sikre, at du får en tryg og god oplevelse hos os.</p><p>Vi har 4,7/5 stjerner på Trustpilot baseret på mere end 500 anmeldelser, og vi tilbyder sikker betaling, hurtig levering og 30 dages tilfredshedsgaranti.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-3": {
           "type": "item",
           "settings": {
             "title": "Hvordan returnerer jeg en ordre?",
-            "content": "<p>Du kan nemt oprette din retur via vores returportal.</p><p>Du skal bruge dit ordrenummer og den e-mailadresse, du brugte ved bestilling. Når returen er oprettet, følger du instruktionerne i portalen.</p><p>For fulde returvilkår henviser vi til vores refunderingspolitik.</p>"
+            "content": "<p>Du kan nemt oprette din retur via vores returportal.</p><p>Du skal bruge dit ordrenummer og den e-mailadresse, du brugte ved bestilling. Når returen er oprettet, følger du instruktionerne i portalen.</p><p>For fulde returvilkår henviser vi til vores refunderingspolitik.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-5": {
           "type": "item",
           "settings": {
             "title": "Hvor finder jeg hjælp til mit produkt?",
-            "content": "<p>Du finder produktspecifikke FAQ’er direkte på de enkelte produktsider.</p><p>Du kan også besøge vores Produktguides, hvor vi har samlet tips, brugervejledninger og anbefalinger, så du får det bedst mulige resultat.</p>"
+            "content": "<p>Du finder produktspecifikke FAQ’er direkte på de enkelte produktsider.</p><p>Du kan også besøge vores Produktguides, hvor vi har samlet tips, brugervejledninger og anbefalinger, så du får det bedst mulige resultat.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "block-6": {
@@ -698,7 +833,11 @@
           "disabled": true,
           "settings": {
             "title": "Har du brug for hjælp?",
-            "content": "<p>Du er velkommen til at kontakte os på <a>contact@scanovus.com </a>– vi svarer så hurtigt som muligt.</p>"
+            "content": "<p>Du er velkommen til at kontakte os på <a>contact@scanovus.com </a>– vi svarer så hurtigt som muligt.</p>",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -721,16 +860,17 @@
         "button_text": "",
         "button_url": "",
         "text_position": "start",
-        "background": "#FFFFFF",
+        "background": "#ffffff",
         "background_gradient": "",
         "text_color": "",
         "heading_color": "",
         "heading_gradient": "",
-        "button_background": "#FFFFFF",
+        "button_background": "#ffffff",
         "button_text_color": "",
-        "accordion_background": "#FFD1F1",
+        "accordion_background": "#ffd1f1",
         "accordion_text_color": "",
-        "custom_color_1": "#272727"
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_logos_marquee_mzWqR6": {
@@ -741,7 +881,11 @@
           "settings": {
             "logo": "shopify://shop_images/Group_212.jpg",
             "logo_width": 210,
-            "link": ""
+            "link": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "logo_wT3YK6": {
@@ -749,7 +893,11 @@
           "settings": {
             "logo": "shopify://shop_images/Group_213.jpg",
             "logo_width": 210,
-            "link": ""
+            "link": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "logo_E7BR8E": {
@@ -757,7 +905,11 @@
           "settings": {
             "logo": "shopify://shop_images/Group_214.jpg",
             "logo_width": 210,
-            "link": ""
+            "link": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "logo_JUjrNY": {
@@ -765,7 +917,11 @@
           "settings": {
             "logo": "shopify://shop_images/Group_215.jpg",
             "logo_width": 210,
-            "link": ""
+            "link": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "logo_XAxqdb": {
@@ -773,7 +929,11 @@
           "settings": {
             "logo": "shopify://shop_images/Group_216.jpg",
             "logo_width": 210,
-            "link": ""
+            "link": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         },
         "logo_9U8tPR": {
@@ -781,7 +941,11 @@
           "settings": {
             "logo": "shopify://shop_images/Scanovus_logos.png",
             "logo_width": 210,
-            "link": ""
+            "link": "",
+            "background": "",
+            "text_color": "",
+            "button_background": "",
+            "button_text_color": ""
           }
         }
       },
@@ -801,7 +965,16 @@
         "scrolling_speed": 20,
         "logo_height": 62,
         "logo_gap": 62,
-        "logo_opacity": 100
+        "logo_opacity": 100,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     },
     "origin_image_text_equal_DHNXrb": {
@@ -820,7 +993,13 @@
         "background_gradient": "",
         "text_color": "",
         "content_background": "#f4f2f0",
-        "market_visibility": "all"
+        "market_visibility": "all",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "card_background": "",
+        "card_text_color": ""
       }
     }
   },
