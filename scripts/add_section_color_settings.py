@@ -72,6 +72,8 @@ def add_block_colors(blocks: list) -> list:
     for block in blocks:
         if not isinstance(block, dict):
             continue
+        if block.get("type") in ("@app", "@theme"):
+            continue
         block_settings = block.get("settings", [])
         ids = existing_ids(block_settings)
         to_add = [make_setting(sid, stype, label) for sid, stype, label in BLOCK_COLORS if sid not in ids]
@@ -95,6 +97,10 @@ def inject_render(liquid: str, filename: str) -> str:
         replacement = spacing + "\n\n" + RENDER_TAG
         if replacement not in liquid:
             liquid = liquid.replace(spacing, replacement, 1)
+        return liquid
+
+    # Never inject inside a {%- liquid block
+    if liquid.lstrip().startswith("{%- liquid"):
         return liquid
 
     # Insert after first line for sections without spacing-collapsing
