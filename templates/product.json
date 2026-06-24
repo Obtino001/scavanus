@@ -53,6 +53,16 @@
             "button_text_color": ""
           }
         },
+        "countdown_timer_dm74Gc": {
+          "type": "countdown_timer",
+          "settings": {
+            "prefix_text": "Udløber om:",
+            "evergreen_hours": 93,
+            "end_date": "2026-12-31 23:59:59",
+            "bg_color": "#fdedf5",
+            "text_color": "#7a0c2e"
+          }
+        },
         "rating": {
           "type": "rating",
           "settings": {
@@ -284,6 +294,7 @@
         "title",
         "badges",
         "price",
+        "countdown_timer_dm74Gc",
         "rating",
         "separator",
         "description",
