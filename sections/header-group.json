@@ -301,13 +301,12 @@
       "blocks": {
         "orbe_geolocation_app_block_custom_button_kLRegR": {
           "type": "shopify://apps/orbe-geolocation/blocks/app-block-custom-button/7cb09287-cd2b-4646-837c-f1f9b6ea703e",
-          "disabled": true,
           "settings": {
-            "title": "Geolocation Button",
+            "title": "",
             "selector_type": "geolocation",
             "block_position": ".header__icon-list1",
             "display_position": "first",
-            "button_content": "{circle_flag} {country_code} {currency_symbol}",
+            "button_content": "{circle_flag} {country_code} ({currency_code}{currency_symbol})",
             "custom_icon_svg": "",
             "style_colors_text": "#000000",
             "flag_size": 1,
