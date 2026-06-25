@@ -117,13 +117,18 @@
           "greeting_message": ""
         }
       },
+      "18128612654622612671": {
+        "type": "shopify://apps/selecty/blocks/app-embed/a005a4a7-4aa2-4155-9c2b-0ab41acbf99c",
+        "disabled": true,
+        "settings": {}
+      },
       "15912215999290715800": {
         "type": "shopify://apps/orbe-geolocation/blocks/app-embed-modal/7cb09287-cd2b-4646-837c-f1f9b6ea703e",
         "disabled": false,
         "settings": {
           "test_mode": false,
           "modal_closeButton": false,
-          "option_flag_style": "none",
+          "option_flag_style": "circle",
           "option_currency_type": "iso_symbol_flag",
           "option_language": true,
           "option_search_country": true,
@@ -136,20 +141,15 @@
           "style_corners": "rounded",
           "style_dropdown": "underlined",
           "modal_button_align": "full_width",
-          "title_font_size": 20,
-          "text_font_size": 12,
+          "title_font_size": 19,
+          "text_font_size": 13,
           "show_blurred_background": true,
           "style_colors_background": "#ffffff",
           "style_colors_closeButton": "#5c5f62",
           "style_colors_cta_text": "#ffffff",
-          "style_colors_cta_button": "#79082F",
+          "style_colors_cta_button": "#79082f",
           "style_colors_text": "#000000"
         }
-      },
-      "18128612654622612671": {
-        "type": "shopify://apps/selecty/blocks/app-embed/a005a4a7-4aa2-4155-9c2b-0ab41acbf99c",
-        "disabled": true,
-        "settings": {}
       }
     }
   },
