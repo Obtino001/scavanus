@@ -129,7 +129,7 @@
           "test_mode": false,
           "modal_closeButton": false,
           "option_flag_style": "none",
-          "option_currency_type": "iso_symbol",
+          "option_currency_type": "iso_symbol_flag",
           "option_language": true,
           "option_search_country": true,
           "title": "Are you in the right place?",
